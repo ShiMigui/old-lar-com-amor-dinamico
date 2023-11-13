@@ -1,0 +1,32 @@
+# Arquivos temporários
+obj/
+bin/
+
+# Arquivos de compilação
+*.suo
+*.user
+*.bak
+
+# Arquivos de compilação do Visual Studio
+*.csproj.user
+*.resx
+
+# Cache e logs
+[Tt]emp/
+[Vv]iews/
+[Ii]ISExpress/
+
+# Arquivos específicos do Windows
+thumbs.db
+Desktop.ini
+
+# Logs e arquivos gerados
+*.log
+*.log4net
+
+# Arquivos de publicação
+_PublishedWebsites/
+pubxml
+
+# Pacotes NuGet
+packages/
