@@ -19,10 +19,20 @@ namespace larcomamor.classes
         {
             return "<img class='animalPhoto' src='./img/animal/cd_animal.jpg' alt='imagem do animal nm_animal'>";
         }
+        static public string AnuncioOrganizacao()
+        {
+            /*nm_usuario,cd_usuario,nm*/
+            return $@"";
+        }
 
         static public string FotoAnuncioOrganizacao()
         {
             return "<img class='organizacaoPhoto' src='./img/usuario/cd_usuario.jpg' alt='imagem de nm_usuario'>";
+        }
+        static public string AnuncioEvento()
+        {
+            /*nm_evento,cd_evento,dt_evento*/
+            return $@"<a href='./evento.aspx?cd=cd_evento' cd='cd_evento' sg='e' class='eventoAnuncio'><div class='images'>{FotoAnuncioEvento()}</div><div class='texts'><h4>nm_evento</h4><p>dt_evento</p><p class='link textEnd'>ver mais</p></div></a>";        
         }
 
         static public string FotoAnuncioEvento()
