@@ -102,11 +102,8 @@ namespace lar_com_amor.classes
             comandoSql.CommandType = System.Data.CommandType.StoredProcedure;
             comandoSql.Parameters.Clear();
             if (parametros == null) return comandoSql;
-            if(parametros.Count <= 0) return comandoSql;
-            for(int x = 0; x< parametros.Count; x++)
-            {
-                comandoSql.Parameters.AddWithValue(parametros[x].nome, parametros[x].valor);
-            }
+            if (parametros.Count <= 0) return comandoSql;
+            for (int x = 0; x < parametros.Count; x++) comandoSql.Parameters.AddWithValue(parametros[x].Nm, parametros[x].Vl);
             return comandoSql;
         }
     }

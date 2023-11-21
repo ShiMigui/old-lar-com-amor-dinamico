@@ -121,17 +121,51 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="build\animais.html" />
+    <Content Include="build\animal.html" />
+    <Content Include="build\evento.html" />
+    <Content Include="build\eventos.html" />
+    <Content Include="img\icons\account.png" />
+    <Content Include="img\icons\add.png" />
+    <Content Include="img\icons\arrow-down.png" />
+    <Content Include="img\icons\close.png" />
+    <Content Include="img\icons\confirm.png" />
+    <Content Include="img\icons\garota_e_cachorro.png" />
+    <Content Include="img\icons\index1.png" />
+    <Content Include="img\icons\index2.png" />
+    <Content Include="img\icons\index3.png" />
+    <Content Include="img\icons\index4.png" />
+    <Content Include="img\icons\logo.png" />
+    <Content Include="img\icons\search.png" />
+    <Content Include="build\index.html" />
+    <Content Include="build\organizacao.html" />
+    <Content Include="build\organizacoes.html" />
+    <Content Include="script\animal.js" />
+    <Content Include="script\evento.js" />
+    <Content Include="script\header.js" />
+    <Content Include="script\master.js" />
+    <Content Include="script\organizacao.js" />
+    <Content Include="script\tabController.js" />
+    <Content Include="style\global.css" />
+    <Content Include="index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="classes\Animal.cs" />
+    <Compile Include="classes\Anuncios.cs" />
     <Compile Include="classes\Arquivo.cs" />
     <Compile Include="classes\Banco.cs" />
     <Compile Include="classes\Credenciais.cs" />
     <Compile Include="classes\Elemento.cs" />
-    <Compile Include="classes\Entidade.cs" />
     <Compile Include="classes\Parametro.cs" />
     <Compile Include="classes\Usuario.cs" />
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,7 +177,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="img\usuario\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

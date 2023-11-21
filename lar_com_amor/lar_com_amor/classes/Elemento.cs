@@ -10,7 +10,14 @@ namespace lar_com_amor.classes
         public static string AnuncioAnimal(string cd, string nm, string nascimento)
         {
             
-            return $@"<a href='./animal.aspx?cd={cd}' cd='{cd}' sg='a' class='animalAnuncio'><div class='images'>{FotoAnuncioAnimal(cd, nm)}</div><div class='texts'><h4>{nm}</h4><p>{nascimento}</p><p class='link textEnd'>ver mais</p></div></a>";
+            return $@"<a href='./animal.aspx?cd={cd}' cd='{cd}' sg='a' class='animalAnuncio'>
+                        <div class='images'>{FotoAnuncioAnimal(cd, nm)}</div>
+                        <div class='texts'>
+                            <h4>{nm}</h4>
+                            <p>{nascimento}</p>
+                            <p class='link textEnd'>ver mais</p>
+                        </div>
+                    </a>";
         }
         static public string FotoAnuncioAnimal(string cd, string nm)
         {
@@ -43,11 +50,12 @@ namespace lar_com_amor.classes
                         </div>
                     </a>";
         }
-        static public string FotoAnuncioOrganizacao(string cd, string nm)
+        static public string FotoAnuncioOrganizacao(string cd, string nm, bool letterIfNotExists = true)
         {
             string link = $"./img/usuario/{cd}.jpg";
             if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
-            else return $"<div class='organizacaoPhoto'>{nm[0]}</div>";
+            else if (letterIfNotExists) return $"<div class='organizacaoPhoto'>{nm[0]}</div>";
+            else return "<img class='organizacaoPhoto' src='./img/icons/account.png' alt='Ícone de usuário logado'>";
         }
 
 
