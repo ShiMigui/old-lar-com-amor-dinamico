@@ -53,19 +53,6 @@ namespace lar_com_amor.classes
             return new string(resultado.ToArray());
         }
 
-        public static string TempoPercorrido(string tempo)
-        {
-            string[] arr = tempo.Split('/');
-            int mm = int.Parse(arr[1]);
-            int aa = int.Parse(arr[2]);
-
-            DateTime date = DateTime.Now;
-
-            aa = date.Year - aa;
-            mm = date.Month - mm;
-
-
-
-        }
+        
     }
 }
