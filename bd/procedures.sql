@@ -61,7 +61,7 @@ END;
 $
 
 DROP PROCEDURE IF EXISTS NovoUsuario $ 
-CREATE PROCEDURE NovoUsuario(pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(11), pds_usuario TEXT, pcd_cep VARCHAR(8), pcd_cnpj VARCHAR(14), pnm_senha VARCHAR(32), psg_tipo VARCHAR(1))
+CREATE PROCEDURE NovoUsuario(pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(11), pcd_cep VARCHAR(8), pcd_cnpj VARCHAR(14), pnm_senha VARCHAR(32), psg_tipo VARCHAR(1), pds_usuario TEXT )
 BEGIN 
     DECLARE pcd_usuario INT;
 

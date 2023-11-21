@@ -95,27 +95,29 @@ INSERT INTO raca(cd_raca, nm_raca, cd_especie, sg_porte) VALUES
 CALL NovoAnimal('Buddy', 'Descrição do Buddy', '2019-11-25', true, 1, 'M', 1);
 CALL NovoAnimal('Molly', 'Descrição da Molly', '2020-03-18', false, 2, 'F', 2);
 CALL NovoAnimal('Duke', 'Descrição do Duke', '2020-09-08', false, 3, 'M', 3);
-CALL NovoAnimal('Lola', 'Descrição da Lola', '2018-07-12', true, 1, 'F', 4);
-CALL NovoAnimal('Rocky', 'Descrição do Rocky', '2021-01-30', false, 2, 'M', 5);
-CALL NovoAnimal('Lucy', 'Descrição da Lucy', '2019-04-05', true, 3, 'F', 1);
-CALL NovoAnimal('Bailey', 'Descrição do Bailey', '2020-11-28', false, 1, 'M', 2);
-CALL NovoAnimal('Sophie', 'Descrição da Sophie', '2018-12-17', false, 2, 'F', 3);
-CALL NovoAnimal('Chloe', 'Descrição da Chloe', '2021-06-22', true, 3, 'F', 4);
+CALL NovoAnimal('Lola', 'Descrição da Lola', '2018-07-12', true, 4, 'F', 4);
+CALL NovoAnimal('Rocky', 'Descrição do Rocky', '2021-01-30', false, 5, 'M', 5);
+CALL NovoAnimal('Lucy', 'Descrição da Lucy', '2019-04-05', true, 6, 'F', 1);
+CALL NovoAnimal('Bailey', 'Descrição do Bailey', '2020-11-28', false, 7, 'M', 2);
+CALL NovoAnimal('Sophie', 'Descrição da Sophie', '2018-12-17', false, 8, 'F', 3);
+CALL NovoAnimal('Chloe', 'Descrição da Chloe', '2021-06-22', true, 9, 'F', 4);
 CALL NovoAnimal('Jack', 'Descrição do Jack', '2020-02-14', false, 1, 'M', 5);
 CALL NovoAnimal('Lily', 'Descrição da Lily', '2019-08-09', false, 2, 'F', 1);
 CALL NovoAnimal('Oliver', 'Descrição do Oliver', '2017-10-11', true, 3, 'M', 2);
-CALL NovoAnimal('Zoey', 'Descrição da Zoey', '2021-03-27', false, 1, 'F', 3);
-CALL NovoAnimal('Leo', 'Descrição do Leo', '2018-05-04', true, 2, 'M', 4);
-CALL NovoAnimal('Maggie', 'Descrição da Maggie', '2019-12-19', false, 3, 'F', 5);
-CALL NovoAnimal('Toby', 'Descrição do Toby', '2020-07-08', true, 1, 'M', 1);
-CALL NovoAnimal('Sasha', 'Descrição da Sasha', '2020-04-14', false, 2, 'F', 2);
-CALL NovoAnimal('Charlie', 'Descrição do Charlie', '2018-09-03', true, 3, 'M', 3);
+CALL NovoAnimal('Zoey', 'Descrição da Zoey', '2021-03-27', false, 4, 'F', 3);
+CALL NovoAnimal('Leo', 'Descrição do Leo', '2018-05-04', true, 5, 'M', 4);
+CALL NovoAnimal('Maggie', 'Descrição da Maggie', '2019-12-19', false, 6, 'F', 5);
+CALL NovoAnimal('Toby', 'Descrição do Toby', '2020-07-08', true, 7, 'M', 1);
+CALL NovoAnimal('Sasha', 'Descrição da Sasha', '2020-04-14', false, 8, 'F', 2);
+CALL NovoAnimal('Charlie', 'Descrição do Charlie', '2018-09-03', true, 9, 'M', 3);
 CALL NovoAnimal('Bella', 'Descrição da Bella', '2021-08-01', false, 1, 'F', 4);
 
 
-SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
+/*SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
                 LEFT JOIN pedido p ON (p.cd_animal = a.cd_animal)
                 JOIN raca r ON (r.cd_raca = a.cd_raca)
                 JOIN especie e ON (e.cd_especie = r.cd_especie)
                 JOIN porte po ON (po.sg_porte = r.sg_porte)
                 JOIN genero g ON (g.sg_genero = a.sg_genero)
+                where (e.cd_especie = "" OR e.nm_especie LIKE '%%')
+                AND (r.cd_raca = "" OR r.nm_raca LIKE '%%')*/

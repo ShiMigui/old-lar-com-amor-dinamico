@@ -71,5 +71,14 @@ namespace lar_com_amor.classes
         {
             return Mensagem(mensagem, "success");
         }
+
+        static public string GerarAnuncios(List<string> anuncios, string sigla = "a", string message = "Não encontrado")
+        {
+            string grid = sigla == "e" ? "4" : "6";
+            if (anuncios.Count == 0) return $"<p class='textCenter'>{message}</p>";
+            string retorno = $"<section class='grid{grid}' sg='{sigla}'>{string.Join("", anuncios)}</section>";
+            if (anuncios.Count == int.Parse(grid)) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
+            return retorno;
+        }
     }
 }

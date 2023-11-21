@@ -56,19 +56,7 @@
         </article>
         <article class="content-box">
             <h2>Animais</h2>
-            <section class="grid6" sg="a">
-                <%--<a href="./animal.aspx" cd="" class="animalAnuncio">
-                    <div class="images">
-                        <img class="animalPhoto photo" src="" alt=""></div>
-                    <div class="texts">
-                        <h4>Nome</h4>
-                        <p>idade</p>
-                        <p class="link textEnd">ver mais</p>
-                    </div>
-                </a>--%>
-            </section>
-            <section class="buttons">
-                <button class="btnMaisAnuncios">Carregar mais</button></section>
+            <asp:Literal Text="" ID="litAnimais" runat="server" />
         </article>
         <article class="content-box">
             <h2>Eventos</h2>

@@ -16,9 +16,13 @@ namespace lar_com_amor
             if (!IsPostBack)
             {
                 usuario.HeaderContent(litHeader);
+
+                Anuncios anuncios = new Anuncios();
+                litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetAnimais(), message: "Animais não encontrados");
+                
             }
             
-            Anuncios
+            
         }
     }
 }

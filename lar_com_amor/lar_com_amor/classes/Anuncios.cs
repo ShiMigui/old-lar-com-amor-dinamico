@@ -9,8 +9,9 @@ namespace lar_com_amor.classes
     public class Anuncios : Banco
     {
 
-        public MySqlDataReader GetAnuncios(string command, string offset = "0", string limit = "6")
+        public MySqlDataReader GetAnuncios(string command, List<string> condicoes, string offset = "0", string limit = "6")
         {
+            if (condicoes.Count > 0) command += " AND " + string.Join(" AND ", condicoes);
             return Consultar($"{command} LIMIT {limit} OFFSET {offset}");
         }
         public List<string> GetAnimais(string txt = "", string org = "", string especie = "", string raca = "", string genero = "", string porte = "", string offset = "0", string limit = "6", bool naoAdotado = true)
@@ -18,17 +19,24 @@ namespace lar_com_amor.classes
             List<string> anuncios = new List<string>();
             string command = $@"SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
                 LEFT JOIN pedido p ON (p.cd_animal = a.cd_animal)
-                WHERE ()";
+                JOIN raca r ON (r.cd_raca = a.cd_raca)
+                JOIN especie e ON (e.cd_especie = r.cd_especie)
+                JOIN porte po ON (po.sg_porte = r.sg_porte)
+                JOIN genero g ON (g.sg_genero = a.sg_genero)
+                WHERE (a.nm_animal LIKE '%{txt}%' OR e.nm_especie LIKE '%{txt}%' OR r.nm_raca LIKE '%{txt}%' OR po.nm_porte LIKE '%{txt}%')";
 
             List<string> condicoes = new List<string>();
             if (naoAdotado) condicoes.Add("(p.ic_finalizado IS NULL OR p.ic_finalizado = false)");
             if (!String.IsNullOrEmpty(org)) condicoes.Add($"(a.cd_organizacao = {org})");
+            if (!String.IsNullOrEmpty(especie)) condicoes.Add($"(e.cd_especie = {especie})");
+            if (!String.IsNullOrEmpty(raca)) condicoes.Add($"(r.cd_raca = {raca})");
+            if (!String.IsNullOrEmpty(genero)) condicoes.Add($"(g.sg_genero = '{genero}')");
+            if (!String.IsNullOrEmpty(porte)) condicoes.Add($"(po.sg_porte = '{porte}')");
 
-            if (condicoes.Count > 0) command += string.Join(" AND ", condicoes);
-
-            using (MySqlDataReader Data = GetAnuncios(command, offset, limit))
+            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
             {
-                while (Data.Read()) anuncios.Add(Elemento.AnuncioAnimal(Data[0].ToString(), Data[1].ToString(), Data[2].ToString()));
+                string data = Data[2].ToString().Split(' ')[0];
+                while (Data.Read()) anuncios.Add(Elemento.AnuncioAnimal(Data[0].ToString(), Data[1].ToString(), data));
             }
             return anuncios;
         }
