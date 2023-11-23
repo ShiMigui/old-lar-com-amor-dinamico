@@ -53,6 +53,7 @@ namespace lar_com_amor.classes
             List<string> condicoes = new List<string>();
             if (naoFinalizado) condicoes.Add("e.dt_final > NOW()");
             if (!String.IsNullOrEmpty(org)) condicoes.Add($"(e.cd_organizacao = {org})");
+            if (!String.IsNullOrEmpty(tipo)) condicoes.Add($"(e.cd_tipo = '{tipo}' OR te.nm_tipo LIKE '%{tipo}%')");
 
             using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
             {
