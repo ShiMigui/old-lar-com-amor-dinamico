@@ -40,5 +40,16 @@ namespace lar_com_amor.classes
             }
             return anuncios;
         }
+
+        public List<string> GetEventos(string txt = "", string org = "", string tipo = "", string offset = "0", string limit = "4", bool naoFinalizado = true)
+        {
+            List<string> anuncios = new List<string>();
+            string command = $@"SELECT e.cd_evento, e.nm_evento, e.dt_inicio FROM evento e
+            JOIN usuario u ON (u.cd_usuario = e.cd_usuario)
+            JOIN tipo_evento te ON (te.cd_tipo = e.cd_tipo)
+            WHERE (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_organizacao LIKE '%{txt}%' OR u.cd_organizacao = '%{txt}%')";
+
+            List<string> condicoes = new List<string>();
+        }
     }
 }
