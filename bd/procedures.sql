@@ -157,14 +157,23 @@ $
 DROP PROCEDURE IF EXISTS PegarPorteRaca$
 CREATE PROCEDURE PegarPorteRaca(pcd_raca int)
 BEGIN 
-    SELECT nm_raca, sg_porte FROM raca WHERE cd_raca = pcd_raca;
+    SELECT sg_porte FROM raca WHERE cd_raca = pcd_raca;
 END;
 $
 
 DROP PROCEDURE IF EXISTS PegarAnimalCodigo$
 CREATE PROCEDURE PegarAnimalCodigo(pcd_animal int)
 BEGIN 
-    SELECT * FROM animal WHERE cd_animal = pcd_animal;
+    SELECT a.nm_animal, a.ds_animal, a.dt_nascimento, a.ic_castrado, u.nm_usuario, u.cd_usuario, 
+	COUNT(pd.cd_adotante) as qt_pedido, r.cd_raca, r.nm_raca, e.cd_especie, e.nm_especie, g.sg_genero, g.nm_genero, p.sg_porte, p.nm_porte
+	FROM animal a 
+	JOIN usuario u ON (u.cd_usuario = a.cd_organizacao)
+	JOIN genero g ON (g.sg_genero = a.sg_genero)
+	JOIN raca r ON (r.cd_raca = a.cd_raca)
+	JOIN especie e ON (e.cd_especie = r.cd_especie)
+	JOIN porte p ON (p.sg_porte = r.sg_porte)
+	LEFT JOIN pedido pd ON (pd.cd_animal = a.cd_animal)
+	WHERE a.cd_animal = pcd_animal;
 END;
 $
 
