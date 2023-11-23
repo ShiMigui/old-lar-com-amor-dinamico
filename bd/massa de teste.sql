@@ -111,13 +111,3 @@ CALL NovoAnimal('Toby', 'Descrição do Toby', '2020-07-08', true, 7, 'M', 1);
 CALL NovoAnimal('Sasha', 'Descrição da Sasha', '2020-04-14', false, 8, 'F', 2);
 CALL NovoAnimal('Charlie', 'Descrição do Charlie', '2018-09-03', true, 9, 'M', 3);
 CALL NovoAnimal('Bella', 'Descrição da Bella', '2021-08-01', false, 1, 'F', 4);
-
-
-/*SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
-                LEFT JOIN pedido p ON (p.cd_animal = a.cd_animal)
-                JOIN raca r ON (r.cd_raca = a.cd_raca)
-                JOIN especie e ON (e.cd_especie = r.cd_especie)
-                JOIN porte po ON (po.sg_porte = r.sg_porte)
-                JOIN genero g ON (g.sg_genero = a.sg_genero)
-                where (e.cd_especie = "" OR e.nm_especie LIKE '%%')
-                AND (r.cd_raca = "" OR r.nm_raca LIKE '%%')*/

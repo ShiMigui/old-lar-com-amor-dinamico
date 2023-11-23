@@ -125,7 +125,7 @@
     <Content Include="build\animal.html" />
     <Content Include="build\evento.html" />
     <Content Include="build\eventos.html" />
-    <Content Include="classes\animal.aspx" />
+    <Content Include="animal.aspx" />
     <Content Include="img\icons\account.png" />
     <Content Include="img\icons\add.png" />
     <Content Include="img\icons\arrow-down.png" />
@@ -152,11 +152,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="classes\animal.aspx.cs">
+    <Compile Include="animal.aspx.cs">
       <DependentUpon>animal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="classes\animal.aspx.designer.cs">
+    <Compile Include="animal.aspx.designer.cs">
       <DependentUpon>animal.aspx</DependentUpon>
     </Compile>
     <Compile Include="classes\Animal.cs" />
