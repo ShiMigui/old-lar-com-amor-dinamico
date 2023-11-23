@@ -23,7 +23,8 @@ namespace lar_com_amor.classes
                 JOIN especie e ON (e.cd_especie = r.cd_especie)
                 JOIN porte po ON (po.sg_porte = r.sg_porte)
                 JOIN genero g ON (g.sg_genero = a.sg_genero)
-                WHERE (a.nm_animal LIKE '%{txt}%' OR e.nm_especie LIKE '%{txt}%' OR r.nm_raca LIKE '%{txt}%' OR po.nm_porte LIKE '%{txt}%')";
+                JOIN usuario u ON (u.cd_usuario = a.cd_usuario)
+                WHERE (a.nm_animal LIKE '%{txt}%' OR e.nm_especie LIKE '%{txt}%' OR r.nm_raca LIKE '%{txt}%' OR po.nm_porte LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%')";
 
             List<string> condicoes = new List<string>();
             if (naoAdotado) condicoes.Add("(p.ic_finalizado IS NULL OR p.ic_finalizado = false)");
@@ -50,6 +51,15 @@ namespace lar_com_amor.classes
             WHERE (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_organizacao LIKE '%{txt}%' OR u.cd_organizacao = '%{txt}%')";
 
             List<string> condicoes = new List<string>();
+            if (naoFinalizado) condicoes.Add("e.dt_final > NOW()");
+            if (!String.IsNullOrEmpty(org)) condicoes.Add($"(e.cd_organizacao = {org})");
+
+            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
+            {
+                string data = Data[2].ToString().Split(' ')[0];
+                while (Data.Read()) anuncios.Add(Elemento.AnuncioEvento(Data[0].ToString(), Data[1].ToString(), data));
+            }
+            return anuncios;
         }
     }
 }
