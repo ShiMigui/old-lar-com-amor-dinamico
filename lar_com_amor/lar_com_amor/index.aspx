@@ -35,9 +35,6 @@
                     <div class="line"></div>
                 </section>
 
-                <%--<a href="./login.aspx" id="account" class="flex alignCenter">Entrar<img src="./img/icons/account.png" alt="ícone de login"></a>
-
-                <img id="arrow-down" src="./img/icons/arrow-down.png" alt="ícone de seta para baixo">--%>
                 <asp:Literal Text="" runat="server" ID="litHeader" />
             </section>
         </section>

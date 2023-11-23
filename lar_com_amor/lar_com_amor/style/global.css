@@ -2,6 +2,13 @@ header .limiter, #account, header #campo-navegacao, #account img{
     height: 100%;
 }
 
+.miniAnuncio{
+    padding:10px;
+}
+.miniAnuncio .images {
+    width: 30%;
+}
+
 input[type=image], input[type=text], input[type=date], input[type=time], textarea, select, .input {
     background-color: #fff;
     border-radius: 10px;

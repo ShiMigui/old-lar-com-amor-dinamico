@@ -53,6 +53,13 @@ namespace lar_com_amor.classes
             return new string(resultado.ToArray());
         }
 
-        
+        public static string DateToInput(string data)
+        {
+            string[] partesData = data.Split('/');
+
+            return partesData[2] + "-" + partesData[1] + "-" + partesData[0];
+        }
+
+
     }
 }

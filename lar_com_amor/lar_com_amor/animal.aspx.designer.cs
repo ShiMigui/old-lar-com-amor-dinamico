@@ -24,6 +24,15 @@ namespace lar_com_amor.classes
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle litHeader.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litHeader;
+
+        /// <summary>
         /// Controle imgAnimal.
         /// </summary>
         /// <remarks>
@@ -186,12 +195,48 @@ namespace lar_com_amor.classes
         protected global::System.Web.UI.WebControls.Literal litPorte;
 
         /// <summary>
-        /// Controle litBtns.
+        /// Controle lnkBtn.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litBtns;
+        protected global::System.Web.UI.WebControls.HyperLink lnkBtn;
+
+        /// <summary>
+        /// Controle btnAdicionar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdicionar;
+
+        /// <summary>
+        /// Controle btnExcluir.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcluir;
+
+        /// <summary>
+        /// Controle btnSalvar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalvar;
+
+        /// <summary>
+        /// Controle litMsg.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litMsg;
     }
 }

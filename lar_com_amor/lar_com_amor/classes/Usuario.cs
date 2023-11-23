@@ -42,15 +42,35 @@ namespace lar_com_amor.classes
                 }
             }
         }
-
-
         #endregion
 
+        public Usuario()
+        {
+            VerificarLogin();
+            Sg = "A";
+        }
+
+        public Usuario(string cd, string nm)
+        {
+            Cd = cd;
+            Nm = nm;
+        }
+
+
+        public static void Login(string cd_user, string nm_user, string tipo_user="A")
+        {
+            HttpContext.Current.Session["nm_user"] = nm_user;
+            HttpContext.Current.Session["cd_user"] = cd_user;
+            HttpContext.Current.Session["tipo_user"] = tipo_user;
+        }
         public bool VerificarLogin()
         {
-            if (HttpContext.Current.Session["nm_user"] != null) Nm = HttpContext.Current.Session["nm_user"].ToString();
-            if (HttpContext.Current.Session["cd_user"] != null) Cd = HttpContext.Current.Session["cd_user"].ToString();
-            if (HttpContext.Current.Session["tipo_user"] != null) Sg = HttpContext.Current.Session["tipo_user"].ToString();
+            if (HttpContext.Current.Session["nm_user"] != null && HttpContext.Current.Session["cd_user"] != null && HttpContext.Current.Session["tipo_user"] != null)
+            {
+                Nm = HttpContext.Current.Session["nm_user"].ToString();
+                Cd = HttpContext.Current.Session["cd_user"].ToString();
+                Sg = HttpContext.Current.Session["tipo_user"].ToString();
+            }
 
             Logado = !string.IsNullOrEmpty(Nm) && !string.IsNullOrEmpty(Cd) && !string.IsNullOrEmpty(Sg);
             return Logado;
@@ -58,8 +78,6 @@ namespace lar_com_amor.classes
 
         public void HeaderContent(Literal lit)
         {
-            VerificarLogin();
-
             if (!Logado)
             {
                 lit.Text = "<a href='./login.aspx' id='account' class='flex alignCenter'>Entrar<img src='./img/icons/account.png' alt='ícone de login'></a>";

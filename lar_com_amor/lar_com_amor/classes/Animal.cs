@@ -15,13 +15,35 @@ namespace larcomamor.classes
         public string Nascimento { get; set; }
         public bool Castrado { get; set; }
 
-        public Parametro Raca = new Parametro();
-        public Parametro Especie = new Parametro();
-        public Parametro Porte = new Parametro();
-        public Parametro Genero = new Parametro();
-        public Usuario Organizacao = new Usuario();
+        public Parametro Raca = null;
+        public Parametro Especie = null;
+        public Parametro Porte = null;
+        public Parametro Genero = null;
+        public Usuario Organizacao = null;
 
 
-
+        public bool ByCode(string cd)
+        {
+            List<Parametro> lista = new List<Parametro> { new Parametro("pcd_animal", cd) };
+            using (MySqlDataReader Data = Consultar("PegarAnimalCodigo", lista))
+            {
+                if(!Data.HasRows) return false;
+                if (Data.Read())
+                {
+                    Cd = cd;
+                    Nm = Data["nm_animal"].ToString();
+                    Ds = Data["ds_animal"].ToString();
+                    Nascimento = Data["dt_nascimento"].ToString().Split(' ')[0];
+                    Castrado = Data["ic_castrado"].ToString().ToLower() == "true";
+                    Raca = new Parametro(Data["nm_raca"].ToString(), Data["cd_raca"].ToString());
+                    Especie = new Parametro(Data["nm_especie"].ToString(), Data["cd_especie"].ToString());
+                    Porte = new Parametro(Data["nm_porte"].ToString(), Data["sg_porte"].ToString());
+                    Genero = new Parametro(Data["nm_genero"].ToString(), Data["sg_genero"].ToString());
+                    Organizacao = new Usuario(Data["cd_usuario"].ToString(), Data["nm_usuario"].ToString());
+                    return true;
+                }
+                else return false;
+            }
+        }
     }
 }

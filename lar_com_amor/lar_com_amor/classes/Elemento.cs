@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace lar_com_amor.classes
 {
@@ -9,7 +11,7 @@ namespace lar_com_amor.classes
     {
         public static string AnuncioAnimal(string cd, string nm, string nascimento)
         {
-            
+
             return $@"<a href='./animal.aspx?cd={cd}' cd='{cd}' sg='a' class='animalAnuncio'>
                         <div class='images'>{FotoAnuncioAnimal(cd, nm)}</div>
                         <div class='texts'>
@@ -23,7 +25,7 @@ namespace lar_com_amor.classes
         {
             return $"<img class='animalPhoto' src='./img/animal/{cd}.jpg' alt='imagem do animal {nm}'>";
         }
-        
+
         static public string AnuncioEvento(string cd, string nm, string data)
         {
             return $@"<a href='./evento.aspx?cd={cd}' cd='{cd}' sg='e' class='eventoAnuncio'>
@@ -79,6 +81,33 @@ namespace lar_com_amor.classes
             string retorno = $"<section class='grid{grid}' sg='{sigla}'>{string.Join("", anuncios)}</section>";
             if (anuncios.Count == int.Parse(grid)) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
             return retorno;
+        }
+
+        public static string GerarMiniAnuncioOrg(Usuario Organizacao)
+        {
+            return $@"<a href='./organizacao.aspx?cd={Organizacao.Cd}' cd='{Organizacao.Cd}' class='organizacaoAnuncio miniAnuncio'>
+                        <div class='images'>
+                            {FotoAnuncioOrganizacao(Organizacao.Cd, Organizacao.Nm)}
+                        </div>
+                        <div class='texts'>
+                            <h4>{Organizacao.Nm}</h4>
+                            <p class='link textEnd'>ver mais</p>
+                        </div>
+                    </a>";
+        }
+
+        public static void InsertDDLValues(DropDownList ddl, List<Parametro> parametros)
+        {
+            ddl.Items.Clear();
+            foreach (Parametro p in parametros) ddl.Items.Add(new ListItem(p.Nm, p.Vl));
+            ddl.Items.Insert(0, new ListItem("Selecione", "0"));
+        }
+
+        public static void InsertDDLValues(DropDownList ddl, MySqlDataReader Data, int iNm = 1, int iVl = 0)
+        {
+            ddl.Items.Clear();
+            while (Data.Read()) ddl.Items.Add(new ListItem(Data[iNm].ToString(), Data[iVl].ToString()));
+            ddl.Items.Insert(0, new ListItem("Selecione", "0"));
         }
     }
 }
