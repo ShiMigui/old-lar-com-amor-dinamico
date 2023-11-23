@@ -183,6 +183,6 @@ CREATE TABLE codigo_verificacao (
     ic_usado BOOLEAN,
     nm_codigo VARCHAR(8),
     cd_usuario INT,
-    CONSTRAINT pk_codigo_verificacao PRIMARY KEY (dt_expiracao, cd_usuario, cd_verificacao),
+    CONSTRAINT pk_codigo_verificacao PRIMARY KEY (dt_expiracao, cd_usuario, nm_codigo),
     CONSTRAINT fk_codigo_verificacao_usuario FOREIGN KEY (cd_usuario) REFERENCES usuario(cd_usuario)
 );
