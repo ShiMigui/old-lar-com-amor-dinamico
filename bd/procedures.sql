@@ -216,24 +216,10 @@ BEGIN
 END;
 $
 
-DROP PROCEDURE IF EXISTS PegarPedidoNaoFinalizado$
-CREATE PROCEDURE PegarPedidoNaoFinalizado(pcd_animal INT, pcd_adotante INT)
+DROP PROCEDURE IF EXISTS PegarPerguntasOrg$
+CREATE PROCEDURE PegarPerguntasOrg(pcd_organizacao INT)
 BEGIN
-	SELECT r.dt_pedido, r.cd_adotante, r.cd_animal, r.nm_resposta, p.nm_pergunta, p.cd_pergunta
-    FROM pedido ped 
-    JOIN resposta r ON ped.dt_pedido = r.dt_pedido AND ped.cd_adotante = r.cd_adotante AND ped.cd_animal = r.cd_animal
-    JOIN pergunta p ON r.cd_pergunta = p.cd_pergunta
-    WHERE ped.ic_finalizado = false AND r.cd_animal = pcd_animal AND ped.cd_adotante = r.cd_adotante;
+	SELECT * FROM pergunta where cd_organizacao = pcd_organizacao;
 END;
 $
 DELIMITER ;
-
-SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
-                LEFT JOIN pedido p ON (p.cd_animal = a.cd_animal)
-                JOIN raca r ON (r.cd_raca = a.cd_raca)
-                JOIN especie e ON (e.cd_especie = r.cd_especie)
-                JOIN porte po ON (po.sg_porte = r.sg_porte)
-                JOIN genero g ON (g.sg_genero = a.sg_genero)
-                JOIN usuario u ON (u.cd_usuario = a.cd_organizacao)
-                WHERE (a.nm_animal LIKE '%%' OR e.nm_especie LIKE '%%' OR r.nm_raca LIKE '%%' OR po.nm_porte LIKE '%%' OR u.nm_usuario LIKE '%%')
-                GROUP BY a.cd_animal;

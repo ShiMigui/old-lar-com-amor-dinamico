@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="v1_forms.aspx.cs" Inherits="lar_com_amor.forms" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="v4_forms.aspx.cs" Inherits="lar_com_amor.forms" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,14 +42,14 @@
         </header>
 
         <main class="forms">
-            <article id="perguntas" class="full-width">
-                <asp:Literal runat="server" ID="litPerguntas" Text=""></asp:Literal>
-            </article>
-
-            <section class="flex justCenter">
-                <asp:Button ID="btnAddPergunta" Visible="false"  runat="server" Text="Nova pergunta" OnClick="btnAddPergunta_Click"/>
-                <asp:Button ID="btnSalvar" Visible="false"  runat="server" Text="Salvar alterações"/>
-
+            <section class="full-width margin-auto form border-radius">
+                <section id="perguntas" class="flexColumn">
+                    <asp:Literal runat="server" ID="litPerguntas" Text=""></asp:Literal>
+                </section>
+                <div class="buttons">
+                    <asp:Button runat="server" ID="btnSalvar" Text="Salvar" Visible="false" />
+                    <asp:Button runat="server" ID="btnEnviar" Text="Enviar" Visible="false" />
+                </div>
             </section>
         </main>
 

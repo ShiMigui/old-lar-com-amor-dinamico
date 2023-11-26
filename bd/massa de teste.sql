@@ -54,9 +54,9 @@ CALL NovoUsuario('Oásis', 'oasis@gmail.com', '24542779286',27253510, 2831111300
 CALL NovoUsuario('Focinho Carente', 'Focinhocarente@gmail.com', '13991017696',11350240, 19147052000113, '123', 'O', 'O Focinho Carente é a centelha de esperança para as almas peludas que anseiam por um lar amoroso. Nossa missão é ser o abraço caloroso para aqueles que precisam, resgatando, acolhendo e cuidando de cães e gatos desamparados. Estendemos a eles não só cuidados médicos e físicos, mas um suporte emocional, uma promessa de que dias melhores virão. Buscamos lares onde esses seres tão especiais possam encontrar não apenas um teto, mas um porto seguro de afeto e carinho. Espalhamos o brilho da esperança por meio de programas educativos, compartilhando histórias de superação e amor incondicional. No Focinho Carente, cada patinha representa a chance de um novo começo, e estamos determinados a pintar um futuro repleto de alegria e novas oportunidades para cada um deles.');
 CALL NovoUsuario('Morada da Floresta', 'Morada@gmail.com', '13988616269', 11721030, 40404129000180, '123', 'O', 'A Morada da Floresta é o capítulo mais nobre e acalentador na história dos seres da mata. Nossa missão é resgatar, proteger e cuidar dos animais que habitam essas terras ancestrais, oferecendo-lhes um refúgio seguro como os antigos bosques. Somos guardiões de uma conexão ancestral, onde cães e gatos desprotegidos são acolhidos com a mesma reverência que os seres da floresta receberam dos antigos povos. Buscamos, como arautos do passado, lares onde esses animais possam ser honrados como membros sagrados de novas tribos, encontrando famílias que respeitem a harmonia entre homem e natureza. Além de acolher, compartilhamos o saber das matas por meio de programas educativos, preservando os laços místicos e o respeito à fauna que há séculos habitam essas terras. Na Morada da Floresta, cada patinha é um elo com os tempos antigos, e estamos empenhados em manter essa tradição de cuidado e proteção ao legado selvagem que nos cerca.');
 
-CALL NovoUsuario('Joana Silva', 'joana@email.com', '13991027686', 11350240, '', md5('1234'), 'A', '');
-CALL NovoUsuario('João da Silva', 'joao@gmail.com', '31987654321', 30111000, '', md5('54321'), 'A', '');
-CALL NovoUsuario('Lívia Santos', 'livia.santos@gmail.com', '13987654321', 11015130, '', md5('262626'), 'A', '');
+CALL NovoUsuario('Joana Silva', 'joana@email.com', '13991027686', 11350240, '', '1234', 'A', '');
+CALL NovoUsuario('João da Silva', 'joao@gmail.com', '31987654321', 30111000, '', '54321', 'A', '');
+CALL NovoUsuario('Lívia Santos', 'livia.santos@gmail.com', '13987654321', 11015130, '', '262626', 'A', '');
 
 INSERT INTO porte (sg_porte, nm_porte) VALUES 
 ('G', 'Grande'),
@@ -112,27 +112,7 @@ CALL NovoAnimal('Sasha', 'Descrição da Sasha', '2020-04-14', false, 8, 'F', 2)
 CALL NovoAnimal('Charlie', 'Descrição do Charlie', '2018-09-03', true, 9, 'M', 3);
 CALL NovoAnimal('Bella', 'Descrição da Bella', '2021-08-01', false, 1, 'F', 4);
 
-INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES ("2005-10-13", false, false, 1, 5);
-INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES ("2005-10-13", false, false, 1, 7);
-INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES ("2005-10-13", false, false, 1, 10);
-
 INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (1, "Qual é seu nome?", 1),
 (2, "Qual é sua cidade?", 1),
 (3, "Qual é seu estado?", 1);
-
-/*SELECT cd_pergunta, nm_pergunta, cd_organizacao FROM pergunta p
-WHERE p.cd_organizacao = 1;*/
-/*SELECT p.dt_pedido, p.ic_permitido, p.ic_finalizado, u.cd_usuario, u.nm_usuario, a.cd_animal, a.nm_animal FROM pedido p 
-JOIN animal a ON (p.cd_animal = a.cd_animal)
-JOIN usuario u ON (u.cd_usuario = p.cd_adotante)
-WHERE a.cd_organizacao = 1 
-ORDER BY p.dt_pedido;*/
-
-/*SELECT u.cd_usuario, u.nm_usuario, c.nm_cidade, e.sg_estado 
-FROM usuario u
-JOIN cep ON (cep.cd_cep = u.cd_cep)
-JOIN cidade c ON (c.cd_cidade = cep.cd_cidade)
-JOIN estado e ON (e.sg_estado = c.sg_estado)
-WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
-AND (u.nm_usuario LIKE '%%' OR u.ds_usuario LIKE '%%' OR c.nm_cidade LIKE '%%' OR e.nm_estado LIKE '%%');*/

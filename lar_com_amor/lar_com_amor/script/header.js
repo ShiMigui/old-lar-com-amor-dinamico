@@ -21,6 +21,6 @@ if(pesquisa !=null){
     const btn = pesquisa.querySelector("input[type=image]");
     btn.addEventListener("click", (e)=>{
         e.preventDefault();
-        if(inp.value) window.location = `./reposta.html?txt=${inp.value}`;
+        if(inp.value) window.location = `./reposta.aspx?txt=${inp.value}`;
     })
 }
