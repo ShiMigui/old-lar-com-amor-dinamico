@@ -133,11 +133,11 @@ namespace lar_com_amor.classes
                         </div>";
         }
 
-        public static string PerguntaFormularioUser(string cd, string nm)
+        public static string PerguntaFormularioUser(Pergunta p)
         {
             return $@"<div class='itemForm'>
-                    <label for='inpLogin'>{nm}</label>
-                    <input type='text' cd='{cd}' required/>
+                    <label for='inpLogin'>{p.Nm}</label>
+                    <input type='text' cd='{p.Cd}' value='{p.Vl}' required/>
                 </div>";
         }
     }

@@ -9,12 +9,12 @@ namespace lar_com_amor.classes
     public class Anuncios : Banco
     {
 
-        public MySqlDataReader GetAnuncios(string command, List<string> condicoes, string offset = "0", string limit = "6")
+        public MySqlDataReader GetAnuncios(string command, List<string> condicoes, string offset = "0", string limit = "6", string groupBy="")
         {
             if(condicoes!=null) if (condicoes.Count > 0) command += " AND " + string.Join(" AND ", condicoes);
-            return Consultar($"{command} LIMIT {limit} OFFSET {offset}");
+            return Consultar($"{command} GROUP BY {groupBy} LIMIT {limit} OFFSET {offset}");
         }
-        public List<string> GetAnimais(string txt = "", string org = "", string especie = "", string raca = "", string genero = "", string porte = "", string offset = "0", string limit = "6", bool naoAdotado = true)
+        public List<string> GetAnimais(string txt = "", string org = "", string especie = "", string raca = "", string genero = "", string porte = "", string offset = "0", string limit = "6", bool naoAdotado = false)
         {
             List<string> anuncios = new List<string>();
             string command = $@"SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
@@ -34,7 +34,7 @@ namespace lar_com_amor.classes
             if (!String.IsNullOrEmpty(genero)) condicoes.Add($"(g.sg_genero = '{genero}')");
             if (!String.IsNullOrEmpty(porte)) condicoes.Add($"(po.sg_porte = '{porte}')");
 
-            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
+            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit, "a.cd_animal"))
             {
                 while (Data.Read())
                 {
@@ -58,7 +58,7 @@ namespace lar_com_amor.classes
             if (!String.IsNullOrEmpty(org)) condicoes.Add($"(e.cd_organizacao = {org})");
             if (!String.IsNullOrEmpty(tipo)) condicoes.Add($"(e.cd_tipo = '{tipo}' OR te.nm_tipo LIKE '%{tipo}%')");
 
-            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
+            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit, "e.cd_evento"))
             {
 
                 while (Data.Read())
@@ -81,7 +81,7 @@ namespace lar_com_amor.classes
                 WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
                 AND (u.nm_usuario LIKE '%{txt}%' OR u.ds_usuario LIKE '%{txt}%' OR c.nm_cidade LIKE '%{txt}%' OR e.nm_estado LIKE '%{txt}%')";
 
-            using (MySqlDataReader Data = GetAnuncios(command, null, offset, limit))
+            using (MySqlDataReader Data = GetAnuncios(command, null, offset, limit, "u.cd_usuario"))
             {
 
                 while (Data.Read())

@@ -5,7 +5,7 @@ using System.Web;
 using lar_com_amor.classes;
 using MySql.Data.MySqlClient;
 
-namespace larcomamor.classes
+namespace lar_com_amor.classes
 {
     public class Animal : Banco
     {
