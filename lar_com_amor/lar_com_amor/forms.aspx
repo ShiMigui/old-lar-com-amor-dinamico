@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="v4_forms.aspx.cs" Inherits="lar_com_amor.forms" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="forms.aspx.cs" Inherits="lar_com_amor.forms1" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">

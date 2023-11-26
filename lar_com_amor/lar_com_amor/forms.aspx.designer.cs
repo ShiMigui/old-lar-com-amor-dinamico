@@ -11,7 +11,7 @@ namespace lar_com_amor
 {
 
 
-    public partial class forms
+    public partial class forms1
     {
 
         /// <summary>

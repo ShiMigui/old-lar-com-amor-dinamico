@@ -128,7 +128,7 @@
     <Content Include="build\cadastro.html" />
     <Content Include="build\evento.html" />
     <Content Include="build\eventos.html" />
-    <Content Include="v4_forms.aspx" />
+    <Content Include="forms.aspx" />
     <Content Include="img\icons\account.png" />
     <Content Include="img\icons\add.png" />
     <Content Include="img\icons\arrow-down.png" />
@@ -146,6 +146,7 @@
     <Content Include="build\login.html" />
     <Content Include="build\organizacao.html" />
     <Content Include="build\organizacoes.html" />
+    <Content Include="lib\userForms.aspx" />
     <Content Include="login.aspx" />
     <Content Include="organizacao.aspx" />
     <Content Include="script\animal.js" />
@@ -155,6 +156,7 @@
     <Content Include="script\message.js" />
     <Content Include="script\organizacao.js" />
     <Content Include="script\tabController.js" />
+    <Content Include="script\userForms.js" />
     <Content Include="style\global.css" />
     <Content Include="index.aspx" />
     <Content Include="Web.config" />
@@ -177,12 +179,12 @@
     <Compile Include="classes\Pedido.cs" />
     <Compile Include="classes\Pergunta.cs" />
     <Compile Include="classes\Usuario.cs" />
-    <Compile Include="v4_forms.aspx.cs">
-      <DependentUpon>v4_forms.aspx</DependentUpon>
+    <Compile Include="forms.aspx.cs">
+      <DependentUpon>forms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="v4_forms.aspx.designer.cs">
-      <DependentUpon>v4_forms.aspx</DependentUpon>
+    <Compile Include="forms.aspx.designer.cs">
+      <DependentUpon>forms.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -190,6 +192,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\userForms.aspx.cs">
+      <DependentUpon>userForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\userForms.aspx.designer.cs">
+      <DependentUpon>userForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -216,9 +225,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="lib\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
