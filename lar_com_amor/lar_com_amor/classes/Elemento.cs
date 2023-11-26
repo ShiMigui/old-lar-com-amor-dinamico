@@ -121,5 +121,24 @@ namespace lar_com_amor.classes
             foreach (Parametro p in parametros) retorno += tab(p, link);
             return retorno;
         }
+
+        public static string PerguntaFormularioOrg(string nm, string cd)
+        {
+            return $@"<div class='orgQuestion'>
+                            <input type='text' value='{nm}' cd='{cd}'/>
+                            <img src='./img/icons/more.png' alt='icone de mais informação' class='iconMoreAbout'>
+                            <div class='optionsItemForm hidden'>
+                                <p class='opt' act='delete'>remover</p>
+                            </div>
+                        </div>";
+        }
+
+        public static string PerguntaFormularioUser(string cd, string nm)
+        {
+            return $@"<div class='itemForm'>
+                    <label for='inpLogin'>{nm}</label>
+                    <input type='text' cd='{cd}' required/>
+                </div>";
+        }
     }
 }

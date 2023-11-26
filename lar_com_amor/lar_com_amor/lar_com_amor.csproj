@@ -128,6 +128,10 @@
     <Content Include="build\cadastro.html" />
     <Content Include="build\evento.html" />
     <Content Include="build\eventos.html" />
+    <Content Include="forms.aspx" />
+    <Content Include="lib\formsUser.aspx" />
+    <Content Include="script\userForms.js" />
+    <Content Include="v1_forms.aspx" />
     <Content Include="img\icons\account.png" />
     <Content Include="img\icons\add.png" />
     <Content Include="img\icons\arrow-down.png" />
@@ -139,14 +143,17 @@
     <Content Include="img\icons\index3.png" />
     <Content Include="img\icons\index4.png" />
     <Content Include="img\icons\logo.png" />
+    <Content Include="img\icons\more.png" />
     <Content Include="img\icons\search.png" />
     <Content Include="build\index.html" />
     <Content Include="build\login.html" />
     <Content Include="build\organizacao.html" />
     <Content Include="build\organizacoes.html" />
+    <Content Include="login.aspx" />
     <Content Include="organizacao.aspx" />
     <Content Include="script\animal.js" />
     <Content Include="script\evento.js" />
+    <Content Include="script\forms.js" />
     <Content Include="script\header.js" />
     <Content Include="script\master.js" />
     <Content Include="script\message.js" />
@@ -170,14 +177,43 @@
     <Compile Include="classes\Banco.cs" />
     <Compile Include="classes\Credenciais.cs" />
     <Compile Include="classes\Elemento.cs" />
+    <Compile Include="classes\Formulario.cs" />
     <Compile Include="classes\Parametro.cs" />
     <Compile Include="classes\Usuario.cs" />
+    <Compile Include="forms.aspx.cs">
+      <DependentUpon>forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="forms.aspx.designer.cs">
+      <DependentUpon>forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\formsUser.aspx.cs">
+      <DependentUpon>formsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\formsUser.aspx.designer.cs">
+      <DependentUpon>formsUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="v1_forms.aspx.cs">
+      <DependentUpon>v1_forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="v1_forms.aspx.designer.cs">
+      <DependentUpon>v1_forms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="organizacao.aspx.cs">
       <DependentUpon>organizacao.aspx</DependentUpon>

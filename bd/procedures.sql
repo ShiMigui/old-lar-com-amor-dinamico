@@ -195,4 +195,37 @@ BEGIN
 END;
 $
 
+
+DROP PROCEDURE IF EXISTS Login$
+CREATE PROCEDURE Login(pnm_login text, pnm_senha text)
+BEGIN
+	SELECT cd_usuario, nm_usuario, sg_tipo FROM usuario WHERE (cd_cnpj = pnm_login OR nm_email = pnm_login OR nm_usuario = pnm_login) AND nm_senha = MD5(pnm_senha);
+END;
+$
+
+
+DROP PROCEDURE IF EXISTS NovoPedido$
+CREATE PROCEDURE NovoPedido(pcd_animal INT, pcd_adotante INT)
+BEGIN
+	DECLARE now_date DATE;
+    SET now_date = CURDATE();
+
+    INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) 
+    VALUES (now_date, FALSE, FALSE, pcd_animal, pcd_adotante);
+    SELECT now_date;
+END;
+$
+
+DROP PROCEDURE IF EXISTS PegarPedido$
+CREATE PROCEDURE PegarPedido(pcd_animal INT, pcd_adotante INT)
+BEGIN
+	SELECT p.dt_pedido, p.cd_animal, p.cd_adotante, 
+           GROUP_CONCAT(DISTINCT(r.nm_resposta)) AS respostas
+    FROM pedido p
+    JOIN resposta r ON p.dt_pedido = r.dt_pedido AND p.cd_animal = r.cd_animal AND p.cd_adotante = r.cd_adotante
+    WHERE p.cd_animal = pcd_animal AND p.cd_adotante = pcd_adotante AND p.ic_finalizado = false
+    GROUP BY p.dt_pedido, p.cd_animal, p.cd_adotante;
+END;
+$
 DELIMITER ;
+call pegarPedido(1, 2);

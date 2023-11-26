@@ -89,7 +89,7 @@ namespace lar_com_amor
                 {
                     pnlEventos.Visible = true;
                     Anuncios anuncios = new Anuncios();
-                    litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetEventos(org: cd), "e", "Eventos da organização não encontrados!");
+                    litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(org: cd), "e", "Eventos da organização não encontrados!");
                 }
                 else Response.Redirect("index.aspx");
             }

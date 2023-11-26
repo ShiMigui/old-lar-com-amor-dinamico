@@ -52,7 +52,7 @@ namespace lar_com_amor.classes
 
         public Usuario()
         {
-            VerificarLogin();
+            
         }
 
         public Usuario(string cd, string nm)
@@ -83,6 +83,7 @@ namespace lar_com_amor.classes
 
         public void HeaderContent(Literal lit)
         {
+            VerificarLogin();
             if (!Logado)
             {
                 lit.Text = "<a href='./login.aspx' id='account' class='flex alignCenter'>Entrar<img src='./img/icons/account.png' alt='ícone de login'></a>";

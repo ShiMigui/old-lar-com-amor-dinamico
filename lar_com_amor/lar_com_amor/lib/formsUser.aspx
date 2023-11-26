@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="formsUser.aspx.cs" Inherits="lar_com_amor.lib.formsUser" %>

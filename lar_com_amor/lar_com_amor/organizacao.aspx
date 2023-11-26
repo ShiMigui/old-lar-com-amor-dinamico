@@ -124,8 +124,8 @@
         </footer>
 
         <script src="./script/master.js"></script>
-        <script src="./script/organizacao.js" id="script-page"></script>
-        <script src="./script/tabController.js" id="tab-controller"></script>
+        <script src="./script/organizacao.js"></script>
+        <script src="./script/tabController.js"></script>
         <script src="./script/header.js"></script>
         <script src="./script/message.js"></script>
     </form>
