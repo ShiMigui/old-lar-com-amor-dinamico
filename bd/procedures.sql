@@ -5,11 +5,11 @@ DROP PROCEDURE IF EXISTS AtualizarPerfilUsuario $
 CREATE PROCEDURE AtualizarPerfilUsuario(pcd_usuario INT, pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(11), pds_usuario TEXT, pcd_cep VARCHAR(8)) 
 BEGIN
     UPDATE usuario
-    SET nm_usuario = pnm_usuario,
-        nm_email = pnm_email,
-        nm_telefone = pnm_telefone,
-        ds_usuario = pds_usuario,
-        cd_cep = pcd_cep
+    SET nm_usuario = IF(pnm_usuario IS NOT NULL, pnm_usuario, nm_usuario),
+        nm_email = IF(pnm_email IS NOT NULL, pnm_email, nm_email),
+        nm_telefone = IF(pnm_telefone IS NOT NULL, pnm_telefone, nm_telefone),
+        ds_usuario = IF(pds_usuario IS NOT NULL, pds_usuario, ds_usuario),
+        cd_cep = IF(pcd_cep IS NOT NULL, pcd_cep, cd_cep)
     WHERE cd_usuario = pcd_usuario;
 END;
 $ 
@@ -165,15 +165,19 @@ DROP PROCEDURE IF EXISTS PegarAnimalCodigo$
 CREATE PROCEDURE PegarAnimalCodigo(pcd_animal int)
 BEGIN 
     SELECT a.nm_animal, a.ds_animal, a.dt_nascimento, a.ic_castrado, u.nm_usuario, u.cd_usuario, 
-	COUNT(pd.cd_adotante) as qt_pedido, r.cd_raca, r.nm_raca, e.cd_especie, e.nm_especie, g.sg_genero, g.nm_genero, p.sg_porte, p.nm_porte
-	FROM animal a 
-	JOIN usuario u ON (u.cd_usuario = a.cd_organizacao)
-	JOIN genero g ON (g.sg_genero = a.sg_genero)
-	JOIN raca r ON (r.cd_raca = a.cd_raca)
-	JOIN especie e ON (e.cd_especie = r.cd_especie)
-	JOIN porte p ON (p.sg_porte = r.sg_porte)
-	LEFT JOIN pedido pd ON (pd.cd_animal = a.cd_animal)
-	WHERE a.cd_animal = pcd_animal;
+        IFNULL(qt_pedido, 0) as qt_pedido, r.cd_raca, r.nm_raca, e.cd_especie, e.nm_especie, g.sg_genero, g.nm_genero, p.sg_porte, p.nm_porte
+    FROM animal a 
+    JOIN usuario u ON (u.cd_usuario = a.cd_organizacao)
+    JOIN genero g ON (g.sg_genero = a.sg_genero)
+    JOIN raca r ON (r.cd_raca = a.cd_raca)
+    JOIN especie e ON (e.cd_especie = r.cd_especie)
+    JOIN porte p ON (p.sg_porte = r.sg_porte)
+    LEFT JOIN (
+        SELECT cd_animal, COUNT(cd_adotante) as qt_pedido
+        FROM pedido
+        GROUP BY cd_animal
+    ) pd ON (pd.cd_animal = a.cd_animal)
+    WHERE a.cd_animal = pcd_animal;
 END;
 $
 

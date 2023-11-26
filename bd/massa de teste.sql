@@ -92,7 +92,7 @@ INSERT INTO raca(cd_raca, nm_raca, cd_especie, sg_porte) VALUES
 (11, 'Mini Lion', 3, 'P'), -- Pequeno
 (12, 'Fuzzy Lop', 3, 'G'); -- Grande
 
-CALL NovoAnimal('Buddy', 'Descrição do Buddy', '2019-11-25', true, 1, 'M', 1);
+CALL NovoAnimal('Buddy', 'Descrição do Buddy', '2023-10-25', true, 1, 'M', 1);
 CALL NovoAnimal('Molly', 'Descrição da Molly', '2020-03-18', false, 2, 'F', 2);
 CALL NovoAnimal('Duke', 'Descrição do Duke', '2020-09-08', false, 3, 'M', 3);
 CALL NovoAnimal('Lola', 'Descrição da Lola', '2018-07-12', true, 4, 'F', 4);
@@ -111,3 +111,23 @@ CALL NovoAnimal('Toby', 'Descrição do Toby', '2020-07-08', true, 7, 'M', 1);
 CALL NovoAnimal('Sasha', 'Descrição da Sasha', '2020-04-14', false, 8, 'F', 2);
 CALL NovoAnimal('Charlie', 'Descrição do Charlie', '2018-09-03', true, 9, 'M', 3);
 CALL NovoAnimal('Bella', 'Descrição da Bella', '2021-08-01', false, 1, 'F', 4);
+
+INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES ("2005-10-13", false, false, 1, 5);
+INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES ("2005-10-13", false, false, 1, 7);
+INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES ("2005-10-13", false, false, 1, 10);
+
+select * from usuario where cd_usuario = 1;
+
+/*SELECT p.dt_pedido, p.ic_permitido, p.ic_finalizado, u.cd_usuario, u.nm_usuario, a.cd_animal, a.nm_animal FROM pedido p 
+JOIN animal a ON (p.cd_animal = a.cd_animal)
+JOIN usuario u ON (u.cd_usuario = p.cd_adotante)
+WHERE a.cd_organizacao = 1 
+ORDER BY p.dt_pedido;*/
+
+/*SELECT u.cd_usuario, u.nm_usuario, c.nm_cidade, e.sg_estado 
+FROM usuario u
+JOIN cep ON (cep.cd_cep = u.cd_cep)
+JOIN cidade c ON (c.cd_cidade = cep.cd_cidade)
+JOIN estado e ON (e.sg_estado = c.sg_estado)
+WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
+AND (u.nm_usuario LIKE '%%' OR u.ds_usuario LIKE '%%' OR c.nm_cidade LIKE '%%' OR e.nm_estado LIKE '%%');*/

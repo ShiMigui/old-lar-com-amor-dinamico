@@ -57,13 +57,13 @@ namespace lar_com_amor.classes
             string link = $"./img/usuario/{cd}.jpg";
             if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
             else if (letterIfNotExists) return $"<div class='organizacaoPhoto'>{nm[0]}</div>";
-            else return "<img class='organizacaoPhoto' src='./img/icons/account.png' alt='Ícone de usuário logado'>";
+            else return "";
         }
 
 
         static public string Mensagem(string mensagem, string type = "error")
         {
-            return $@"<article id='message' ativo='true' type='{type}' class='flex justBetween'><p>{mensagem}</p><img src='./img/icons/warning.png' alt='imagem para erro' class='error-icon'><img src='./img/icons/check.png' alt='imagem para success' class='success-icon'></article>";
+            return $@"<article id='message' class='{type}' ativo>{mensagem}</article>";
         }
         static public string Error(string mensagem)
         {
@@ -108,6 +108,18 @@ namespace lar_com_amor.classes
             ddl.Items.Clear();
             while (Data.Read()) ddl.Items.Add(new ListItem(Data[iNm].ToString(), Data[iVl].ToString()));
             ddl.Items.Insert(0, new ListItem("Selecione", "0"));
+        }
+
+        public static string tab(Parametro parametro, string link)
+        {
+            return $"<tab tab='{parametro.Vl}'><a href='{link}tab={parametro.Vl}'>{parametro.Nm}</a></tab>";
+        }
+
+        public static string tabList(List<Parametro> parametros, string link)
+        {
+            string retorno = "";
+            foreach (Parametro p in parametros) retorno += tab(p, link);
+            return retorno;
         }
     }
 }

@@ -57,35 +57,11 @@
         </article>
         <article class="content-box">
             <h2>Eventos</h2>
-            <section class="grid4" sg="e">
-                <%--<a href="./evento.aspx" cd="" class="eventoAnuncio">
-                    <div class="images">
-                        <img class="eventoPhoto photo" src="" alt=""></div>
-                    <div class="texts">
-                        <h4>Nome</h4>
-                        <p>date</p>
-                        <p class="link textEnd">ver mais</p>
-                    </div>
-                </a>--%>
-            </section>
-            <section class="buttons">
-                <button class="btnMaisAnuncios">Carregar mais</button></section>
+            <asp:Literal Text="" ID="litEventos" runat="server" />
         </article>
         <article class="content-box">
             <h2>Organizações</h2>
-            <section class="grid6" sg="o">
-                <%--<a href="./organizacao.aspx" cd="" class="organizacaoAnuncio">
-                    <div class="images">
-                        <img class="organizacaoPhoto photo" src="" alt=""></div>
-                    <div class="texts">
-                        <h4>Nome</h4>
-                        <p>cidade, UF</p>
-                        <p class="link textEnd">ver mais</p>
-                    </div>
-                </a>--%>
-            </section>
-            <section class="buttons">
-                <button class="btnMaisAnuncios">Carregar mais</button></section>
+            <asp:Literal Text="" ID="litOrganizacoes" runat="server" />
         </article>
     </main>
 

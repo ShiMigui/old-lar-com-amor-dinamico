@@ -13,13 +13,12 @@ namespace lar_com_amor.classes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("1", "Miguel", "O");
             Usuario usuario = new Usuario();
             if (!IsPostBack)
             {
                 usuario.HeaderContent(litHeader);
-                string cd;
-                if (String.IsNullOrEmpty(Request["cd"])) cd = "1";
+                string cd="";
+                if (String.IsNullOrEmpty(Request["cd"])) Response.Redirect("index.aspx");
                 else cd = Request["cd"].ToString();
 
                 Animal animal = new Animal();
@@ -31,6 +30,8 @@ namespace lar_com_amor.classes
                 else CarregarAnimalUsuario(animal);
 
             }
+
+            // falta add animal
 
 
 

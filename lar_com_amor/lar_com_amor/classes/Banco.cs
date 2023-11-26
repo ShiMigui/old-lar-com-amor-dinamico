@@ -93,7 +93,7 @@ namespace lar_com_amor.classes
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                    throw new Exception(ex.Message);
             }
         }
 

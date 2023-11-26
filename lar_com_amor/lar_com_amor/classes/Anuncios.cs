@@ -11,7 +11,7 @@ namespace lar_com_amor.classes
 
         public MySqlDataReader GetAnuncios(string command, List<string> condicoes, string offset = "0", string limit = "6")
         {
-            if (condicoes.Count > 0) command += " AND " + string.Join(" AND ", condicoes);
+            if(condicoes!=null) if (condicoes.Count > 0) command += " AND " + string.Join(" AND ", condicoes);
             return Consultar($"{command} LIMIT {limit} OFFSET {offset}");
         }
         public List<string> GetAnimais(string txt = "", string org = "", string especie = "", string raca = "", string genero = "", string porte = "", string offset = "0", string limit = "6", bool naoAdotado = true)
@@ -23,7 +23,7 @@ namespace lar_com_amor.classes
                 JOIN especie e ON (e.cd_especie = r.cd_especie)
                 JOIN porte po ON (po.sg_porte = r.sg_porte)
                 JOIN genero g ON (g.sg_genero = a.sg_genero)
-                JOIN usuario u ON (u.cd_usuario = a.cd_usuario)
+                JOIN usuario u ON (u.cd_usuario = a.cd_organizacao)
                 WHERE (a.nm_animal LIKE '%{txt}%' OR e.nm_especie LIKE '%{txt}%' OR r.nm_raca LIKE '%{txt}%' OR po.nm_porte LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%')";
 
             List<string> condicoes = new List<string>();
@@ -36,8 +36,11 @@ namespace lar_com_amor.classes
 
             using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
             {
-                string data = Data[2].ToString().Split(' ')[0];
-                while (Data.Read()) anuncios.Add(Elemento.AnuncioAnimal(Data[0].ToString(), Data[1].ToString(), data));
+                while (Data.Read())
+                {
+                    string data = Data[2].ToString().Split(' ')[0];
+                    anuncios.Add(Elemento.AnuncioAnimal(Data[0].ToString(), Data[1].ToString(), Credenciais.CalcularIdadeTexto(data)));
+                }
             }
             return anuncios;
         }
@@ -46,9 +49,9 @@ namespace lar_com_amor.classes
         {
             List<string> anuncios = new List<string>();
             string command = $@"SELECT e.cd_evento, e.nm_evento, e.dt_inicio FROM evento e
-            JOIN usuario u ON (u.cd_usuario = e.cd_usuario)
+            JOIN usuario u ON (u.cd_usuario = e.cd_organizacao)
             JOIN tipo_evento te ON (te.cd_tipo = e.cd_tipo)
-            WHERE (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_organizacao LIKE '%{txt}%' OR u.cd_organizacao = '%{txt}%')";
+            WHERE (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%' OR u.cd_usuario = '%{txt}%')";
 
             List<string> condicoes = new List<string>();
             if (naoFinalizado) condicoes.Add("e.dt_final > NOW()");
@@ -57,8 +60,34 @@ namespace lar_com_amor.classes
 
             using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit))
             {
-                string data = Data[2].ToString().Split(' ')[0];
-                while (Data.Read()) anuncios.Add(Elemento.AnuncioEvento(Data[0].ToString(), Data[1].ToString(), data));
+
+                while (Data.Read())
+                {
+                    string data = Data[2].ToString().Split(' ')[0];
+                    anuncios.Add(Elemento.AnuncioEvento(Data[0].ToString(), Data[1].ToString(), data));
+                }
+            }
+            return anuncios;
+        }
+
+        internal List<string> GetOrganizacoes(string txt = "", string offset = "0", string limit = "6")
+        {
+            List<string> anuncios = new List<string>();
+            string command = $@"SELECT u.cd_usuario, u.nm_usuario, c.nm_cidade, e.sg_estado 
+                FROM usuario u
+                JOIN cep ON (cep.cd_cep = u.cd_cep)
+                JOIN cidade c ON (c.cd_cidade = cep.cd_cidade)
+                JOIN estado e ON (e.sg_estado = c.sg_estado)
+                WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
+                AND (u.nm_usuario LIKE '%{txt}%' OR u.ds_usuario LIKE '%{txt}%' OR c.nm_cidade LIKE '%{txt}%' OR e.nm_estado LIKE '%{txt}%')";
+
+            using (MySqlDataReader Data = GetAnuncios(command, null, offset, limit))
+            {
+
+                while (Data.Read())
+                {
+                    anuncios.Add(Elemento.AnuncioOrganizacao(Data[0].ToString(), Data[1].ToString(), $"{Data[2]}, {Data[3]}"));
+                }
             }
             return anuncios;
         }

@@ -126,7 +126,8 @@
         <asp:Literal Text="" ID="litMsg" runat="server"></asp:Literal>
 
         <script src="./script/master.js"></script>
-        <script src="./script/animal.js" id="script-page"></script>
+        <script src="./script/animal.js"></script>
+        <script src="./script/message.js"></script>
         <script src="./script/header.js"></script>
     </form>
 </body>
