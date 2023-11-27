@@ -17,7 +17,7 @@ namespace lar_com_amor
             Usuario usuario = new Usuario();
 
             string cd = "";
-            if (String.IsNullOrEmpty(Request["cd"])) Response.Redirect("organizacao.aspx?cd=1");//Response.Redirect("index.aspx");
+            if (String.IsNullOrEmpty(Request["cd"])) Response.Redirect("index.aspx");
             else cd = Request["cd"].ToString();
 
             Usuario organizacao = new Usuario();

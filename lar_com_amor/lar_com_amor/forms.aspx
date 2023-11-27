@@ -41,7 +41,7 @@
             </section>
         </header>
 
-        <main class="forms">
+        <main>
             <section class="full-width margin-auto form border-radius">
                 <section id="perguntas" class="flexColumn">
                     <asp:Literal runat="server" ID="litPerguntas" Text=""></asp:Literal>
