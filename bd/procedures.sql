@@ -219,7 +219,8 @@ $
 DROP PROCEDURE IF EXISTS PegarPerguntasOrg$
 CREATE PROCEDURE PegarPerguntasOrg(pcd_organizacao INT)
 BEGIN
-	SELECT * FROM pergunta where cd_organizacao = pcd_organizacao;
+	SELECT cd_pergunta, nm_pergunta FROM pergunta where cd_organizacao = pcd_organizacao;
 END;
 $
 DELIMITER ;
+call PegarPerguntasOrg(1);

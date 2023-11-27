@@ -146,6 +146,7 @@
     <Content Include="build\login.html" />
     <Content Include="build\organizacao.html" />
     <Content Include="build\organizacoes.html" />
+    <Content Include="lib\orgForms.aspx" />
     <Content Include="lib\userForms.aspx" />
     <Content Include="login.aspx" />
     <Content Include="organizacao.aspx" />
@@ -155,6 +156,7 @@
     <Content Include="script\master.js" />
     <Content Include="script\message.js" />
     <Content Include="script\organizacao.js" />
+    <Content Include="script\orgForms.js" />
     <Content Include="script\tabController.js" />
     <Content Include="script\userForms.js" />
     <Content Include="style\global.css" />
@@ -192,6 +194,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\orgForms.aspx.cs">
+      <DependentUpon>orgForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\orgForms.aspx.designer.cs">
+      <DependentUpon>orgForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="lib\userForms.aspx.cs">
       <DependentUpon>userForms.aspx</DependentUpon>

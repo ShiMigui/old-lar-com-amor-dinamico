@@ -20,13 +20,36 @@ table .markLine {
     margin: auto;
 }
 
+.pointer{
+    cursor: pointer;
+}
+.box-acts {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.box-acts .opt{
+    transition:0.3s;
+}
+.box-acts .opt:hover{
+    background-color: rgba(0, 0, 0, 0.05);
+}
+.icon-30 {
+    width: 30px;
+}
+
 
 
 
 
 input[type=image], input[type=text], input[type=date], input[type=time], input[type=password], textarea, select, .input {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
     overflow-y: hidden;
     transition: .3s;
     padding: 5px;

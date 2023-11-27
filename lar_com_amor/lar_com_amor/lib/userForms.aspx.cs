@@ -14,9 +14,6 @@ namespace lar_com_amor.lib
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string link = "./lib/userForms.aspx?qt=3&&animal=1&&usuario=10&&org=1&&inp1=asd&&inp2=asd&&inp3=asd";
-            if (String.IsNullOrEmpty(Request["qt"])) Response.Redirect(link);
-
             #region Pegando valores da URL
             string animal = Request["animal"].ToString();
             string org = Request["org"].ToString();
@@ -84,7 +81,6 @@ namespace lar_com_amor.lib
             string message = ok ? Elemento.Success(msg) : Elemento.Error(msg);
             string retorno = "{\"ok\": " + ok.ToString().ToLower() + ", \"msg\":\"" + message + "\"}";
             Response.Write(retorno);
-            
         }
     }
 }

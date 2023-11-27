@@ -122,15 +122,17 @@ namespace lar_com_amor.classes
             return retorno;
         }
 
-        public static string PerguntaFormularioOrg(string nm, string cd)
+        public static string PerguntaFormularioOrg(string cd, string nm)
         {
-            return $@"<div class='orgQuestion'>
-                            <input type='text' value='{nm}' cd='{cd}'/>
-                            <img src='./img/icons/more.png' alt='icone de mais informação' class='iconMoreAbout'>
-                            <div class='optionsItemForm hidden'>
-                                <p class='opt' act='delete'>remover</p>
-                            </div>
-                        </div>";
+            return $@"
+                <div class='flex justBetween position-relative'>
+                    <input type='text' value='{nm}' cd='{cd}' class='full-width'>
+                    <img src='./img/icons/more.png' class='icon-30 pointer icon-about' alt='icone de mais informações'>
+                    <div class='box-acts hidden'>
+                        <p class='pointer opt' act='delete'>Remover</p>
+                    </div>
+                </div>
+            ";
         }
 
         public static string PerguntaFormularioUser(string cd, string nm, string vl)

@@ -46,7 +46,8 @@
                 <section id="perguntas" class="flexColumn">
                     <asp:Literal runat="server" ID="litPerguntas" Text=""></asp:Literal>
                 </section>
-                <div class="buttons">
+                <div class="flex justEnd">
+                    <asp:Button runat="server" ID="btnAdicionar" Text="Nova pergunta" Visible="false" />
                     <asp:Button runat="server" ID="btnSalvar" Text="Salvar" Visible="false" />
                     <asp:Button runat="server" ID="btnEnviar" Text="Enviar" Visible="false" />
                 </div>
@@ -61,10 +62,7 @@
                     <img src="./img/icons/logo.png" class="logo" alt="Logotipo Lar com amor"></a>
             </section>
         </footer>
-
-
     </form>
-    <script src="./script/forms.js"></script>
     <script src="./script/master.js"></script>
     <script src="./script/header.js"></script>
     <script src="./script/message.js"></script>

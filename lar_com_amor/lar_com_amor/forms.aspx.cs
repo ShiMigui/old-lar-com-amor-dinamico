@@ -13,11 +13,16 @@ namespace lar_com_amor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("10", "PCC", "A");
+            Usuario.Login("1", "PCC", "O");
             Usuario usuario = new Usuario();
             if (!IsPostBack)
             {
                 usuario.HeaderContent(litHeader);
+                if (!usuario.Logado)
+                {
+                    Session["last_page"] = Request.Url.AbsoluteUri;
+                    Response.Redirect("login.aspx");
+                }
             }
 
             #region Pegando cd_animal
@@ -26,17 +31,11 @@ namespace lar_com_amor
             cd_animal = Request["a"].ToString();
             #endregion
 
-            if (!usuario.Logado)
-            {
-                Session["last_page"] = Request.Url.AbsoluteUri;
-                Response.Redirect("login.aspx");
-            }
+            
+
+            string cd_usuario = usuario.Cd;
 
             Banco banco = new Banco();
-
-            litPerguntas.Text = "";
-            btnEnviar.Visible = false;
-            btnSalvar.Visible = false;
 
             Animal animal = new Animal();
             bool ic = animal.ByCode(cd_animal);
@@ -44,12 +43,18 @@ namespace lar_com_amor
 
             if (usuario.Sg == "O")
             {
+                if (usuario.Cd != animal.Organizacao.Cd) Response.Redirect("index.aspx");
 
+                // Se houver parâmetro "u" e "dt" na URL, eu quero verificar a resposta do usuário ao formulário
+                if (!String.IsNullOrEmpty(Request["u"]) && !String.IsNullOrEmpty(Request["dt"]))
+                {
+
+                }
+                else CarregarFormularioOrganizacao(animal.Organizacao.Cd);
             }
             else
             {
-                // Adotando
-                string cd_usuario = usuario.Cd;
+                #region Pegando perguntas
                 string command = $@"SELECT r.nm_resposta FROM resposta r
                 JOIN pedido p ON (p.cd_animal = r.cd_animal AND p.cd_adotante = r.cd_adotante)
                 WHERE p.cd_animal = {cd_animal} AND p.cd_adotante = {cd_usuario} AND p.ic_finalizado = false";
@@ -62,6 +67,35 @@ namespace lar_com_amor
                     }
                     CarregarFormularioUsuario(cd_animal, cd_usuario, animal.Organizacao.Cd);
                 }
+                #endregion
+            }
+        }
+
+        private void CarregarFormularioOrganizacao(string cd_organizacao)
+        {
+            btnSalvar.Visible = true;
+            btnAdicionar.Visible = true;
+
+            List<Parametro> parametros = new List<Parametro>
+            {
+                new Parametro("pcd_organizacao", cd_organizacao)
+            };
+            Banco banco = new Banco();
+            using (MySqlDataReader Data = banco.Consultar("PegarPerguntasOrg", parametros))
+            {
+                int i = 0;
+                while (Data.Read())
+                {
+                    string cd = Data[0].ToString();
+                    string nm = Data[1].ToString();
+                    i++;
+                    litPerguntas.Text += Elemento.PerguntaFormularioOrg(cd, nm);
+                }
+
+                litPerguntas.Text += $@"<script>
+                    const cd_organizacao = {cd_organizacao};
+                    const qt_inps_initial = {i};
+                </script><script src='./script/orgForms.js' defer></script>";
             }
         }
 
@@ -75,7 +109,7 @@ namespace lar_com_amor
             Banco banco = new Banco();
             using (MySqlDataReader Data = banco.Consultar("PegarPerguntasOrg", parametros))
             {
-                while(Data.Read())
+                while (Data.Read())
                 {
                     string cd = Data[0].ToString();
                     string nm = Data[1].ToString();
