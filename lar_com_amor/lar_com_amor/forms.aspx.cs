@@ -13,7 +13,6 @@ namespace lar_com_amor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("1", "PCC", "O");
             Usuario usuario = new Usuario();
             if (!IsPostBack)
             {
