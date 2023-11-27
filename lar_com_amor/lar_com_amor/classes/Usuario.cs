@@ -91,7 +91,12 @@ namespace lar_com_amor.classes
             }
             string initials = GetInitials(Nm);
             lit.Text = $"<a href='./perfil.aspx' id='account' class='flex alignCenter'>{initials}{Elemento.FotoAnuncioOrganizacao(Cd, Nm, false)}</a>";
-            lit.Text += "<img id='arrow-down' src='./img/icons/arrow-down.png' alt='ícone de seta para baixo'>";
+            lit.Text += $@"<img id='arrow-down' src='./img/icons/arrow-down.png' alt='ícone de seta para baixo'>
+            <div id='opts-header' class='flexColumn hidden'>
+                <p class='pointer' id='sair-login'>Sair</p>
+            </div>";
+
+
         }
 
         private string GetInitials(string fullName)

@@ -45,18 +45,22 @@ namespace lar_com_amor.classes
             return anuncios;
         }
 
-        public List<string> GetEventos(string txt = "", string org = "", string tipo = "", string offset = "0", string limit = "4", bool naoFinalizado = true)
+        public List<string> GetEventos(string txt = "", string org = "", string tipo = "", string offset = "0", string limit = "4", bool naoFinalizado = true, string estado = "", string cidade = "")
         {
             List<string> anuncios = new List<string>();
             string command = $@"SELECT e.cd_evento, e.nm_evento, e.dt_inicio FROM evento e
             JOIN usuario u ON (u.cd_usuario = e.cd_organizacao)
             JOIN tipo_evento te ON (te.cd_tipo = e.cd_tipo)
-            WHERE (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%' OR u.cd_usuario = '%{txt}%')";
+            JOIN cep ON (cep.cd_cep = u.cd_cep) JOIN cidade c ON (c.cd_cidade = cep.cd_cidade) 
+            JOIN estado et ON (et.sg_estado = c.sg_estado) WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
+            AND (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%' OR u.cd_usuario = '%{txt}%')";
 
             List<string> condicoes = new List<string>();
             if (naoFinalizado) condicoes.Add("e.dt_final > NOW()");
             if (!String.IsNullOrEmpty(org)) condicoes.Add($"(e.cd_organizacao = {org})");
             if (!String.IsNullOrEmpty(tipo)) condicoes.Add($"(e.cd_tipo = '{tipo}' OR te.nm_tipo LIKE '%{tipo}%')");
+            if (!String.IsNullOrEmpty(estado)) condicoes.Add($"(et.sg_estado = '{estado}')");
+            if (!String.IsNullOrEmpty(cidade)) condicoes.Add($"(c.cd_cidade = '{cidade}')");
 
             using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit, "e.cd_evento"))
             {
@@ -70,7 +74,7 @@ namespace lar_com_amor.classes
             return anuncios;
         }
 
-        internal List<string> GetOrganizacoes(string txt = "", string offset = "0", string limit = "6")
+        internal List<string> GetOrganizacoes(string txt = "", string offset = "0", string limit = "6", string sg_estado = "", string cd_cidade = "")
         {
             List<string> anuncios = new List<string>();
             string command = $@"SELECT u.cd_usuario, u.nm_usuario, c.nm_cidade, e.sg_estado 
@@ -81,7 +85,11 @@ namespace lar_com_amor.classes
                 WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
                 AND (u.nm_usuario LIKE '%{txt}%' OR u.ds_usuario LIKE '%{txt}%' OR c.nm_cidade LIKE '%{txt}%' OR e.nm_estado LIKE '%{txt}%')";
 
-            using (MySqlDataReader Data = GetAnuncios(command, null, offset, limit, "u.cd_usuario"))
+            List<string> condicoes = new List<string>();
+            if (!String.IsNullOrEmpty(sg_estado)) condicoes.Add($"(e.sg_estado = '{sg_estado}')");
+            if (!String.IsNullOrEmpty(cd_cidade)) condicoes.Add($"(c.cd_cidade = '{cd_cidade}')");
+
+            using (MySqlDataReader Data = GetAnuncios(command, condicoes, offset, limit, "u.cd_usuario"))
             {
 
                 while (Data.Read())

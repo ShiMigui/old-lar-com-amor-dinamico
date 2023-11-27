@@ -39,7 +39,7 @@ namespace lar_com_amor.classes
         }
         static public string FotoAnuncioEvento(string cd, string nm)
         {
-            return $"<img class='eventoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem do evento {nm}'>";
+            return $"<img class='eventoPhoto' src='./img/evento/{cd}.jpg' alt='imagem do evento {nm}'>";
         }
         static public string AnuncioOrganizacao(string cd, string nm, string localizacao)
         {
@@ -74,12 +74,12 @@ namespace lar_com_amor.classes
             return Mensagem(mensagem, "success");
         }
 
-        static public string GerarAnuncios(List<string> anuncios, string sigla = "a", string message = "Não encontrado")
+        static public string GerarAnuncios(List<string> anuncios, string sigla = "a", string message = "Não encontrado", bool Button=true)
         {
             string grid = sigla == "e" ? "4" : "6";
             if (anuncios.Count == 0) return $"<p class='textCenter'>{message}</p>";
             string retorno = $"<section class='grid{grid}' sg='{sigla}'>{string.Join("", anuncios)}</section>";
-            if (anuncios.Count == int.Parse(grid)) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
+            if (anuncios.Count == int.Parse(grid) && Button) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
             return retorno;
         }
 

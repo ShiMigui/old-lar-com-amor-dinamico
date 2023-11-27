@@ -157,8 +157,39 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="animais.aspx" />
     <Content Include="animal.aspx" />
+    <Content Include="eventos.aspx" />
     <Content Include="forms.aspx" />
+    <Content Include="img\animal\1.jpg" />
+    <Content Include="img\animal\10.jpg" />
+    <Content Include="img\animal\11.jpg" />
+    <Content Include="img\animal\12.jpg" />
+    <Content Include="img\animal\13.jpg" />
+    <Content Include="img\animal\14.jpg" />
+    <Content Include="img\animal\15.jpg" />
+    <Content Include="img\animal\16.jpg" />
+    <Content Include="img\animal\17.jpg" />
+    <Content Include="img\animal\18.jpg" />
+    <Content Include="img\animal\19.jpg" />
+    <Content Include="img\animal\2.jpg" />
+    <Content Include="img\animal\3.jpg" />
+    <Content Include="img\animal\4.jpg" />
+    <Content Include="img\animal\5.jpg" />
+    <Content Include="img\animal\6.jpg" />
+    <Content Include="img\animal\7.jpg" />
+    <Content Include="img\animal\8.jpg" />
+    <Content Include="img\animal\9.jpg" />
+    <Content Include="img\evento\1.jpg" />
+    <Content Include="img\evento\10.jpg" />
+    <Content Include="img\evento\2.jpg" />
+    <Content Include="img\evento\3.jpg" />
+    <Content Include="img\evento\4.jpg" />
+    <Content Include="img\evento\5.jpg" />
+    <Content Include="img\evento\6.jpg" />
+    <Content Include="img\evento\7.jpg" />
+    <Content Include="img\evento\8.jpg" />
+    <Content Include="img\evento\9.jpg" />
     <Content Include="img\icons\account.png" />
     <Content Include="img\icons\add.png" />
     <Content Include="img\icons\arrow-down.png" />
@@ -172,11 +203,25 @@
     <Content Include="img\icons\logo.png" />
     <Content Include="img\icons\more.png" />
     <Content Include="img\icons\search.png" />
+    <Content Include="img\usuario\1.jpg" />
+    <Content Include="img\usuario\10.jpg" />
+    <Content Include="img\usuario\2.jpg" />
+    <Content Include="img\usuario\3.jpg" />
+    <Content Include="img\usuario\5.jpg" />
+    <Content Include="img\usuario\6.png" />
+    <Content Include="img\usuario\7.png" />
+    <Content Include="img\usuario\8.jpg" />
+    <Content Include="img\usuario\9.jpg" />
+    <Content Include="img\usuario\FOCINHO_CARENTE.jpeg" />
+    <Content Include="img\usuario\MORADA_DA_FLORESTA_ABRIGO_DE_ANIMAIS.jpg" />
+    <Content Include="img\usuario\oasis.png" />
     <Content Include="index.aspx" />
     <Content Include="lib\orgForms.aspx" />
+    <Content Include="lib\sair.aspx" />
     <Content Include="lib\userForms.aspx" />
     <Content Include="login.aspx" />
     <Content Include="organizacao.aspx" />
+    <Content Include="organizacoes.aspx" />
     <Content Include="script\animal.js" />
     <Content Include="script\evento.js" />
     <Content Include="script\header.js" />
@@ -190,6 +235,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="animais.aspx.cs">
+      <DependentUpon>animais.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="animais.aspx.designer.cs">
+      <DependentUpon>animais.aspx</DependentUpon>
+    </Compile>
     <Compile Include="animal.aspx.cs">
       <DependentUpon>animal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -207,6 +259,13 @@
     <Compile Include="classes\Pedido.cs" />
     <Compile Include="classes\Pergunta.cs" />
     <Compile Include="classes\Usuario.cs" />
+    <Compile Include="eventos.aspx.cs">
+      <DependentUpon>eventos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="eventos.aspx.designer.cs">
+      <DependentUpon>eventos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="forms.aspx.cs">
       <DependentUpon>forms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +279,13 @@
     </Compile>
     <Compile Include="lib\orgForms.aspx.designer.cs">
       <DependentUpon>orgForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\sair.aspx.cs">
+      <DependentUpon>sair.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\sair.aspx.designer.cs">
+      <DependentUpon>sair.aspx</DependentUpon>
     </Compile>
     <Compile Include="lib\userForms.aspx.cs">
       <DependentUpon>userForms.aspx</DependentUpon>
@@ -241,6 +307,13 @@
     </Compile>
     <Compile Include="organizacao.aspx.designer.cs">
       <DependentUpon>organizacao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="organizacoes.aspx.cs">
+      <DependentUpon>organizacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="organizacoes.aspx.designer.cs">
+      <DependentUpon>organizacoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="index.aspx.cs">

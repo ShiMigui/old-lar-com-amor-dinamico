@@ -189,6 +189,3 @@ INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (19, 'Qual é sua cidade?', 3),
 (20, 'Qual é seu estado?', 3),
 (21, 'Qual seu endereço completo?', 3);
-
-/*INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
-('2023-02-12', );*/
