@@ -70,29 +70,28 @@
                             <asp:TextBox runat="server" ID="inpDescricao" TextMode="MultiLine" Text="" Visible="false"></asp:TextBox>
                             <asp:Literal runat="server" ID="litDescricao" Text="" Visible="false"></asp:Literal>
                         </div>
-                        <div class="grid2">
-                            <div class="flexColumn">
-                                <p class="lbl">Localização</p>
-                                <div class="input-line alignCenter">
-                                    <label for="inpCep" class="input-line-25">CEP</label>
-                                    <asp:TextBox runat="server" ID="inpCep" Text="" Visible="false" OnTextChanged="inpCep_TextChanged" AutoPostBack="true"></asp:TextBox>
-                                    <asp:Literal runat="server" ID="litCep" Text="" Visible="false"></asp:Literal>
-                                </div>
-                                <div class="input-line alignCenter">
-                                    <span class="input-line-25 lbl">Rua</span><p>
-                                        <asp:Literal runat="server" ID="litRua"></asp:Literal>
-                                    </p>
-                                </div>
-                                <div class="input-line alignCenter">
-                                    <span class="input-line-25 lbl">Cidade</span><p>
-                                        <asp:Literal runat="server" ID="litCidade"></asp:Literal>
-                                    </p>
-                                </div>
-                                <div class="input-line alignCenter">
-                                    <span class="input-line-25 lbl">Estado</span><p>
-                                        <asp:Literal runat="server" ID="litUf"></asp:Literal>
-                                    </p>
-                                </div>
+                        <div class="space-div"></div>
+                        <div class="flexColumn justStart">
+                            <p class="lbl">Localização</p>
+                            <div class="grid2 full-width">
+                                <label for="inpCep" class="input-line-25">CEP</label>
+                                <asp:TextBox runat="server" ID="inpCep" Text="" Visible="false" OnTextChanged="inpCep_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                <asp:Literal runat="server" ID="litCep" Text="" Visible="false"></asp:Literal>
+                            </div>
+                            <div class="grid2 full-width">
+                                <span class="input-line-25 lbl">Rua</span><p>
+                                    <asp:Literal runat="server" ID="litRua"></asp:Literal>
+                                </p>
+                            </div>
+                            <div class="grid2 full-width">
+                                <span class="input-line-25 lbl">Cidade</span><p>
+                                    <asp:Literal runat="server" ID="litCidade"></asp:Literal>
+                                </p>
+                            </div>
+                            <div class="grid2 full-width">
+                                <span class="input-line-25 lbl">Estado</span><p>
+                                    <asp:Literal runat="server" ID="litUf"></asp:Literal>
+                                </p>
                             </div>
                         </div>
                         <asp:Panel runat="server" ID="buttons" CssClass="buttons" Visible="false">
@@ -100,6 +99,8 @@
                         </asp:Panel>
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlForms" Visible="false">
+                        <a href="forms.aspx">Ver meu formulário</a>
+                        <div class="space-div"></div>
                         <asp:Literal runat="server" ID="litForms" Text=""></asp:Literal>
                     </asp:Panel>
                     <asp:Panel runat="server" ID="pnlAnimais" Visible="false">

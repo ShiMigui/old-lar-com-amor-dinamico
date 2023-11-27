@@ -49,6 +49,7 @@ namespace lar_com_amor
                     string page = "";
                     if (Session["tipo_user"].ToString() == "O") page = "organizacao.aspx";
                     else page = "index.aspx";
+                    if (Session["last_page"] != null) page = Session["last_page"].ToString();
 
                     string script = @"<script type='text/javascript'>
                         setTimeout(function(){

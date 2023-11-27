@@ -222,5 +222,14 @@ BEGIN
 	SELECT cd_pergunta, nm_pergunta FROM pergunta where cd_organizacao = pcd_organizacao;
 END;
 $
+
+DROP PROCEDURE IF EXISTS PegarRespostasUsuario$
+CREATE PROCEDURE PegarRespostasUsuario(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE)
+BEGIN
+	SELECT p.cd_pergunta, p.nm_pergunta, r.nm_resposta FROM pergunta p 
+	JOIN resposta r ON r.cd_pergunta = p.cd_pergunta
+	WHERE r.cd_adotante = pcd_adotante AND r.cd_animal = pcd_animal AND r.dt_pedido = pdt_pedido;
+END;
+$
 DELIMITER ;
-call PegarPerguntasOrg(1);
+/*call PegarRespostasUsuario(1, 13, '2023-11-27');*/

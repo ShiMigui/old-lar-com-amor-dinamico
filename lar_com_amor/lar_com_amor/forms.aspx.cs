@@ -13,7 +13,6 @@ namespace lar_com_amor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("1", "PCC", "O");
             Usuario usuario = new Usuario();
             if (!IsPostBack)
             {
@@ -48,7 +47,7 @@ namespace lar_com_amor
                 // Se houver parâmetro "u" e "dt" na URL, eu quero verificar a resposta do usuário ao formulário
                 if (!String.IsNullOrEmpty(Request["u"]) && !String.IsNullOrEmpty(Request["dt"]))
                 {
-
+                    CarregarRespostasUsuario(Request["u"].ToString(), Request["dt"].ToString(), cd_animal);
                 }
                 else CarregarFormularioOrganizacao(animal.Organizacao.Cd);
             }
@@ -68,6 +67,30 @@ namespace lar_com_amor
                     CarregarFormularioUsuario(cd_animal, cd_usuario, animal.Organizacao.Cd);
                 }
                 #endregion
+            }
+        }
+
+        private void CarregarRespostasUsuario(string cd_usuario, string dt_pedido, string cd_animal)
+        {
+            DateTime dataConvertida = DateTime.ParseExact(dt_pedido, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
+            dt_pedido = dataConvertida.ToString("yyyy-MM-dd");
+
+            List<Parametro> parametros = new List<Parametro>
+            {
+                new Parametro("pcd_animal", cd_animal),
+                new Parametro("pcd_adotante", cd_usuario),
+                new Parametro("pdt_pedido", dt_pedido),
+            };
+            Banco banco = new Banco();
+            using (MySqlDataReader Data = banco.Consultar("PegarRespostasUsuario", parametros))
+            {
+                while (Data.Read())
+                {
+                    string cd = Data[0].ToString();
+                    string perg = Data[1].ToString();
+                    string resp = Data[2].ToString();
+                    litPerguntas.Text += Elemento.PerguntaFormularioUser(cd, perg, resp, Disabled: true);
+                }
             }
         }
 

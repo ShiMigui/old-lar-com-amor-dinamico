@@ -55,7 +55,7 @@ namespace lar_com_amor
                     if (usuario.Logado && organizacao.Cd == usuario.Cd) CarregarOrganizacaoOrg(organizacao);
                     else CarregarOrganizacaoUser(organizacao);
                 }
-                else if (tab == "forms")
+                else if (tab == "forms" && usuario.Cd == organizacao.Cd)
                 {
                     pnlForms.Visible = true;
                     Banco bd = new Banco();
@@ -72,7 +72,7 @@ namespace lar_com_amor
                             string situacao = "";
                             content += $@"<tr>
                                 <td class='textCenter'>{Data["nm_usuario"]}</td>
-                                <td class='textCenter'><a href='./forms.aspx?a={Data["cd_animal"]}&&u={Data["cd_usuario"]}&&dt={Data["dt_pedido"]}'>clique aqui</a></td>
+                                <td class='textCenter'><a href='./forms.aspx?a={Data["cd_animal"]}&&u={Data["cd_usuario"]}&&dt={Data["dt_pedido"].ToString().Split(' ')[0]}'>clique aqui</a></td>
                                 <td class='textCenter'>{situacao}</td>
                             </tr>";
                         }

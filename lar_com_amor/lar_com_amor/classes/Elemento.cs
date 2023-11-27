@@ -56,7 +56,7 @@ namespace lar_com_amor.classes
         {
             string link = $"./img/usuario/{cd}.jpg";
             if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
-            else if (letterIfNotExists) return $"<div class='organizacaoPhoto'>{nm[0]}</div>";
+            else if (letterIfNotExists) return $"<div class='organizacaoPhoto font-3em'>{nm[0]}</div>";
             else return "";
         }
 
@@ -135,11 +135,12 @@ namespace lar_com_amor.classes
             ";
         }
 
-        public static string PerguntaFormularioUser(string cd, string nm, string vl)
+        public static string PerguntaFormularioUser(string cd, string nm, string vl, bool Disabled = false)
         {
+
             return $@"<div class='itemForm'>
                     <label for='inp{cd}'>{nm}</label>
-                    <input type='text' cd='{cd}' id='inp{cd}' value='{vl}' required/>
+                    <input type='text' cd='{cd}' id='inp{cd}' value='{vl}' required {(Disabled?"disabled":"")}/>
                 </div>";
         }
     }

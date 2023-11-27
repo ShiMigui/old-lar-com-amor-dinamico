@@ -136,7 +136,7 @@ CREATE TABLE pergunta (
     cd_pergunta INT,
     nm_pergunta TEXT,
     cd_organizacao INT,
-    CONSTRAINT pk_pergunta PRIMARY KEY (cd_pergunta),
+    CONSTRAINT pk_pergunta PRIMARY KEY (cd_pergunta, cd_organizacao),
     CONSTRAINT fk_pergunta_usuario FOREIGN KEY (cd_organizacao) REFERENCES usuario(cd_usuario)
 );
 
@@ -154,12 +154,13 @@ CREATE TABLE pedido (
 CREATE TABLE resposta (
     nm_resposta TEXT,
     cd_pergunta INT,
+	cd_organizacao INT,
     cd_animal INT,
     cd_adotante INT,
     dt_pedido DATE,
     CONSTRAINT pk_resposta PRIMARY KEY (cd_pergunta, cd_animal, cd_adotante, dt_pedido),
     CONSTRAINT fk_resposta_pedido FOREIGN KEY (dt_pedido, cd_animal, cd_adotante) REFERENCES pedido(dt_pedido, cd_animal, cd_adotante),
-    CONSTRAINT fk_resposta_pergunta FOREIGN KEY (cd_pergunta) REFERENCES pergunta(cd_pergunta)
+    CONSTRAINT fk_resposta_pergunta FOREIGN KEY (cd_pergunta, cd_organizacao) REFERENCES pergunta(cd_pergunta, cd_organizacao)
 );
 
 CREATE TABLE fav_animal (

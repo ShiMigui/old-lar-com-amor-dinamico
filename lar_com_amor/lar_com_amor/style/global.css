@@ -19,6 +19,17 @@ table .markLine {
 .margin-auto{
     margin: auto;
 }
+.margin-bottom {
+    margin-bottom: 30px;
+}
+
+.space-div{
+    width: 30px;
+    height: 30px;
+}
+.font-3em{
+    font-size: 3em;
+}
 
 .pointer{
     cursor: pointer;
@@ -97,7 +108,7 @@ input[type=submit], .button, button {
 }
 
 label, .lbl {
-    font-size: .8em
+    font-size: .9em
 }
 
 .itemForm {
@@ -118,7 +129,8 @@ label, .lbl {
 
 .buttons {
     display: flex;
-    justify-content: right
+    justify-content: right;
+    margin-top: 30px;
 }
 
 .form {
@@ -487,7 +499,6 @@ main .textEnd {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1em
 }
 
 .animalPhoto {
