@@ -280,6 +280,7 @@
     <Compile Include="classes\Banco.cs" />
     <Compile Include="classes\Credenciais.cs" />
     <Compile Include="classes\Elemento.cs" />
+    <Compile Include="classes\Email.cs" />
     <Compile Include="classes\Parametro.cs" />
     <Compile Include="classes\Pedido.cs" />
     <Compile Include="classes\Pergunta.cs" />

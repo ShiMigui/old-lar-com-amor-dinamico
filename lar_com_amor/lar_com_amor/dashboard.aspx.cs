@@ -74,7 +74,7 @@ namespace lar_com_amor.build
 
                 #region Tabela adoção aceita
                 header.Add("Confirmar adoção");
-                /*using (MySqlDataReader Data = banco.Consultar("TabPedidosPendentes", parametros))
+                using (MySqlDataReader Data = banco.Consultar("TabPedidosAceitos", parametros))
                 {
                     if (Data.HasRows)
                     {
@@ -90,14 +90,16 @@ namespace lar_com_amor.build
                             {
                                 nm_ad,
                                 $"<a href='animal.aspx?cd={cd_an}'>{nm_an}</a>",
-                                $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}'>"
+                                $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}' a='{cd_an}' u='{cd_ad}' dt='{dt}'>",
+                                $@"<img src='./img/icons/confirm.png' alt='ícone de confirmara adoção' class='icon-accept-order'>
+                                <img src='./img/icons/close.png' alt='ícone de confirmara adoção' class='icon-refuse-order'>"
                             });
                         }
 
-                        litTblPendentes.Text = Elemento.GenerateTable(header, content, "Não há pedidos pendentes");
+                        litTblAceitos.Text = Elemento.GenerateTable(header, content, "Não há pedidos pendentes");
                     }
-                    else litTblPendentes.Text = "<p class='textCenter'>Não há pedidos de adoção pendentes</p>";
-                }*/
+                    else litTblAceitos.Text = "<p class='textCenter'>Não há pedidos de adoção aceitos</p>";
+                }
                 #endregion
             }
         }
