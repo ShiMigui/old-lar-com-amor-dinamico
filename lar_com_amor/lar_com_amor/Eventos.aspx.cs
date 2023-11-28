@@ -76,16 +76,16 @@ namespace lar_com_amor
                     {
                         if(ddlCidade.SelectedValue != "0")
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", "","0","4",true,ddlEstado.SelectedValue.ToString(),ddlCidade.SelectedValue.ToString()), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", "","0","4",true,ddlEstado.SelectedValue.ToString(),ddlCidade.SelectedValue.ToString()), "e", message: "Eventos não encontradas");
                         }
                         else
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", "", "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", "", "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), "e", message: "Eventos não encontradas");
                         }
                     }
                     else
                     {
-                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(), message: "Organizações não encontradas");
+                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(), "e", message: "Eventos não encontradas");
                     }
                     
                 }
@@ -95,16 +95,16 @@ namespace lar_com_amor
                     {
                         if (ddlCidade.SelectedValue != "0")
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), "e", message: "Eventos não encontradas");
                         }
                         else
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("", "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), "e", message: "Eventos não encontradas");
                         }
                     }
                     else
                     {
-                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("","", ddlTipoEvento.SelectedValue.ToString()), message: "Organizações não encontradas");
+                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos("","", ddlTipoEvento.SelectedValue.ToString()), "e", message: "Eventos não encontradas");
                     }
                 }                
             }
@@ -116,16 +116,16 @@ namespace lar_com_amor
                     {
                         if (ddlCidade.SelectedValue != "0")
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", "", "0", "4", true, ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", "", "0", "4", true, ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), "e", message: "Eventos não encontradas");
                         }
                         else
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", "", "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", "", "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), "e", message: "Eventos não encontradas");
                         }
                     }
                     else
                     {
-                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString()), message: "Organizações não encontradas");
+                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString()), "e", message: "Eventos não encontradas");
                     }
 
                 }
@@ -135,16 +135,16 @@ namespace lar_com_amor
                     {
                         if (ddlCidade.SelectedValue != "0")
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), "e", message: "Eventos não encontradas");
                         }
                         else
                         {
-                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), message: "Organizações não encontradas");
+                            litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", ddlTipoEvento.SelectedValue.ToString(), "0", "4", true, ddlEstado.SelectedValue.ToString(), ""), "e", message: "Eventos não encontradas");
                         }
                     }
                     else
                     {
-                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", ddlTipoEvento.SelectedValue.ToString()), message: "Organizações não encontradas");
+                        litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(txtPesquisa.Text.ToString(), "", ddlTipoEvento.SelectedValue.ToString()), "e", message: "Eventos não encontradas");
                     }
                 }
             }

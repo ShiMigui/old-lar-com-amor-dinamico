@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Eventos.aspx.cs" Inherits="lar_com_amor.Eventos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="eventos.aspx.cs" Inherits="lar_com_amor.Eventos" %>
 
 <!DOCTYPE html>
 
@@ -19,11 +19,6 @@
             <section class="limiter flex alignCenter justBetween">
                 <a href="./index.aspx">
                     <img src="./img/icons/logo.png" class="logo" alt="Logotipo Lar com amor"></a>
-
-                <section id="pesquisa">
-                    <input type="text" class="input">
-                    <input type="image" src="./img/icons/search.png" alt="Ícone de pesquisa">
-                </section>
 
                 <section id="campo-navegacao" class="flex justEnd alignCenter">
                     <nav ativo="false">
