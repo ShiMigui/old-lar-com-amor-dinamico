@@ -298,11 +298,12 @@ INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 
 INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
 ('2023-02-12', null, null, 1,  13),
+('2023-02-12', null, null, 1,  1),
 ('2023-03-21', true, true, 19, 14),
 ('2023-05-29', true, null, 16, 15),
 ('2023-07-30', true, null, 11, 16),
 ('2023-06-02', false, false, 6, 17),
 ('2023-09-08', null, null, 20, 18 );
 -- ('2023-07-08',  );
-call NovaRespostaByAnimal(1, 1, '2023-11-28', "TESTE", 1);
+call NovaRespostaByAnimal(1, 1, '2023-02-12', "TESTE", 1);
 select * from resposta;
