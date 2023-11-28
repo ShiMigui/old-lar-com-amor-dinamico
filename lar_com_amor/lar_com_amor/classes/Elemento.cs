@@ -39,7 +39,7 @@ namespace lar_com_amor.classes
         }
         static public string FotoAnuncioEvento(string cd, string nm)
         {
-            return $"<img class='eventoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem do evento {nm}'>";
+            return $"<img class='eventoPhoto' src='./img/evento/{cd}.jpg' alt='imagem do evento {nm}'>";
         }
         static public string AnuncioOrganizacao(string cd, string nm, string localizacao)
         {
@@ -56,7 +56,7 @@ namespace lar_com_amor.classes
         {
             string link = $"./img/usuario/{cd}.jpg";
             if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
-            else if (letterIfNotExists) return $"<div class='organizacaoPhoto'>{nm[0]}</div>";
+            else if (letterIfNotExists) return $"<div class='organizacaoPhoto font-3em'>{nm[0]}</div>";
             else return "";
         }
 
@@ -74,12 +74,12 @@ namespace lar_com_amor.classes
             return Mensagem(mensagem, "success");
         }
 
-        static public string GerarAnuncios(List<string> anuncios, string sigla = "a", string message = "Não encontrado")
+        static public string GerarAnuncios(List<string> anuncios, string sigla = "a", string message = "Não encontrado", bool Button = true)
         {
             string grid = sigla == "e" ? "4" : "6";
             if (anuncios.Count == 0) return $"<p class='textCenter'>{message}</p>";
             string retorno = $"<section class='grid{grid}' sg='{sigla}'>{string.Join("", anuncios)}</section>";
-            if (anuncios.Count == int.Parse(grid)) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
+            if (anuncios.Count == int.Parse(grid) && Button) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
             return retorno;
         }
 
@@ -135,12 +135,29 @@ namespace lar_com_amor.classes
             ";
         }
 
-        public static string PerguntaFormularioUser(string cd, string nm, string vl)
+        public static string PerguntaFormularioUser(string cd, string nm, string vl, bool Disabled = false)
         {
+
             return $@"<div class='itemForm'>
                     <label for='inp{cd}'>{nm}</label>
-                    <input type='text' cd='{cd}' id='inp{cd}' value='{vl}' required/>
+                    <input type='text' cd='{cd}' id='inp{cd}' value='{vl}' required {(Disabled ? "disabled" : "")}/>
                 </div>";
+        }
+
+        public static string GenerateRowTable(List<string> conteudo, string tag = "td")
+        {
+            string row = "<tr>";
+            foreach (string c in conteudo) row += $"<{tag}>{c}</{tag}>";
+            return row + "</tr>";
+        }
+
+        public static string GenerateTable(List<string> header, List<List<string>> conteudo, string message = "Não há dados para a tabela")
+        {
+            string tbody = "";
+            if (conteudo.Count > 0) foreach (List<string> c in conteudo) tbody += GenerateRowTable(c);
+            else return $"<p class='textCenter'>{message}</p>";
+
+            return $"<table><thead>{GenerateRowTable(header, "th")}</thead><tbody>{tbody}</tbody></table>";
         }
     }
 }

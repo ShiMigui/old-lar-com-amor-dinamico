@@ -222,5 +222,69 @@ BEGIN
 	SELECT cd_pergunta, nm_pergunta FROM pergunta where cd_organizacao = pcd_organizacao;
 END;
 $
+
+DROP PROCEDURE IF EXISTS PegarRespostasUsuario$
+CREATE PROCEDURE PegarRespostasUsuario(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE)
+BEGIN
+	SELECT p.cd_pergunta, p.nm_pergunta, r.nm_resposta FROM pergunta p 
+	JOIN resposta r ON r.cd_pergunta = p.cd_pergunta
+	WHERE r.cd_adotante = pcd_adotante AND r.cd_animal = pcd_animal AND r.dt_pedido = pdt_pedido;
+END;
+$
+
+DROP PROCEDURE IF EXISTS GetDashboardData$
+CREATE PROCEDURE GetDashboardData(IN pcd_organizacao INT)
+BEGIN
+    SELECT
+        (SELECT COUNT(*) FROM animal WHERE cd_organizacao = pcd_organizacao) AS total_animais,
+        (SELECT COUNT(DISTINCT p1.cd_animal)
+            FROM pedido p1
+            INNER JOIN animal a1 ON p1.cd_animal = a1.cd_animal
+            WHERE a1.cd_organizacao = pcd_organizacao
+            AND p1.ic_permitido = TRUE
+            AND p1.ic_finalizado = TRUE) AS animais_adotados,
+        (SELECT COUNT(*) FROM pedido p2
+            WHERE p2.ic_permitido IS NULL
+            AND p2.cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_pendentes,
+        (SELECT COUNT(*) FROM pedido p3
+            WHERE p3.ic_permitido = TRUE
+            AND p3.ic_finalizado IS NULL
+            AND p3.cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_permitidos,
+        (SELECT COUNT(*) FROM pedido p4
+            WHERE p4.ic_finalizado = TRUE
+            AND p4.cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_finalizados;
+END$
+
+DROP PROCEDURE IF EXISTS TabPedidosPendentes$
+CREATE PROCEDURE TabPedidosPendentes(pcd_organizacao INT, poffset INT)
+BEGIN
+    SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido
+    FROM pedido p
+    INNER JOIN usuario u ON p.cd_adotante = u.cd_usuario
+    INNER JOIN animal a ON p.cd_animal = a.cd_animal
+    WHERE p.ic_permitido IS NULL AND a.cd_organizacao = pcd_organizacao
+    LIMIT 5 OFFSET poffset;
+END$
+
+DROP PROCEDURE IF EXISTS TabPedidosAceitos$
+CREATE PROCEDURE TabPedidosAceitos(pcd_organizacao INT, poffset INT)
+BEGIN
+    SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido
+    FROM pedido p
+    INNER JOIN usuario u ON p.cd_adotante = u.cd_usuario
+    INNER JOIN animal a ON p.cd_animal = a.cd_animal
+    WHERE p.ic_finalizado IS NULL AND p.ic_permitido = true AND a.cd_organizacao = pcd_organizacao
+    LIMIT 5 OFFSET poffset;
+END$
+
+DROP PROCEDURE IF EXISTS TabHistoricoPedidos$
+CREATE PROCEDURE TabHistoricoPedidos(pcd_organizacao INT, poffset INT)
+BEGIN
+	SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido
+	FROM pedido p
+    INNER JOIN usuario u ON p.cd_adotante = u.cd_usuario
+    INNER JOIN animal a ON p.cd_animal = a.cd_animal
+	WHERE p.ic_finalizado IS NOT NULL AND a.cd_organizacao = pcd_organizacao
+    LIMIT 5 OFFSET poffset;
+END$
 DELIMITER ;
-call PegarPerguntasOrg(1);

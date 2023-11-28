@@ -24,3 +24,24 @@ if(pesquisa !=null){
         if(inp.value) window.location = `./reposta.aspx?txt=${inp.value}`;
     })
 }
+
+const arrow = document.getElementById("arrow-down");
+if (arrow != null) {
+    arrow.addEventListener("click", function () {
+        let ic = this.classList.contains("ativo");
+        let opts = document.getElementById("opts-header");
+
+        if (ic) {
+            this.classList.remove("ativo");
+            opts.classList.add("hidden");
+        }
+        else {
+            this.classList.add("ativo");
+            opts.classList.remove("hidden");
+        }
+    })
+
+    document.getElementById("sair-login").addEventListener("click", () => {
+        fetch("./lib/sair.aspx").then(() => window.location.reload())
+    })
+}

@@ -16,6 +16,7 @@ namespace lar_com_amor
             if (!IsPostBack)
             {
                 usuario.HeaderContent(litHeader);
+                if (usuario.Logado && usuario.IsOrg) Response.Redirect("dashboard.aspx");
 
                 Anuncios anuncios = new Anuncios();
                 litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetAnimais(), message: "Animais não encontrados");

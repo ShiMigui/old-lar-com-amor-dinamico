@@ -71,7 +71,7 @@ namespace lar_com_amor.lib
             }
             catch(Exception ex)
             {
-                Retorno(false, "Ocorreu uma falha ao tentar contatar o servidor!");
+                Retorno(false, ex.Message);
             }
             
         }
