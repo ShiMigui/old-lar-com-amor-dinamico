@@ -42,15 +42,6 @@ namespace lar_com_amor.classes
         protected global::System.Web.UI.WebControls.Image imgAnimal;
 
         /// <summary>
-        /// Controle litOrganizacao.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litOrganizacao;
-
-        /// <summary>
         /// Controle inpNome.
         /// </summary>
         /// <remarks>

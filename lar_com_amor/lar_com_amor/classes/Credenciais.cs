@@ -142,32 +142,20 @@ namespace lar_com_amor.classes
                 DateTime dataAtual = DateTime.Today;
                 int anos = dataAtual.Year - dataNasc.Year;
                 int meses = dataAtual.Month - dataNasc.Month;
+                int dias = (dataAtual - dataNasc).Days;
 
-                if (dataAtual.Day < dataNasc.Day)
+                if (dias >= 365)
                 {
-                    meses--;
+                    return $"{anos} {(anos == 1 ? "ano" : "anos")}";
                 }
-
-                if (meses < 0)
+                else if (dias >= 30)
                 {
-                    anos--;
-                    meses += 12;
-                }
-
-                if (anos > 0)
-                {
-                    if (meses > 0)
-                    {
-                        return $"{anos} {(anos == 1 ? "ano" : "anos")} e {meses} {(meses == 1 ? "mês" : "meses")}";
-                    }
-                    else
-                    {
-                        return $"{anos} {(anos == 1 ? "ano" : "anos")}";
-                    }
+                    int mesesTotal = anos * 12 + meses;
+                    return $"{mesesTotal} {(mesesTotal == 1 ? "mês" : "meses")}";
                 }
                 else
                 {
-                    return $"{meses} {(meses == 1 ? "mês" : "meses")}";
+                    return $"{dias} {(dias == 1 ? "dia" : "dias")}";
                 }
             }
             else

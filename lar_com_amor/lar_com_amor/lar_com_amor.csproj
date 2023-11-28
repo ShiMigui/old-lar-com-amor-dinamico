@@ -183,6 +183,8 @@
     <Content Include="dashboard.aspx" />
     <Content Include="eventos.aspx" />
     <Content Include="forms.aspx" />
+    <Content Include="script\forms-user.js" />
+    <Content Include="v1_forms.aspx" />
     <Content Include="img\animal\1.jpg" />
     <Content Include="img\animal\10.jpg" />
     <Content Include="img\animal\11.jpg" />
@@ -250,11 +252,8 @@
     <Content Include="script\master.js" />
     <Content Include="script\message.js" />
     <Content Include="script\order-controller.js" />
-    <Content Include="script\organizacao.js" />
-    <Content Include="script\orgForms.js" />
     <Content Include="script\tabController.js" />
     <Content Include="script\table.js" />
-    <Content Include="script\userForms.js" />
     <Content Include="style\dashboard.css" />
     <Content Include="style\global.css" />
     <Content Include="Web.config" />
@@ -305,6 +304,13 @@
     </Compile>
     <Compile Include="forms.aspx.designer.cs">
       <DependentUpon>forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="v1_forms.aspx.cs">
+      <DependentUpon>v1_forms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="v1_forms.aspx.designer.cs">
+      <DependentUpon>v1_forms.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

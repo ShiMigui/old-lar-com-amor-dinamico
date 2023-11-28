@@ -58,7 +58,7 @@ namespace lar_com_amor.classes
 
         public Usuario()
         {
-            
+
         }
 
         public Usuario(string cd, string nm)
@@ -68,7 +68,7 @@ namespace lar_com_amor.classes
         }
 
 
-        public static void Login(string cd_user, string nm_user, string tipo_user="A")
+        public static void Login(string cd_user, string nm_user, string tipo_user = "A")
         {
             HttpContext.Current.Session["nm_user"] = nm_user;
             HttpContext.Current.Session["cd_user"] = cd_user;
@@ -110,7 +110,7 @@ namespace lar_com_amor.classes
 
         }
 
-        private string GetInitials(string fullName)
+        public static string GetInitials(string fullName)
         {
             if (string.IsNullOrWhiteSpace(fullName)) return string.Empty;
 
@@ -120,15 +120,14 @@ namespace lar_com_amor.classes
             return initials;
         }
 
-        internal bool ByCode(string cd)
+        internal bool ByCode(string cd, string sg = "A")
         {
-            string command = $@"SELECT u.nm_usuario, u.nm_email, u.nm_telefone, u.ds_usuario, c.nm_rua, ci.nm_cidade, ci.sg_estado, u.cd_cep
-                            FROM usuario u 
-                            JOIN cep c ON (c.cd_cep = u.cd_cep)
-                            JOIN cidade ci ON (ci.cd_cidade = c.cd_cidade)
-                            WHERE u.cd_usuario = {cd} AND u.sg_tipo = 'O' AND ic_ativo = 1;";
-
-            using(MySqlDataReader Data = Consultar(command))
+            List<Parametro> parametros = new List<Parametro>
+            {
+                new Parametro("pcd_usuario", cd),
+                new Parametro("psg_tipo", sg)
+            };
+            using (MySqlDataReader Data = Consultar("PegarUsuario", parametros))
             {
                 if (Data.Read())
                 {
@@ -141,10 +140,12 @@ namespace lar_com_amor.classes
                         UF = Data["sg_estado"].ToString();
                         Cidade = Data["nm_cidade"].ToString();
                         Rua = Data["nm_rua"].ToString();
-                        Cep = Data["cd_cep"].ToString();   
+                        Cep = Data["cd_cep"].ToString();
+                        Mail = Data["nm_email"].ToString();
                         return true;
                     }
-                    catch {
+                    catch
+                    {
                         return false;
                     }
                 }

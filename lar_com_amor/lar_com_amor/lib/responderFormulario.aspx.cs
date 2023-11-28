@@ -1,0 +1,50 @@
+﻿using lar_com_amor.classes;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace lar_com_amor.lib
+{
+    public partial class responderFormulario : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Response.ContentType = "application/json";
+
+            #region Pegando parametros
+            string cd_animal = "";
+            string cd_adotante = "";
+            string dt_pedido = "";
+            int qt = 0;
+            try
+            {
+                cd_animal = Request["cd_animal"].ToString();
+                cd_adotante = Request["cd_adotante"].ToString();
+                dt_pedido = Request["dt_pedido"].ToString();
+                qt = int.Parse(Request["qt"].ToString());
+            }
+            catch
+            {
+                Retorno(false, "Problemas de parametros da requisição!");
+                Response.End();
+            }
+            #endregion
+
+            string command = "";
+            for (int i = 1; i <= qt; i++)
+            {
+
+            }
+        }
+
+        protected void Retorno(bool ok = false, string msg = "Ocorreu um erro")
+        {
+            string message = ok ? Elemento.Success(msg) : Elemento.Error(msg);
+            string retorno = "{\"ok\": " + ok.ToString().ToLower() + ", \"msg\":\"" + message + "\"}";
+            Response.Write(retorno);
+        }
+    }
+}

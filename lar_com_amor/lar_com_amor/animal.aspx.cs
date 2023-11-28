@@ -46,7 +46,6 @@ namespace lar_com_amor.classes
             litEspecie.Text = $"<p>{animal.Especie.Nm}</p>";
             litRaca.Text = $"<p>{animal.Raca.Nm}</p>";
             litPorte.Text = $"<p>{animal.Porte.Nm}</p>";
-            litOrganizacao.Text = Elemento.GerarMiniAnuncioOrg(animal.Organizacao);
             imgAnimal.ImageUrl = $"./img/animal/{animal.Cd}.jpg";
 
             Usuario usuario = new Usuario();

@@ -9,10 +9,11 @@ using System.Web.UI.WebControls;
 
 namespace lar_com_amor
 {
-    public partial class forms1 : System.Web.UI.Page
+    public partial class forms : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario.Login("1", "Miguel", "A");
             Usuario usuario = new Usuario();
             if (!IsPostBack)
             {
@@ -24,127 +25,81 @@ namespace lar_com_amor
                 }
             }
 
-            #region Pegando cd_animal
-            string cd_animal = "";
-            if (String.IsNullOrEmpty(Request["a"])) Response.Redirect("forms.aspx?a=1");
-            cd_animal = Request["a"].ToString();
-            #endregion
+            string a = "";
+            if (String.IsNullOrEmpty(Request["a"])) Response.Redirect("forms.aspx?a=1"); //Response.Redirect("index.aspx");
+            else a = Request["a"].ToString();
 
-            
-
-            string cd_usuario = usuario.Cd;
-
-            Banco banco = new Banco();
-
-            Animal animal = new Animal();
-            bool ic = animal.ByCode(cd_animal);
-            if (!ic) Response.Redirect("index.aspx");
-
-            if (usuario.Sg == "O")
+            if (usuario.IsOrg)
             {
-                if (usuario.Cd != animal.Organizacao.Cd) Response.Redirect("index.aspx");
 
-                // Se houver parâmetro "u" e "dt" na URL, eu quero verificar a resposta do usuário ao formulário
-                if (!String.IsNullOrEmpty(Request["u"]) && !String.IsNullOrEmpty(Request["dt"]))
-                {
-                    CarregarRespostasUsuario(Request["u"].ToString(), Request["dt"].ToString(), cd_animal);
-                }
-                else CarregarFormularioOrganizacao(animal.Organizacao.Cd);
             }
             else
             {
-                #region Pegando perguntas
-                string command = $@"SELECT r.nm_resposta FROM resposta r
-                JOIN pedido p ON (p.cd_animal = r.cd_animal AND p.cd_adotante = r.cd_adotante)
-                WHERE p.cd_animal = {cd_animal} AND p.cd_adotante = {cd_usuario} AND p.ic_finalizado = false";
-                using (MySqlDataReader data = banco.Consultar(command))
+                Banco banco = new Banco();
+                List<Parametro> parametros  = new List<Parametro>
+                { 
+                    new Parametro("pcd_animal", a),
+                    new Parametro("pcd_adotante", usuario.Cd)
+                };
+
+                using(MySqlDataReader Data = banco.Consultar($@"VerificarRespostasUsuario", parametros))
                 {
-                    if (data.HasRows)
+                    if (Data.HasRows)
                     {
-                        litPerguntas.Text = "<p class='textCenter'>Formulário respondido</p>";
-                        return;
+                        litPerguntas.Text = "<p>Seu formulário será analisado! Espere uma resposta em seu email</p>";
                     }
-                    CarregarFormularioUsuario(cd_animal, cd_usuario, animal.Organizacao.Cd);
-                }
-                #endregion
-            }
-        }
-
-        private void CarregarRespostasUsuario(string cd_usuario, string dt_pedido, string cd_animal)
-        {
-            DateTime dataConvertida = DateTime.ParseExact(dt_pedido, "dd/MM/yyyy", System.Globalization.CultureInfo.InvariantCulture);
-            dt_pedido = dataConvertida.ToString("yyyy-MM-dd");
-
-            List<Parametro> parametros = new List<Parametro>
-            {
-                new Parametro("pcd_animal", cd_animal),
-                new Parametro("pcd_adotante", cd_usuario),
-                new Parametro("pdt_pedido", dt_pedido),
-            };
-            Banco banco = new Banco();
-            using (MySqlDataReader Data = banco.Consultar("PegarRespostasUsuario", parametros))
-            {
-                while (Data.Read())
-                {
-                    string cd = Data[0].ToString();
-                    string perg = Data[1].ToString();
-                    string resp = Data[2].ToString();
-                    litPerguntas.Text += Elemento.PerguntaFormularioUser(cd, perg, resp, Disabled: true);
+                    else CarregarForms(a, usuario.Cd);
                 }
             }
         }
 
-        private void CarregarFormularioOrganizacao(string cd_organizacao)
-        {
-            btnSalvar.Visible = true;
-            btnAdicionar.Visible = true;
-
-            List<Parametro> parametros = new List<Parametro>
-            {
-                new Parametro("pcd_organizacao", cd_organizacao)
-            };
-            Banco banco = new Banco();
-            using (MySqlDataReader Data = banco.Consultar("PegarPerguntasOrg", parametros))
-            {
-                int i = 0;
-                while (Data.Read())
-                {
-                    string cd = Data[0].ToString();
-                    string nm = Data[1].ToString();
-                    i++;
-                    litPerguntas.Text += Elemento.PerguntaFormularioOrg(cd, nm);
-                }
-
-                litPerguntas.Text += $@"<script>
-                    const cd_organizacao = {cd_organizacao};
-                    const qt_inps_initial = {i};
-                </script><script src='./script/orgForms.js' defer></script>";
-            }
-        }
-
-        private void CarregarFormularioUsuario(string cd_animal, string cd_usuario, string cd_organizacao)
+        private void CarregarForms(string a, string u)
         {
             btnEnviar.Visible = true;
-            List<Parametro> parametros = new List<Parametro>
-            {
-                new Parametro("pcd_organizacao", cd_organizacao)
-            };
             Banco banco = new Banco();
-            using (MySqlDataReader Data = banco.Consultar("PegarPerguntasOrg", parametros))
+            string dt = "";
+            bool icDt = false;
+            List<Parametro> parametros = new List<Parametro>
+            { new Parametro("pcd_animal", a), new Parametro("pcd_adotante", u) };
+            using (MySqlDataReader Data = banco.Consultar($"SELECT dt_pedido FROM pedido WHERE cd_adotante = {u} AND cd_animal = {a} AND ic_permitido IS NULL AND ic_finalizado IS NULL"))
             {
-                while (Data.Read())
+                if(Data.Read())
                 {
-                    string cd = Data[0].ToString();
-                    string nm = Data[1].ToString();
-                    litPerguntas.Text += Elemento.PerguntaFormularioUser(cd, nm, "");
+                    dt = Data["dt_pedido"].ToString().Split(' ')[0];
+                    icDt = true;
                 }
-                litPerguntas.Text += $@"<script>
-                    const cd_usuario = {cd_usuario};
-                    const cd_animal = {cd_animal};
-                    const cd_organizacao = {cd_organizacao};
-                </script><script src='./script/userForms.js' defer></script>";
+                else
+                {
+                    using(MySqlDataReader Data2 = banco.Consultar("novopedido", parametros))
+                    {
+                        if(Data2.Read()) dt = Data2[0].ToString().Split(' ')[0];
+                        else
+                        {
+                            litMsg.Text = Elemento.Error("Ocorreu um erro ao tentar fazer requisição!");
+                            return;
+                        }
+                    }
+                }
             }
 
+            parametros = new List<Parametro>
+            { new Parametro("pcd_animal", a) };
+            using (MySqlDataReader Data = banco.Consultar("PegarPerguntasByAnimal", parametros))
+            {
+                if (!Data.HasRows)
+                {
+                    litPerguntas.Text = "<p class='textCenter'>Formulário não tem perguntas</p>";
+                    return;
+                }
+
+                while (Data.Read()) litPerguntas.Text += Elemento.PerguntaFormularioUser(Data["cd_pergunta"].ToString(), Data["nm_pergunta"].ToString(), "");
+            }
+            litPerguntas.Text += $@"<script>
+                const cd_animal = {a};    
+                const cd_adotante = {u};    
+                const dt_pedido = {dt};   
+            </script>
+            <script src='./script/forms-user.js'></script>";
         }
     }
 }

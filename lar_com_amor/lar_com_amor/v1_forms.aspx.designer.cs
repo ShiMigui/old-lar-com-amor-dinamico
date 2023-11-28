@@ -11,7 +11,7 @@ namespace lar_com_amor
 {
 
 
-    public partial class forms
+    public partial class forms1
     {
 
         /// <summary>
@@ -40,6 +40,24 @@ namespace lar_com_amor
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litPerguntas;
+
+        /// <summary>
+        /// Controle btnAdicionar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdicionar;
+
+        /// <summary>
+        /// Controle btnSalvar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSalvar;
 
         /// <summary>
         /// Controle btnEnviar.

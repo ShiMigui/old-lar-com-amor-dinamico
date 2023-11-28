@@ -11,7 +11,7 @@ namespace lar_com_amor.lib
 {
 
 
-    public partial class userForms
+    public partial class responderFormulario
     {
     }
 }

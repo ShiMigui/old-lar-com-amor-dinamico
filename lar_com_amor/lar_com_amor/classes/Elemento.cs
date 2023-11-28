@@ -56,7 +56,7 @@ namespace lar_com_amor.classes
         {
             string link = $"./img/usuario/{cd}.jpg";
             if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
-            else if (letterIfNotExists) return $"<div class='organizacaoPhoto font-3em'>{nm[0]}</div>";
+            else if (letterIfNotExists) return $"<div class='organizacaoPhoto font-3em'>{Usuario.GetInitials(nm)}</div>";
             else return "";
         }
 
@@ -83,17 +83,12 @@ namespace lar_com_amor.classes
             return retorno;
         }
 
-        public static string GerarMiniAnuncioOrg(Usuario Organizacao)
+        public static string GerarMiniAnuncioOrg(Usuario Org)
         {
-            return $@"<a href='./organizacao.aspx?cd={Organizacao.Cd}' cd='{Organizacao.Cd}' class='organizacaoAnuncio miniAnuncio'>
-                        <div class='images'>
-                            {FotoAnuncioOrganizacao(Organizacao.Cd, Organizacao.Nm)}
-                        </div>
-                        <div class='texts'>
-                            <h4>{Organizacao.Nm}</h4>
-                            <p class='link textEnd'>ver mais</p>
-                        </div>
-                    </a>";
+            return $@"<a href='organizacao.aspx?cd={Org.Cd}' class='flex justBetween alignCenter'>
+                <h4>{Org.Nm}</h4>
+                {FotoAnuncioOrganizacao(Org.Cd, Org.Nm)}
+            </a>";
         }
 
         public static void InsertDDLValues(DropDownList ddl, List<Parametro> parametros)

@@ -60,15 +60,6 @@ namespace lar_com_amor
         protected global::System.Web.UI.WebControls.Panel pnlPerfil;
 
         /// <summary>
-        /// Controle inpNome.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inpNome;
-
-        /// <summary>
         /// Controle litNome.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace lar_com_amor
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litNome;
-
-        /// <summary>
-        /// Controle inpTelefone.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inpTelefone;
 
         /// <summary>
         /// Controle litTelefone.
@@ -96,13 +78,13 @@ namespace lar_com_amor
         protected global::System.Web.UI.WebControls.Literal litTelefone;
 
         /// <summary>
-        /// Controle inpDescricao.
+        /// Controle litEmail.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inpDescricao;
+        protected global::System.Web.UI.WebControls.Literal litEmail;
 
         /// <summary>
         /// Controle litDescricao.
@@ -112,15 +94,6 @@ namespace lar_com_amor
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litDescricao;
-
-        /// <summary>
-        /// Controle inpCep.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inpCep;
 
         /// <summary>
         /// Controle litCep.
@@ -159,42 +132,6 @@ namespace lar_com_amor
         protected global::System.Web.UI.WebControls.Literal litUf;
 
         /// <summary>
-        /// Controle buttons.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel buttons;
-
-        /// <summary>
-        /// Controle btnSalvar.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSalvar;
-
-        /// <summary>
-        /// Controle pnlForms.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlForms;
-
-        /// <summary>
-        /// Controle litForms.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litForms;
-
-        /// <summary>
         /// Controle pnlAnimais.
         /// </summary>
         /// <remarks>
@@ -229,14 +166,5 @@ namespace lar_com_amor
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litEventos;
-
-        /// <summary>
-        /// Controle litMsg.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litMsg;
     }
 }

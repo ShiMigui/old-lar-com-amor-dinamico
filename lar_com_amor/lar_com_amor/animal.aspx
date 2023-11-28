@@ -45,7 +45,6 @@
             <article class="content-box flex" id="anuncio-panel">
                 <section id="left-panel">
                     <asp:Image ID="imgAnimal" runat="server" CssClass="animalPhoto" />
-                    <asp:Literal runat="server" ID="litOrganizacao"></asp:Literal>
                 </section>
                 <section id="right-panel" class="form">
                     <div class="grid2">

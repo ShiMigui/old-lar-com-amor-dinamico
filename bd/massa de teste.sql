@@ -304,6 +304,5 @@ INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotan
 ('2023-06-02', false, false, 6, 17),
 ('2023-09-08', null, null, 20, 18 );
 -- ('2023-07-08',  );
-
-
-
+call NovaRespostaByAnimal(1, 1, '2023-11-28', "TESTE", 1);
+select * from resposta;

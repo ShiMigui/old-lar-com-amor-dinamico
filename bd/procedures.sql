@@ -203,23 +203,20 @@ BEGIN
 END;
 $
 
-
-DROP PROCEDURE IF EXISTS NovoPedido$
-CREATE PROCEDURE NovoPedido(pcd_animal INT, pcd_adotante INT)
-BEGIN
-	DECLARE now_date DATE;
-    SET now_date = CURDATE();
-
-    INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) 
-    VALUES (now_date, FALSE, FALSE, pcd_animal, pcd_adotante);
-    SELECT now_date;
-END;
-$
-
 DROP PROCEDURE IF EXISTS PegarPerguntasOrg$
 CREATE PROCEDURE PegarPerguntasOrg(pcd_organizacao INT)
 BEGIN
 	SELECT cd_pergunta, nm_pergunta FROM pergunta where cd_organizacao = pcd_organizacao;
+END;
+$
+
+DROP PROCEDURE IF EXISTS PegarPerguntasByAnimal$
+CREATE PROCEDURE PegarPerguntasByAnimal(pcd_animal INT)
+BEGIN
+	SELECT p.cd_pergunta, p.nm_pergunta 
+	FROM animal a
+	JOIN usuario o ON o.cd_usuario = a.cd_organizacao
+	JOIN pergunta p where a.cd_animal = pcd_animal;
 END;
 $
 
@@ -229,6 +226,26 @@ BEGIN
 	SELECT p.cd_pergunta, p.nm_pergunta, r.nm_resposta FROM pergunta p 
 	JOIN resposta r ON r.cd_pergunta = p.cd_pergunta
 	WHERE r.cd_adotante = pcd_adotante AND r.cd_animal = pcd_animal AND r.dt_pedido = pdt_pedido;
+END;
+$
+
+DROP PROCEDURE IF EXISTS VerificarRespostasUsuario$
+CREATE PROCEDURE VerificarRespostasUsuario(pcd_animal INT, pcd_adotante INT)
+BEGIN
+	SELECT r.nm_resposta FROM pedido p 
+	JOIN resposta r ON r.cd_adotante = p.cd_adotante AND r.cd_animal = p.cd_animal AND r.dt_pedido = p.dt_pedido
+	WHERE p.cd_adotante = pcd_adotante AND p.cd_animal = pcd_animal AND p.ic_finalizado IS NULL AND p.ic_permitido IS NULL;
+END$
+
+DROP PROCEDURE IF EXISTS NovoPedido$
+CREATE PROCEDURE NovoPedido(pcd_animal INT, pcd_adotante INT)
+BEGIN
+	DECLARE now_date DATE;
+    SET now_date = CURDATE();
+
+    INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) 
+    VALUES (now_date, NULL, NULL, pcd_animal, pcd_adotante);
+    SELECT now_date;
 END;
 $
 
@@ -286,5 +303,24 @@ BEGIN
     INNER JOIN animal a ON p.cd_animal = a.cd_animal
 	WHERE p.ic_finalizado IS NOT NULL AND a.cd_organizacao = pcd_organizacao
     LIMIT 5 OFFSET poffset;
+END$
+
+DROP PROCEDURE IF EXISTS PegarUsuario$
+CREATE PROCEDURE PegarUsuario(pcd_usuario INT, psg_tipo VARCHAR(1))
+BEGIN
+	SELECT u.nm_usuario, u.nm_email, u.nm_telefone, u.ds_usuario, c.nm_rua, ci.nm_cidade, ci.sg_estado, u.cd_cep
+	FROM usuario u 
+	JOIN cep c ON (c.cd_cep = u.cd_cep)
+	JOIN cidade ci ON (ci.cd_cidade = c.cd_cidade)
+	WHERE u.cd_usuario = pcd_usuario AND u.sg_tipo = psg_tipo AND ic_ativo = 1;
+END$
+
+DROP PROCEDURE IF EXISTS NovaRespostaByAnimal$
+CREATE PROCEDURE NovaRespostaByAnimal(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE, pnm_resposta TEXT, pcd_pergunta INT)
+BEGIN 
+	DECLARE pcd_organizacao INT;
+	SET pcd_organizacao = (SELECT cd_organizacao FROM animal WHERE cd_animal = pcd_animal);
+	INSERT INTO resposta (nm_resposta, cd_pergunta, cd_organizacao, cd_animal, cd_adotante, dt_pedido) VALUES 
+	(pnm_resposta, pcd_pergunta, pcd_organizacao, pcd_animal, pcd_adotante, pdt_pedido);
 END$
 DELIMITER ;
