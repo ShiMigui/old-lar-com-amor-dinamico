@@ -14,7 +14,7 @@ namespace lar_com_amor.classes
             if(condicoes!=null) if (condicoes.Count > 0) command += " AND " + string.Join(" AND ", condicoes);
             return Consultar($"{command} GROUP BY {groupBy} LIMIT {limit} OFFSET {offset}");
         }
-        public List<string> GetAnimais(string txt = "", string org = "", string especie = "", string raca = "", string genero = "", string porte = "", string offset = "0", string limit = "6", bool naoAdotado = false)
+        public List<string> GetAnimais(string txt = "", string org = "", string especie = "", string raca = "", string genero = "", string porte = "", string offset = "0", string limit = "6", bool naoAdotado = true)
         {
             List<string> anuncios = new List<string>();
             string command = $@"SELECT a.cd_animal, a.nm_animal, a.dt_nascimento FROM animal a
@@ -27,7 +27,7 @@ namespace lar_com_amor.classes
                 WHERE (a.nm_animal LIKE '%{txt}%' OR e.nm_especie LIKE '%{txt}%' OR r.nm_raca LIKE '%{txt}%' OR po.nm_porte LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%')";
 
             List<string> condicoes = new List<string>();
-            if (naoAdotado) condicoes.Add("(p.ic_finalizado IS NULL OR p.ic_finalizado = false)");
+            if (naoAdotado) condicoes.Add("(p.ic_permitido IS NULL OR p.ic_permitido = false)");
             if (!String.IsNullOrEmpty(org)) condicoes.Add($"(a.cd_organizacao = {org})");
             if (!String.IsNullOrEmpty(especie)) condicoes.Add($"(e.cd_especie = {especie})");
             if (!String.IsNullOrEmpty(raca)) condicoes.Add($"(r.cd_raca = {raca})");

@@ -24,6 +24,12 @@ namespace lar_com_amor.classes
         public bool IsOrg = false;
 
         private string _LastPage;
+
+        internal MySqlDataReader GetDashboardData(string cd)
+        {
+            return Consultar("GetDashboardData", new List<Parametro> { new Parametro("pcd_organizacao", cd) });
+        }
+
         public string LastPage
         {
             get { return _LastPage; }
@@ -90,9 +96,14 @@ namespace lar_com_amor.classes
                 return;
             }
             string initials = GetInitials(Nm);
+            string options = "";
+            if (IsOrg) options = $"<a href='organizacao.aspx'>Perfil público</a>";
+
             lit.Text = $"<a href='./perfil.aspx' id='account' class='flex alignCenter'>{initials}{Elemento.FotoAnuncioOrganizacao(Cd, Nm, false)}</a>";
             lit.Text += $@"<img id='arrow-down' src='./img/icons/arrow-down.png' alt='ícone de seta para baixo'>
             <div id='opts-header' class='flexColumn hidden'>
+                <a href='perfil.aspx'>Perfil</a>
+                {options}
                 <p class='pointer' id='sair-login'>Sair</p>
             </div>";
 

@@ -231,5 +231,17 @@ BEGIN
 	WHERE r.cd_adotante = pcd_adotante AND r.cd_animal = pcd_animal AND r.dt_pedido = pdt_pedido;
 END;
 $
+
+DROP PROCEDURE IF EXISTS GetDashboardData$
+CREATE PROCEDURE GetDashboardData(pcd_organizacao INT)
+BEGIN
+    SELECT 
+        (SELECT COUNT(*) FROM animal WHERE cd_organizacao = pcd_organizacao) AS total_animais,
+        (SELECT COUNT(*) FROM pedido WHERE cd_adotante IS NOT NULL AND cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS animais_adotados,
+        (SELECT COUNT(*) FROM pedido WHERE ic_permitido IS NULL AND cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_pendentes,
+        (SELECT COUNT(*) FROM pedido WHERE ic_permitido = TRUE AND ic_finalizado IS NULL AND cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_permitidos,
+        (SELECT COUNT(*) FROM pedido WHERE ic_finalizado = TRUE AND cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_finalizados;    
+END$
 DELIMITER ;
-/*call PegarRespostasUsuario(1, 13, '2023-11-27');*/
+
+CALL GetDashboardData(1);

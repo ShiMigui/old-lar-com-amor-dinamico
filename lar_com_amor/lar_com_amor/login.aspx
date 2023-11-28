@@ -15,24 +15,30 @@
     <form id="form1" runat="server">
         <main class="grid2 forms alignCenter">
             <div class="flex justCenter">
-                <a href="./index.aspx"><img src="./img/icons/logo.png" alt="ícone logotipo"/></a>
+                <a href="./index.aspx">
+                    <img src="./img/icons/logo.png" alt="ícone logotipo" /></a>
             </div>
-            <section class="form justCenter">
-                <div class="itemForm">
-                    <label for="inpLogin">Email ou CNPJ</label>
-                    <asp:TextBox runat="server" ID="inpLogin" Text="" required=""></asp:TextBox>
-                </div>
+            <section class="form justCenter alignCenter">
+                <section class="limiter-600 flexColumn full-width">
+                    <div class="itemForm">
+                        <label for="inpLogin">Email ou CNPJ</label>
+                        <asp:TextBox runat="server" ID="inpLogin" Text="" required=""></asp:TextBox>
+                    </div>
 
-                <div class="itemForm">
-                    <label for="inpSenha">Senha</label>
-                    <asp:TextBox runat="server" ID="inpSenha" Text="" TextMode="Password" required=""></asp:TextBox>
-                </div>
+                    <div class="itemForm">
+                        <label for="inpSenha">Senha</label>
+                        <asp:TextBox runat="server" ID="inpSenha" Text="" TextMode="Password" required=""></asp:TextBox>
+                    </div>
 
-                <div class="flexColumn alignEnd">
-                    <asp:Button runat="server" ID="btnLogin" Text="Entrar" OnClick="btnLogin_Click"/>
-                    <a href="./cadastro.aspx">Cadastre-se</a>
-                    <a href="./esqueci-senha.aspx">esqueci a senha</a>
-                </div>
+                    <div class="flexColumn alignEnd">
+                        <asp:Button runat="server" ID="btnLogin" Text="Entrar" OnClick="btnLogin_Click" />
+                    </div>
+                    <div class="flexColumn alignCenter">
+                        <a href="./cadastro.aspx">Cadastre-se</a>
+                        <a href="./esqueci-senha.aspx">esqueci a senha</a>
+                    </div>
+                </section>
+
             </section>
         </main>
 

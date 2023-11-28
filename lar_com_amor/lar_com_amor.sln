@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lar_com_amor", "lar_com_amor\lar_com_amor.csproj", "{80B02AD1-07EA-4066-999C-D2B8226A7248}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lar_com_amor", "lar_com_amor\lar_com_amor.csproj", "{5F046107-186D-4920-BAD9-431E8FCDC17B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{80B02AD1-07EA-4066-999C-D2B8226A7248}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80B02AD1-07EA-4066-999C-D2B8226A7248}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80B02AD1-07EA-4066-999C-D2B8226A7248}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80B02AD1-07EA-4066-999C-D2B8226A7248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F046107-186D-4920-BAD9-431E8FCDC17B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F046107-186D-4920-BAD9-431E8FCDC17B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F046107-186D-4920-BAD9-431E8FCDC17B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F046107-186D-4920-BAD9-431E8FCDC17B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {47B53612-BCBD-4C4E-B007-369EBA5A59A1}
+		SolutionGuid = {89F4B105-BD52-4F78-85D6-13747639C4E8}
 	EndGlobalSection
 EndGlobal

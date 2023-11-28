@@ -17,8 +17,17 @@ namespace lar_com_amor
             Usuario usuario = new Usuario();
 
             string cd = "";
+
+            if (!IsPostBack)
+            {
+                usuario.HeaderContent(litHeader);
+                if (String.IsNullOrEmpty(Request["cd"])) Response.Redirect($"organizacao.aspx?cd={usuario.Cd}");
+            }
+
             if (String.IsNullOrEmpty(Request["cd"])) Response.Redirect("index.aspx");
             else cd = Request["cd"].ToString();
+
+
 
             Usuario organizacao = new Usuario();
             bool ic = organizacao.ByCode(cd);
@@ -38,14 +47,12 @@ namespace lar_com_amor
 
             if (!IsPostBack)
             {
-                usuario.HeaderContent(litHeader);
-
-                List<Parametro> Tabs = new List<Parametro> {
+                List<Parametro> Tabs = new List<Parametro> 
+                {
                     new Parametro("Perfil", "perfil"),
                     new Parametro("Animais", "animais"),
                     new Parametro("Eventos", "eventos"),
-
-                   };
+                };
 
                 if (usuario.Cd == organizacao.Cd) Tabs.Add(new Parametro("Formulário", "forms"));
                 litTabs.Text = Elemento.tabList(Tabs, $"organizacao.aspx?cd={cd}&&");
@@ -79,7 +86,7 @@ namespace lar_com_amor
                         litForms.Text = $"<table><tr><th>Adotante</th><th>Formulário</th><th>Situação</th></tr>{content}</table>";
                     }
                 }
-                else if(tab == "animais")
+                else if (tab == "animais")
                 {
                     pnlAnimais.Visible = true;
                     Anuncios anuncios = new Anuncios();
@@ -104,7 +111,7 @@ namespace lar_com_amor
             litTelefone.Visible = true;
 
             litNome.Text = $"<p>{organizacao.Nm}</p>";
-            if(String.IsNullOrEmpty(organizacao.Ds)) litDescricao.Text = $"<p>Não há uma descrição até o momento :(</p>";
+            if (String.IsNullOrEmpty(organizacao.Ds)) litDescricao.Text = $"<p>Não há uma descrição até o momento :(</p>";
             else litDescricao.Text = $"<p>{organizacao.Ds}</p>";
             litCep.Text = $"<p>{Credenciais.Formatar(organizacao.Cep, "XX.XXX-XXX")}</p>";
             litTelefone.Text = $"<p>{organizacao.Telefone}</p>";
@@ -127,7 +134,7 @@ namespace lar_com_amor
 
         protected void btnSalvar_Click(object sender, EventArgs e)
         {
-            if(inpNome.Text == "")
+            if (inpNome.Text == "")
             {
                 litMsg.Text = Elemento.Error("Preencha o campo de nome!");
                 inpNome.Focus();
