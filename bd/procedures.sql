@@ -242,6 +242,27 @@ BEGIN
         (SELECT COUNT(*) FROM pedido WHERE ic_permitido = TRUE AND ic_finalizado IS NULL AND cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_permitidos,
         (SELECT COUNT(*) FROM pedido WHERE ic_finalizado = TRUE AND cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_finalizados;    
 END$
-DELIMITER ;
 
-CALL GetDashboardData(1);
+DROP PROCEDURE IF EXISTS TabPedidosPendentes$
+CREATE PROCEDURE TabPedidosPendentes(pcd_organizacao INT, poffset INT)
+BEGIN
+    SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido
+    FROM pedido p
+    INNER JOIN usuario u ON p.cd_adotante = u.cd_usuario
+    INNER JOIN animal a ON p.cd_animal = a.cd_animal
+    WHERE p.ic_permitido IS NULL AND a.cd_organizacao = pcd_organizacao
+    LIMIT 5 OFFSET poffset;
+END$
+
+DROP PROCEDURE IF EXISTS TabPedidosAceitos$
+CREATE PROCEDURE TabPedidosAceitos(pcd_organizacao INT, poffset INT)
+BEGIN
+    SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido
+    FROM pedido p
+    INNER JOIN usuario u ON p.cd_adotante = u.cd_usuario
+    INNER JOIN animal a ON p.cd_animal = a.cd_animal
+    WHERE p.ic_permitido = TRUE
+    AND p.ic_finalizado IS NULL AND p.ic_permitido = true AND a.cd_organizacao = pcd_organizacao
+    LIMIT 5 OFFSET poffset;
+END$
+DELIMITER ;

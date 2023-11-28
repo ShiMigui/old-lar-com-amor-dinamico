@@ -76,75 +76,12 @@
                         <h1>Pedidos</h1>
                         <div class="info">
                             <h2>Pendentes</h2>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Adotante</th>
-                                        <th>Animal</th>
-                                        <th>Formulário</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Miguel</td>
-                                        <td><a href="animal.aspx">Bia</a></td>
-                                        <td><a href="forms.aspx">Clique aqui</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nataly</td>
-                                        <td><a href="animal.aspx">Bia</a></td>
-                                        <td><a href="forms.aspx">Clique aqui</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Miguel</td>
-                                        <td><a href="animal.aspx">Bia</a></td>
-                                        <td><a href="forms.aspx">Clique aqui</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <asp:Literal Text="" ID="litTblPendentes" runat="server"></asp:Literal>
                         </div>
 
                         <div class="info">
                             <h2>Aceitos</h2>
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Adotante</th>
-                                        <th>Animal</th>
-                                        <th>Formulário</th>
-                                        <th>Confirmar adoção</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Miguel</td>
-                                        <td><a href="animal.aspx">Bia</a></td>
-                                        <td><a href="forms.aspx">Clique aqui</a></td>
-                                        <td>
-                                            <img src="./img/icons/confirm.png" alt="ícone de confirmara adoção" class="icon-accept-order">
-                                            <img src="./img/icons/close.png" alt="ícone de confirmara adoção" class="icon-refuse-order">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Nataly</td>
-                                        <td><a href="animal.aspx">Bia</a></td>
-                                        <td><a href="forms.aspx">Clique aqui</a></td>
-                                        <td>
-                                            <img src="./img/icons/confirm.png" alt="ícone de confirmara adoção" class="icon-accept-order">
-                                            <img src="./img/icons/close.png" alt="ícone de confirmara adoção" class="icon-refuse-order">
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Miguel</td>
-                                        <td><a href="animal.aspx">Bia</a></td>
-                                        <td><a href="forms.aspx">Clique aqui</a></td>
-                                        <td>
-                                            <img src="./img/icons/confirm.png" alt="ícone de confirmara adoção" class="icon-accept-order">
-                                            <img src="./img/icons/close.png" alt="ícone de confirmara adoção" class="icon-refuse-order">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <asp:Literal Text="" ID="litTblAceitos" runat="server"></asp:Literal>
                         </div>
                     </div>
 

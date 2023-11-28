@@ -20,7 +20,8 @@ namespace lar_com_amor.build
                 usuario.HeaderContent(litHeader);
                 if (!usuario.Logado || !usuario.IsOrg) Response.Redirect("index.aspx");
 
-                using(MySqlDataReader Data = usuario.GetDashboardData(usuario.Cd))
+                #region Carregando informações
+                using (MySqlDataReader Data = usuario.GetDashboardData(usuario.Cd))
                 {
                     if (Data.Read())
                     {
@@ -31,7 +32,73 @@ namespace lar_com_amor.build
                         litPedidosFinalizados.Text = Data["pedidos_finalizados"].ToString();
                     }
                 }
+                #endregion
 
+                #region Preparando variáveis
+                List<Parametro> parametros = new List<Parametro>
+                {
+                    new Parametro("pcd_organizacao", usuario.Cd),
+                    new Parametro("poffset", "0")
+                };
+                Banco banco = new Banco();
+
+                List<string> header = new List<string> {"Adotante", "Animal", "Formulário"};
+                #endregion
+
+                #region Tabela adoção pendente
+                using (MySqlDataReader Data = banco.Consultar("TabPedidosPendentes", parametros))
+                {
+                    if (Data.HasRows)
+                    {
+                        List<List<string>> content = new List<List<string>>();
+                        while (Data.Read())
+                        {
+                            string nm_ad = Data["nm_adotante"].ToString();
+                            string cd_ad = Data["cd_adotante"].ToString();
+                            string nm_an = Data["nm_animal"].ToString();
+                            string cd_an = Data["cd_animal"].ToString();
+                            string dt = Data["dt_pedido"].ToString().Split(' ')[0];
+                            content.Add(new List<string>
+                            {
+                                nm_ad,
+                                $"<a href='animal.aspx?cd={cd_an}'>{nm_an}</a>",
+                                $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}'>"
+                            });
+                        }
+
+                        litTblPendentes.Text = Elemento.GenerateTable(header, content, "Não há pedidos pendentes");
+                    }
+                    else litTblPendentes.Text = "<p class='textCenter'>Não há pedidos de adoção pendentes</p>";
+                }
+                #endregion
+
+                #region Tabela adoção aceita
+                header.Add("Confirmar adoção");
+                /*using (MySqlDataReader Data = banco.Consultar("TabPedidosPendentes", parametros))
+                {
+                    if (Data.HasRows)
+                    {
+                        List<List<string>> content = new List<List<string>>();
+                        while (Data.Read())
+                        {
+                            string nm_ad = Data["nm_adotante"].ToString();
+                            string cd_ad = Data["cd_adotante"].ToString();
+                            string nm_an = Data["nm_animal"].ToString();
+                            string cd_an = Data["cd_animal"].ToString();
+                            string dt = Data["dt_pedido"].ToString().Split(' ')[0];
+                            content.Add(new List<string>
+                            {
+                                nm_ad,
+                                $"<a href='animal.aspx?cd={cd_an}'>{nm_an}</a>",
+                                $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}'>"
+                            });
+                        }
+
+                        litTblPendentes.Text = Elemento.GenerateTable(header, content, "Não há pedidos pendentes");
+                    }
+                    else litTblPendentes.Text = "<p class='textCenter'>Não há pedidos de adoção pendentes</p>";
+                }*/
+                #endregion
             }
         }
     }
