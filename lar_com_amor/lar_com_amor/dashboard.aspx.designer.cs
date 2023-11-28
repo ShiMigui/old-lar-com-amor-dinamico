@@ -33,6 +33,24 @@ namespace lar_com_amor.build
         protected global::System.Web.UI.WebControls.Literal litHeader;
 
         /// <summary>
+        /// Controle litTabs.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTabs;
+
+        /// <summary>
+        /// Controle pnlInfos.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlInfos;
+
+        /// <summary>
         /// Controle litTtalAnimais.
         /// </summary>
         /// <remarks>
@@ -94,5 +112,23 @@ namespace lar_com_amor.build
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal litTblAceitos;
+
+        /// <summary>
+        /// Controle pnlHistory.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlHistory;
+
+        /// <summary>
+        /// Controle litTblHistory.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litTblHistory;
     }
 }

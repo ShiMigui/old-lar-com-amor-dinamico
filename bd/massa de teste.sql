@@ -57,8 +57,13 @@ CALL NovoUsuario('Morada da Floresta', 'Morada@gmail.com', '13988616269', 117210
 CALL NovoUsuario('Joana Silva', 'joana@email.com', '13991027686', 11350240, '', '1234', 'A', '');
 CALL NovoUsuario('João da Silva', 'joao@gmail.com', '31987654321', 30111000, '', '54321', 'A', '');
 CALL NovoUsuario('Lívia Santos', 'livia.santos@gmail.com', '13987654321', 11015130, '', '262626', 'A', '');
+CALL NovoUsuario('Amélia Moura', 'moura.amelia@gmail.com', '13996654788', 38410150, '', '333','A', '' );
+CALL NovoUsuario('José Augusto', 'zezinho@gmail.com', '2455667890', 27253510, '', '245', 'A', '' );
+CALL NovoUsuario('Pedro Ferreira', 'ferreirapedro@gmail.com', '1144556739', 11721030, '', '0606', 'A', '' );
 
-INSERT INTO tipo_evento (cd_tipo, nm_tipo) VALUES (1, 'Vacinação'),
+
+INSERT INTO tipo_evento (cd_tipo, nm_tipo) VALUES 
+(1, 'Vacinação'),
 (2, 'Banho e Tosa'),
 (3, 'Adoção');
 
@@ -69,7 +74,23 @@ INSERT INTO evento (cd_evento, nm_evento, ds_evento, dt_inicio, dt_final, cd_org
 (5, 'Ração traz doação', ' Estamos reunindo amantes de animais e membros da comunidade para compartilhar a alegria de alimentar aqueles que não têm voz. Neste evento, você terá a oportunidade de incluir pacotes de ração nutritiva para cães e gatos, contribuindo assim para garantir que todos os animais tenham acesso a uma refeição saudável.', '2024-06-07 10:00', '2024-06-07 18:00', 2, 2),
 (6, 'Achar fofo não enche tigela', ' Neste dia, estaremos coletando e distribuindo sacos de ração nutritiva para cães e gatos que estão em abrigos e lares temporários. Sua contribuição fará toda a diferença na vida desses animais adoráveis, garantindo que eles recebam a nutrição adequada enquanto aguardam por um lar permanente.', '2024-04-09 10:00', '2024-04-09 18:00', 2, 2),
 (7, 'Coloque amor e comida nesta tigela', ' Neste evento significativo, estamos reunindo corações compassivos para apoiar nossos amigos de quatro patas que precisam de um pouco mais de ajuda.', '2023-07-16 10:00', '2024-07-16 18:00', 2, 2),
-(8, 'Adote um bichinho', 'Um evento caloroso para adoção de animais em busca de lares amorosos.', '2024-09-23 10:00:00', '2024-09-23 17:00:00', 2, 1);
+(8, 'Adote um bichinho', 'Um evento caloroso para adoção de animais em busca de lares amorosos.', '2024-09-23 10:00:00', '2024-09-23 17:00:00', 2, 1),
+(9, 'Semana Animal', 'O evento, que também celebra o Dia Mundial dos Animais (04 de outubro), o Dia Mundial Contra a Raiva (28 de setembro) e o Dia Internacional do Morcego (1º de outubro), tem o objetivo de conscientizar a população sobre a guarda responsável e oferecer uma série de serviços gratuitos para os pets dos munícipes da cidade de São Paulo, como vacinação antirrábica, castração, emissão do Registro Geral do Animal (RGA) e implantação de microchip.', '2024-09-28 09:00', '2024-10-04 17:00', 6, 1),
+(10, 'Campanha de vacinação', 'No sábado, 17 de agosto, das 9h às 16h, acontece o Dia D e última data da Campanha de Vacinação Antirrábica para cães e gatos. A Divisão de Vigilância em Saúde da Prefeitura de Cajati orienta que os bichinhos com idade acima de quatro meses, inclusive fêmeas gestantes, em fase de amamentação ou período de cio sejam levados para tomar a vacina. Para facilitar a aplicação da vacina, a recomendação é utilizar a coleira para os cães e, para os de porte maior, também a focinheira. Para os gatos, a orientação é levá-los nas caixas de transporte. Os responsáveis que tiverem a carteirinha de vacinação do pet, podem levar para o registro da imunização.', '2024-08-17 09:00', '2024-08-17 16:00', 3, 1),
+(11, 'Dia D', 'A Prefeitura de São Pedro da Aldeia vai promover mais um mutirão de vacinação antirrábica. O evento será dia (30/09), das 9h às 16h, em 15 pontos distribuídos pela cidade. As doses da vacina contra a raiva animal serão destinadas a cães e gatos.Para vacinar e proteger o seu pet, os donos devem ficar atentos a alguns requisitos. O principal é levar a carteirinha de vacinação animal para ser atualizada com o lote e a validade da vacina.', '2024-09-30 09:00:00', '2024-09-30 16:00:00', 1, 1),
+(12, 'Campanha de vacinação', 'Durante a campanha, o Serviço de Vigilância Epidemiológica será um ponto fixo de vacinação de cães e gatos e funcionará de segunda a sexta-feira, das 8h às 12h e das 14h às 17h e aos sábados, das 7h às 17h. O endereço é Marginal Maria Chica, 1.306. É necessário levar a carteirinha de vacinação do animal. A vacinação seguirá aos sábados, nos dias 19 e 26 de agostos, em locais espalhados por toda a cidade.', '2024-08-19 08:00', '2024-08-26 17:00', 8, 1),
+(13, 'Adotar é o bicho', 'Com o objetivo de estimular a Educação Ambiental, durante o evento gatos e cachorros, cuidados pelo Centro de Controle de Zoonoses, estarão disponíveis para adoção. Os profissionais da Semam vão orientar a população sobre cuidados com os animais, com informações sobre vacinação, castração, comportamento, vermifugação, entre outras.', '2024-01-07 15:00', '2024-01-07 19:00', 8, 3),
+(14, 'Evento de adoção de animais', 'Os interessados em adotar poderão comparecer no local portando documento oficial com foto e comprovante de residência. Após a escolha do pet, o adotante irá participar de uma entrevista de análise de perfil e em seguida assinar o termo de adoção responsável.', '2024-11-28 13:00', '2024-11-28 17:00', 9, 3),
+(15, 'Adote um amigo', 'Venha se juntar a nós no evento "Adote um Amigo", onde o amor encontra um lar! No dia 15 de dezembro, das 10h às 16h, o parque central da cidade estará repleto de patinhas e afeto. Traga sua família e descubra uma variedade de amigos peludos aguardando por um lar amoroso. Este evento é uma oportunidade única de encontrar seu companheiro perfeito. Localizado no Parque Central, na rua principal, este é um convite para unir corações e criar laços duradouros. Venha fazer parte desta jornada de amor e adoção!', '2024-12-15 10:00', '2024-12-15 16:00', 5, 3),
+(16, 'Sr Day', 'O SR Day está chegando para espalhar amor e encontrar lares para os nossos amigos de quatro patas! Junte-se a nós no dia 15 de dezembro, das 10h às 15h, no Parque da Cidade, onde uma variedade de animais adoráveis aguardam ansiosamente por um lar amoroso. Este evento de adoção oferece uma oportunidade única para conhecer e adotar cães e gatos afetuosos, todos prontos para encher seus corações de alegria. Venha fazer parte deste dia especial e descubra seu mais novo companheiro peludo!', '2024-12-15 10:00', '2024-12-15 15:00', 4, 3),
+(17, 'Castração em massa', 'Junte-se a nós no evento "Castração em Massa" para uma jornada de amor pelos nossos amigos de quatro patas!no Parque dos Animais Felizes estaremos promovendo uma megaadoção de gatos e cães resgatados, além de oferecermos serviços de castração gratuitos para ajudar a controlar a população animal e promover cuidados responsáveis. Venha conhecer essas adoráveis criaturas e talvez até encontrar seu novo companheiro de patas!', '2024-12-15 9:00', '2024-12-15 14:00', 6, 3),
+(18, 'Campanha de Vacinação', 'Junte-se a nós no evento "Vacinação em Massa" de adoção de animais! Este evento emocionante acontecerá no próximo sábado, dia 15 de dezembro, das 10h às 15h, no Parque Central da cidade. Prepare-se para encontrar uma variedade de adoráveis ​​amigos peludos ansiosos por encontrar um lar amoroso. Além de oferecer uma oportunidade única de adotar um novo membro da família, estaremos fornecendo vacinações gratuitas para todos os animais adotados neste dia. Venha fazer parte deste momento especial e ajude a tornar o Natal desses animais ainda mais brilhante!', '2023-12-15 10:00', '2023-12-15 15:00', 4, 1),
+(19, 'Adoção de Amiguinhos', 'Junte-se a nós no evento "Adoção de Amiguinhos"! Uma oportunidade incrível de encontrar seu companheiro peludo perfeito espera por você. Venha nos visitar no sábado, dia 15 de dezembro, das 10h às 15h, no Parque dos Animais Felizes, localizado na Rua das Patinhas, número 123. Estaremos reunindo uma variedade de amigos de quatro patas ansiosos para encontrar um lar amoroso. Haverá atividades interativas, orientação sobre cuidados com animais e, é claro, a chance de conhecer esses amigos adoráveis em busca de um lar para sempre. Não perca essa oportunidade de fazer a diferença na vida de um peludo! A entrada é gratuita e seu futuro companheiro pode estar esperando por você.', '2024-12-15 10:00', '2024-12-15', 8, 3),
+(20, 'Feira de Adoção', 'Venha fazer parte desta celebração do amor pelos animais na nossa Feira de Adoção! Junte-se a nós no dia 10 de Janeiro, das 10h às 16h, no Parque Central da Cidade. Prepare-se para encontrar amigos de quatro patas à procura de um lar amoroso. Teremos uma variedade de cães e gatos resgatados, prontos para encher seu coração de alegria e carinho. Traga sua família e amigos para esta experiência única de dar um novo lar a um amigo peludo. Não perca a chance de fazer a diferença na vida de um animalzinho! Junte-se a nós para um dia repleto de amor e adoção.', '2024-01-10 10:00', '2024-01-10', 9, 3),
+(21, 'Evento de banho e tosa', 'Junte-se a nós em um dia dedicado ao cuidado e amor pelos nossos amigos de quatro patas no "Evento de Banho e Tosa - Cuide e Adote!" no próximo sábado, dia 23 de dezembro, das 9h às 15h, no Parque dos Animais Felizes. Este é um momento especial para transformar a aparência e o bem-estar dos animais resgatados enquanto buscamos novos lares para eles. Teremos especialistas em banho e tosa prontos para mimar os peludos e deixá-los ainda mais adoráveis para seus futuros lares. Além disso, você terá a oportunidade de encontrar o seu companheiro perfeito entre cães e gatos carinhosamente resgatados. Venha se envolver nesta jornada de cuidado e amor pelos animais. Não perca esta oportunidade de dar um banho de amor e encontrar um amigo fiel para compartilhar momentos inesquecíveis!', '2024-12-23 9:00', '2023-12-23 15:00', 2, 2),
+(22, 'Evento de adoção', 'Venha se juntar a nós no nosso Evento de Adoção no próximo sábado, dia 2 de dezembro, das 11h às 15h, no Parque dos Animais Felizes. Esta é a oportunidade perfeita para encontrar seu novo companheiro de quatro patas. Conheça cachorros e gatinhos adoráveis, todos buscando um lar amoroso. Haverá equipes de resgate locais presentes para ajudar a encontrar o par perfeito para você. Venha compartilhar um momento especial com esses animais encantadores e descubra como dar a um animalzinho um lar é uma das melhores decisões que você pode tomar. Junte-se a nós para um dia de alegria, amor e novas amizades peludas!Localização: Parque dos Animais Felizes, Rua das Patinhas, nº 123.', '2023-12-02 11:00', '2023-12-02 15:00', 5, 3),
+(23, 'Um parque bom pra cachorro', 'Prepare-se para um dia cheio de alegria e patinhas felizes no evento "Um Parque Bom pra Cachorro"! Junte-se a nós no próximo dia 20 de novembro, das 10h às 15h, no Parque Verde. Venha conhecer uma variedade de amigos de quatro patas buscando um lar amoroso. Teremos cães de todas as raças e tamanhos esperando por uma família para chamar de sua. Além disso, desfrute de atividades divertidas para toda a família, desde áreas de brincadeiras para os peludos até workshops informativos sobre cuidados e adoção responsável. Venha compartilhar amor e alegria nesta jornada de adoção! Não perca a chance de fazer a diferença na vida de um amigo peludo. Traga sua família e amigos para um dia repleto de amor e cauda abanando.',' 2024-11-20 10:00','2024-11-20 15:00', 4, 3),
+(24, 'Vacinação Contra Raiva','Junte-se a nós para a nossa campanha de Vacinação contra Raiva, um evento crucial para a saúde dos nossos amigos de quatro patas. No próximo sábado, dia 25 de Fevereiro, das 9h às 15h, estaremos no Parque Municipal, na área coberta próxima à entrada principal. Esta é uma oportunidade imperdível para garantir a saúde e o bem-estar dos seus animais de estimação. A vacinação contra raiva é essencial para prevenir esta doença perigosa, e estaremos oferecendo este serviço de forma gratuita para cães e gatos de todas as idades. Traga seus companheiros peludos e ajude-nos a protegê-los! Contamos com a sua presença para um dia dedicado à saúde e segurança dos nossos amados animais.','2024-02-25 09:00', '2024-02-25 15:00', 8, 1);
 
 INSERT INTO porte (sg_porte, nm_porte) VALUES 
 ('G', 'Grande'),
@@ -104,88 +125,185 @@ INSERT INTO raca(cd_raca, nm_raca, cd_especie, sg_porte) VALUES
 (10, 'Rex', 3, 'M'),     -- Médio
 (11, 'Mini Lion', 3, 'P'), -- Pequeno
 (12, 'Fuzzy Lop', 3, 'G'); -- Grande
-
-CALL NovoAnimal('Buddy', 'Buddy, o labrador, é um cão de porte médio a grande, conhecido por sua personalidade amigável e carinhosa. Com um físico atlético e musculoso, ele possui uma pelagem densa e curta, geralmente em tons de preto, amarelo ou chocolate.
+-- Animal 1 - ONG 1
+CALL NovoAnimal(  'Buddy', 'Buddy, o labrador, é um cão de porte médio a grande, conhecido por sua personalidade amigável e carinhosa. Com um físico atlético e musculoso, ele possui uma pelagem densa e curta, geralmente em tons de preto, amarelo ou chocolate.
 Seus olhos expressivos e gentis transmitem uma inteligência notável, enquanto suas orelhas pendentes acrescentam charme ao seu rosto amigável. O nariz largo e úmido é uma característica distintiva, sempre pronto para investigar o ambiente com seu faro aguçado.
 A personalidade de Buddy é cativante. Ele é conhecido por ser afetuoso, leal e muito sociável, adorando interagir com pessoas e outros animais. Sua natureza brincalhona faz dele um excelente companheiro para famílias, crianças e outros pets.
 Além disso, Buddy é altamente inteligente e ávido por atividades. Ele adora participar de jogos e treinamentos, mostrando-se muito receptivo a aprender truques novos. Sua disposição para agradar seu dono faz dele um cão extremamente obediente e fácil de treinar.
 Em resumo, Buddy, o labrador, é um pacote completo de amor, diversão e lealdade, pronto para fazer parte e alegrar a vida de sua família.', '2023-10-25', true, 1, 'M', 1);
+
+-- Animal 2 - ONG 2
 CALL NovoAnimal('Molly', 'Molly, a poodle, é uma cadela elegante e encantadora, conhecida por sua pelagem densa e cacheada que exala uma sofisticação única. Ela vem em diferentes tamanhos, desde o miniatura até o padrão, mas independente do tamanho, sua aparência é sempre graciosa.
 Seus olhos expressivos e inteligentes são emoldurados por uma pelagem luxuosa e encaracolada que pode ser de várias cores, como branca, preta, marrom ou cinza. Seu focinho alongado e fino complementa sua aparência delicada, enquanto suas orelhas pendentes acrescentam uma dose extra de charme.
 A personalidade de Molly é verdadeiramente encantadora. Ela é conhecida por ser carinhosa, inteligente e extremamente leal à sua família. Seu comportamento afetuoso a torna uma excelente companheira para todas as idades, sendo especialmente carinhosa com crianças e idosos.', '2020-03-18', false, 2, 'F', 2);
+
+-- Animal 3 ONG 3
 CALL NovoAnimal('Duke', 'Duke, o Bulldog, é uma mistura fascinante de força e doçura embalada em um corpo compacto e musculoso. Com sua expressão facial marcante e inconfundível, ele tem um focinho curto e largo, e seus olhos profundos transmitem uma mistura de calma e curiosidade.
 Sua pelagem é curta e densa, frequentemente em tons de fulvo, branco, tigrado ou malhado. As rugas proeminentes ao redor do focinho e da testa adicionam um charme peculiar à sua aparência robusta. As orelhas curtas e caídas complementam seu visual único.
 A personalidade de Duke é cativante. Apesar de sua aparência imponente, ele é afetuoso, leal e gentil, sendo um companheiro leal para sua família. Sua natureza tranquila faz dele um ótimo parceiro para quem procura um amigo de quatro patas para relaxar e aproveitar momentos calmos.', '2020-09-08', false, 3, 'M', 3);
+
+-- Animal  4 ONG 4
 CALL NovoAnimal('Lola', 'Lola, a Pastor Alemã, é uma cadela majestosa e imponente, conhecida por sua postura nobre e olhar penetrante. Seu corpo atlético e musculoso está coberto por uma pelagem densa e dupla, geralmente em tons de preto e caramelo, que realçam sua presença marcante. Seus olhos castanhos expressam inteligência aguçada e lealdade inabalável, adicionando uma aura de determinação ao seu porte elegante.
 Inteligente e altamente treinável, Lola é um exemplo de disciplina e devoção à sua família. Sua natureza protetora e vigilante faz dela uma guardiã confiável, sempre alerta para proteger aqueles que ama. Apesar de sua aparência imponente, seu coração é caloroso e afetuoso com os membros da família, especialmente com as crianças, demonstrando uma ternura inigualável em seu convívio.
 Além de sua lealdade inquestionável, Lola é ávida por desafios mentais e físicos. Ela adora participar de atividades ao ar livre, como corridas, caminhadas e jogos que estimulem seu intelecto. Sua determinação e habilidade para aprender rapidamente tornam-na não apenas uma companheira leal, mas também uma parceira excepcional em treinamentos e trabalhos que demandam sua inteligência e destreza.', '2018-07-12', true, 4, 'F', 4);
+
+-- Animal 5 ONG 5
 CALL NovoAnimal('Rocky', 'Rocky, o siamês, é uma verdadeira obra de arte felina. Seu corpo esguio e musculoso é adornado por uma pelagem curta, macia e marcante, com uma coloração contrastante entre o corpo claro e extremidades mais escuras, como orelhas, focinho, patas e cauda. Seus olhos intensamente azuis são como duas joias brilhantes, transmitindo uma expressão de inteligência e curiosidade.
 Além de sua aparência marcante, Rocky é conhecido por sua personalidade extrovertida e vocal. Ele é comunicativo e expressa suas opiniões e desejos de maneira eloquente, usando sua voz melodiosa para interagir com sua família humana. Inteligente e afetuoso, ele desenvolve laços estreitos com aqueles ao seu redor, demonstrando lealdade e um amor incondicional.
 Sua natureza brincalhona e enérgica o mantém em movimento, adorando perseguir brinquedos, explorar novos ambientes e até mesmo realizar acrobacias para entreter a todos. Rocky é uma combinação fascinante de elegância, charme e uma personalidade cativante, tornando-se não apenas um companheiro, mas um verdadeiro membro querido da família.', '2021-01-30', false, 5, 'M', 5);
+
+-- Animal 6 ONG 1
 CALL NovoAnimal('Lucy', 'Lucy, a gata persa, é um exemplo vivo de elegância felina. Seu pelo exuberante e longo, em tons de cinza e branco, forma uma pelagem densa e sedosa que realça sua beleza majestosa. Seus olhos grandes e expressivos, frequentemente em tons de âmbar ou verde, parecem contar histórias por si só, revelando sua curiosidade e doçura.
 Sua face achatada e focinho arredondado conferem-lhe um ar de serenidade, destacando-se pelas bochechas rechonchudas e pelo nariz pequeno e delicado. Lucy possui uma postura delicada e elegante, com movimentos graciosos que complementam sua natureza tranquila e contemplativa.
 Apesar de sua aparência aristocrática, Lucy é afetuosa e desfruta de momentos de carinho e aconchego ao lado de sua família. Seu temperamento calmo e sua tendência a procurar locais confortáveis para descansar fazem dela não apenas uma bela gata, mas também uma companheira tranquila e amorosa para aqueles que têm a sorte de tê-la por perto.', '2019-04-05', true, 6, 'F', 1);
+
+-- Animal 7 ONG 2
 CALL NovoAnimal('Bailey', 'Bailey, o Sphynx, é um gato fascinante e distinto, com uma aparência única que cativa à primeira vista. Sua característica mais marcante é a ausência quase total de pelos, revelando uma pele macia e aveludada que proporciona uma sensação diferente ao toque. Sua pele pode apresentar uma variedade de cores e padrões, evidenciando suas rugas suaves e sua aparência musculosa.
 Seus olhos expressivos, geralmente grandes e amarelos, destacam-se em contraste com sua pele, emanando uma inteligência cativante. As orelhas grandes e pontudas complementam sua face angular, acrescentando um ar de curiosidade e astúcia.
 A personalidade de Bailey é tão única quanto sua aparência. Apesar de não ter pelos para demonstrar afeto, ele é extremamente carinhoso e apegado aos seus donos. Seu comportamento brincalhão e enérgico faz dele um ótimo companheiro para interações divertidas, além de ser conhecido por seu amor por aconchegar-se em busca de calor e carinho. Sua natureza extrovertida o torna um excelente gato para lares ativos, onde sua curiosidade infinita e personalidade afetuosa podem florescer plenamente.', '2020-11-28', false, 7, 'M', 2);
+
+-- Animal 8 ONG 3
 CALL NovoAnimal('Sophie', 'Sophie, a majestosa Maine Coon, é uma gata de porte impressionante e beleza estonteante. Com sua pelagem exuberante e longa, em tons variados como marrom, prateado ou creme, ela se destaca pelo seu tamanho impressionante, parecendo quase uma miniatura de um felino selvagem. Seus olhos grandes e expressivos, geralmente dourados ou âmbar, transmitem uma inteligência tranquila e cativante.
 Além da sua aparência deslumbrante, Sophie é conhecida por sua personalidade carismática e cativante. Ela é carinhosa, mas independente, desfrutando de momentos de tranquilidade e reflexão em sua própria companhia. No entanto, ela também é uma ótima companheira, apreciando interações afetuosas e participando de atividades familiares.
 Sua inteligência aguçada faz dela uma aprendiz ágil, capaz de entender e até mesmo criar brincadeiras desafiadoras. Sophie é uma gata que cria laços fortes com sua família, demonstrando afeto de maneiras únicas e encantadoras, tornando-se não apenas uma presença imponente, mas também um coração amoroso dentro do lar.', '2018-12-17', false, 8, 'F', 3);
+
+-- Animal 9 ONG 4
 CALL NovoAnimal('Chloe', 'Chloe, a adorável coelha da raça Holandesa, é uma pequena bola de pelo e charme. Com sua pelagem característica, exibe um contraste marcante entre seu corpo predominantemente branco e suas orelhas e área ao redor dos olhos em preto, criando uma aparência elegante e distintiva. Seus olhos brilhantes e curiosos escondem uma inteligência peculiar.
 Além de sua aparência encantadora, Chloe é conhecida por sua natureza brincalhona e enérgica. Ela adora explorar seu ambiente, sempre curiosa para descobrir novos cantos e recantos para investigar. Sua personalidade carinhosa e receptiva a interações humanas a torna uma companheira adorável para quem procura uma coelhinha afetuosa.
 Sua agilidade e inteligência a tornam uma ótima aluna para ensinamentos simples e brincadeiras interativas. Chloe é uma coelha que aprecia momentos de carinho e brincadeiras, adicionando uma dose de alegria e vitalidade ao ambiente ao seu redor, transformando cada dia em uma nova aventura cheia de surpresas fofas.', '2021-06-22', true, 9, 'F', 4);
+
+-- Animal 10 ONG 5 
 CALL NovoAnimal('Jack', 'Jack, o labrador, é um cão cheio de vida e personalidade. Com sua pelagem brilhante e olhos expressivos, ele personifica a alegria e a lealdade desta adorável raça. Seu pelo curto e denso, geralmente em tons de amarelo, chocolate ou preto, complementa sua aparência atlética e robusta.
 Sua natureza amorosa e afetuosa faz de Jack um companheiro excepcional para toda a família. Ele é conhecido por seu espírito brincalhão e disposição para participar de qualquer aventura, seja um passeio ao ar livre ou um jogo animado. Sua inteligência notável e facilidade de treinamento o tornam não apenas um excelente amigo, mas também um aluno dedicado.
 Além disso, Jack tem um coração generoso e uma lealdade inabalável aos seus entes queridos. Sua personalidade extrovertida e amigável o torna um ótimo cão de companhia para pessoas de todas as idades, trazendo alegria e entusiasmo para qualquer lar em que ele habita.', '2020-02-14', false, 1, 'M', 5);
+
+-- Animal 11 ONG 1
 CALL NovoAnimal('Lily', 'Lily, a encantadora poodle, é um exemplo de elegância e doçura. Com sua pelagem exuberante e cacheada, geralmente em tons de branco ou creme, ela irradia uma aura de graça e charme. Seus olhos expressivos, muitas vezes escuros e penetrantes, são uma janela para sua inteligência notável.
 Além da sua beleza cativante, Lily é conhecida por sua personalidade afetuosa e alegre. Ela é carinhosa e leal, sempre pronta para oferecer amor incondicional à sua família. Sua disposição brincalhona e sua energia moderada a tornam uma companhia adorável para todas as idades, especialmente para aqueles que buscam um amigo de quatro patas carinhoso e de fácil convivência.
 Lily é uma aprendiz ágil e ansiosa para participar de atividades que desafiem sua mente inteligente. Sua natureza dócil e sociável faz dela não apenas uma excelente companheira, mas também uma adição encantadora e acolhedora para qualquer lar.', '2019-08-09', false, 2, 'F', 1);
+
+
+-- Animal 12 ONG 2
 CALL NovoAnimal('Oliver', 'Oliver, o bulldog, é um cão que personifica a coragem e a doçura. Com seu físico robusto e compacto, ele exibe uma aparência distintiva com rugas marcantes e um focinho encurtado, transmitindo uma expressão adorável e determinada. Sua pelagem curta e densa, muitas vezes em tons de fulvo ou tigrado, complementa sua presença imponente.
 Sua personalidade é uma mistura encantadora de lealdade e gentileza. Oliver é afetuoso e protetor com sua família, demonstrando um apego profundo aos que ama. Apesar de sua aparência imponente, ele é amoroso e tranquilo, apreciando momentos relaxantes ao lado de seus entes queridos.
 A inteligência notável de Oliver é combinada com uma determinação tranquila, tornando-o um companheiro leal e confiável. Sua natureza paciente e seu caráter afável fazem dele não apenas um excelente cão de companhia, mas também um amigo fiel, sempre pronto para oferecer amor e conforto.', '2017-10-11', true, 3, 'M', 2);
+
+-- Animal 13 ONG 3
 CALL NovoAnimal('Zoey', 'Zoey, a pastor alemã, é uma combinação impressionante de beleza e inteligência. Com sua pelagem densa e característica em tons de preto e marrom, ela exibe uma postura elegante e atlética. Seus olhos castanhos profundos transmitem uma inteligência aguçada e uma lealdade inigualável.
 Além de sua aparência imponente, Zoey é conhecida por sua devoção inabalável à sua família. Ela é protetora, corajosa e extremamente fiel, pronta para defender aqueles que ama. Sua natureza alerta e sua disposição para aprender e se envolver em atividades a tornam não apenas uma companheira confiável, mas também uma excelente guardiã.
 Zoey é uma cadela altamente treinável e trabalhadora. Sua inteligência excepcional e sua vontade de agradar fazem dela uma excelente aluna, pronta para participar de tarefas desafiadoras e mostrar suas habilidades. Sua dedicação e amor incondicional tornam-na não apenas uma parte vital da família, mas também uma parceira incrível para qualquer pessoa em busca de lealdade e companheirismo.', '2021-03-27', false, 4, 'F', 3);
+
+
+-- Animal 14 ONG 4
 CALL NovoAnimal('Leo', 'Leo, o gato siamês, é uma exibição de elegância e charme felino. Com sua pelagem curta e sedosa, em tons de creme ou bege, contrastando com as extremidades mais escuras, ele possui uma aparência única e marcante. Seus olhos azuis intensos, hipnotizantes e expressivos, são uma característica notável que reflete sua personalidade vibrante.
 Além da sua aparência deslumbrante, Leo é conhecido por sua natureza extrovertida e sociável. Ele é vocal e comunicativo, expressando suas opiniões e desejos com uma variedade de sons característicos da raça. Sua personalidade carinhosa e afetuosa faz dele um companheiro leal, desfrutando de interações próximas com sua família humana.
 A inteligência aguçada de Leo o torna um aprendiz rápido e curioso. Ele adora desafios mentais, demonstrando agilidade em brincadeiras e até mesmo em truques simples. Leo é uma adição cativante para qualquer lar, trazendo não apenas sua beleza notável, mas também sua personalidade envolvente e afetuosa.', '2018-05-04', true, 5, 'M', 4);
+
+-- Animal 15 ONG 5
 CALL NovoAnimal('Maggie', 'Maggie, a gata persa, é uma verdadeira princesa felina. Com sua pelagem longa e exuberante, em tons de branco, creme ou até mesmo cinza, ela exala uma elegância majestosa. Seus olhos grandes e expressivos, muitas vezes de cor âmbar ou verde, transmitem uma doçura encantadora e uma serenidade cativante.
 Além da sua beleza estonteante, Maggie é conhecida por sua personalidade serena e tranquila. Ela é afetuosa e calma, desfrutando de momentos de relaxamento e carinho ao lado de sua família. Sua natureza dócil a torna uma companhia reconfortante e perfeita para quem busca um amigo de quatro patas amoroso e tranquilo.
 A inteligência observadora de Maggie a torna uma excelente observadora e uma ótima ouvinte, respondendo aos gestos e emoções sutis de seus donos. Sua doçura e presença suave acrescentam uma atmosfera serena e acolhedora ao lar, tornando-a não apenas uma gata bonita, mas também uma presença reconfortante e afetuosa na vida de sua família.', '2019-12-19', false, 6, 'F', 5);
+
+-- Animal 16 ONG 1
 CALL NovoAnimal('Anubis', 'Anubis, o gato Sphynx, é uma presença cativante e intrigante. Sua pele sem pelos e seu corpo musculoso e esguio destacam sua aparência única e marcante. Seu semblante expressivo, com orelhas grandes e olhos penetrantes, revela uma curiosidade inquisitiva e uma inteligência aguçada.
 Além da sua aparência distinta, Anubis é conhecido por sua personalidade extrovertida e afetuosa. Ele é carinhoso e adora estar próximo de seus humanos, procurando calor e aconchego. Sua natureza brincalhona e sociável o torna um companheiro divertido, sempre pronto para interagir e explorar o ambiente ao seu redor.
 A inteligência esperta de Anubis o torna um gato que gosta de desafios mentais e atividades interativas. Ele é curioso e está sempre pronto para novas experiências. Sua presença carismática e seu jeito afetuoso o transformam não apenas em um gato de aparência extraordinária, mas também em um companheiro cativante e amoroso para toda a família.', '2020-07-08', true, 7, 'M', 1);
-CALL NovoAnimal('Visenya', '
-Visenya, a majestosa gata Maine Coon, é uma visão impressionante de beleza e imponência felina. Com sua pelagem longa e exuberante, em tons variados de marrom, preto ou prateado, ela exibe uma presença magnífica e elegante. Seus olhos grandes e expressivos, frequentemente dourados ou âmbar, refletem uma inteligência cativante e uma personalidade curiosa.
+
+-- Animal 17 ONG 2
+CALL NovoAnimal('Visenya', 'Visenya, a majestosa gata Maine Coon, é uma visão impressionante de beleza e imponência felina. Com sua pelagem longa e exuberante, em tons variados de marrom, preto ou prateado, ela exibe uma presença magnífica e elegante. Seus olhos grandes e expressivos, frequentemente dourados ou âmbar, refletem uma inteligência cativante e uma personalidade curiosa.
 Além da sua beleza marcante, Visenya é conhecida por sua personalidade carismática e afetuosa. Ela é dócil, gentil e desfruta da companhia de sua família humana, buscando carinho e interações próximas. Sua natureza tranquila a torna uma companhia relaxante e perfeita para aqueles que buscam um amigo de quatro patas amoroso e tranquilo.
 A inteligência e a sociabilidade de Visenya a tornam uma gata que gosta de participar de atividades interativas e jogos desafiadores. Ela é observadora e adora explorar seu ambiente, mantendo-se sempre alerta e interessada em tudo ao seu redor. Sua presença graciosa e afetuosa enriquece qualquer lar, oferecendo não apenas sua beleza notável, mas também sua personalidade gentil e envolvente.', '2020-04-14', false, 8, 'F', 2);
-CALL NovoAnimal('Charlie', '
-Charlie, o adorável coelho da raça Holandesa, é uma bola de pelos e charme. Com sua pelagem curta e macia, exibe uma combinação de cores distintiva, com seu corpo predominantemente branco contrastando com suas orelhas e marcações em um tom escuro, criando uma aparência cativante. Seus olhos brilhantes e curiosos mostram uma personalidade ávida por explorar o mundo ao seu redor.
+
+-- Animal 18 ONG 3
+CALL NovoAnimal('Charlie', 'Charlie, o adorável coelho da raça Holandesa, é uma bola de pelos e charme. Com sua pelagem curta e macia, exibe uma combinação de cores distintiva, com seu corpo predominantemente branco contrastando com suas orelhas e marcações em um tom escuro, criando uma aparência cativante. Seus olhos brilhantes e curiosos mostram uma personalidade ávida por explorar o mundo ao seu redor.
 Além de sua aparência encantadora, Charlie é conhecido por sua natureza curiosa e brincalhona. Ele adora investigar seu ambiente, demonstrando uma energia cativante e entusiasmo por novas experiências. Sua disposição afetuosa e sociável o torna um companheiro adorável, especialmente para aqueles que buscam um amigo peludo e carinhoso.
 A inteligência observadora de Charlie o torna um coelho ágil e atento, sempre pronto para interagir com jogos e brinquedos desafiadores. Sua natureza dócil e sua disposição para interações humanas tornam-no não apenas uma adição encantadora para qualquer lar, mas também um amigo fiel e amoroso para toda a família.', '2018-09-03', true, 9, 'M', 3);
-CALL NovoAnimal('Balla', 'Balla, a encantadora labradora, é um pacote de alegria e lealdade. Com sua pelagem brilhante e olhos expressivos, ela exibe uma energia contagiante e uma disposição amigável. Seu pelo curto e denso, frequentemente em tons de amarelo, chocolate ou preto, realça sua presença confiante e atlética.
-Além da sua aparência adorável, Balla é conhecida por sua personalidade afetuosa e carinhosa. Ela é amigável e leal, sempre pronta para se envolver com sua família humana. Sua natureza brincalhona e sua disposição para participar de atividades a tornam não apenas uma excelente companheira, mas também uma fonte constante de diversão para todos ao seu redor.
-A inteligência aguçada de Balla a torna uma aprendiz ágil, capaz de compreender comandos e responder a treinamentos com facilidade. Sua doçura e presença amorosa fazem dela não apenas uma labradora encantadora, mas também uma amiga confiável e amorosa, pronta para compartilhar momentos inesquecíveis ao lado de sua família.', '2021-08-01', false, 1, 'F', 1);
+
+-- Animal 19 ONG 1
+CALL NovoAnimal('Bella', 'Bella, a encantadora labradora, é um pacote de alegria e lealdade. Com sua pelagem brilhante e olhos expressivos, ela exibe uma energia contagiante e uma disposição amigável. Seu pelo curto e denso, frequentemente em tons de amarelo, chocolate ou preto, realça sua presença confiante e atlética.
+Além da sua aparência adorável, Bella é conhecida por sua personalidade afetuosa e carinhosa. Ela é amigável e leal, sempre pronta para se envolver com sua família humana. Sua natureza brincalhona e sua disposição para participar de atividades a tornam não apenas uma excelente companheira, mas também uma fonte constante de diversão para todos ao seu redor.
+A inteligência aguçada de Bella a torna uma aprendiz ágil, capaz de compreender comandos e responder a treinamentos com facilidade. Sua doçura e presença amorosa fazem dela não apenas uma labradora encantadora, mas também uma amiga confiável e amorosa, pronta para compartilhar momentos inesquecíveis ao lado de sua família.', '2021-08-01', false, 1, 'F', 1);
+
+-- Animal 20 ONG 1
+CALL NovoAnimal('Donna', 'Donna, a nossa encantadora labradora de 10 anos, é uma verdadeira dama de quatro patas que conquista corações com seu charme e sabedoria. Com seu pelo dourado reluzente e olhos cheios de ternura, ela é uma companheira leal, pronta para espalhar amor e alegria em qualquer lar.
+Ao longo dos anos, Donna desenvolveu uma personalidade serena e gentil, tornando-se a confidente perfeita para longos passeios calmos ou simplesmente para um momento relaxante ao seu lado. Mesmo com sua idade, seu espírito vibrante e leal continua a inspirar, mostrando que a verdadeira beleza está na alma. 
+Donna aguarda ansiosamente por uma família dedicada, pronta para acolher a calorosa presença e a experiência única que uma labradora mais sábia pode proporcionar. Venha conhecer Donna, e descubra a beleza atemporal de um amor canino verdadeiro.', '2013-06-12', true, 1, 'F', 1);
+
+-- Animal 21 ONG 1
+CALL NovoAnimal('Lyara', 'Conheça Lyara, a deslumbrante pastora alemã que encanta a todos com sua presença majestosa e lealdade inabalável. Com sua pelagem exuberante e expressão inteligente, Lyara é uma visão de beleza canina. Seus olhos atentos contam histórias de sabedoria, refletindo uma alma gentil e protetora. 
+Aos seis anos, Lyara é uma companheira vibrante, pronta para aventuras ao ar livre e momentos de ternura em casa. Essa pastora alemã excepcional aguarda por uma família que aprecie não apenas sua imponência física, mas também a doçura e lealdade que ela oferece a quem a acolhe. 
+Venha conhecer Lyara e descubra a alegria de compartilhar a vida com uma amiga tão única e dedicada.', '2017-02-01', true, 4, 'F', 1);
+
+-- Animal 22 ONG 1
+CALL NovoAnimal('Petyr', 'Conheça Petyr, o bulldog de 4 anos cheio de personalidade e charme. Com seu porte robusto e rugas adoráveis, Petyr é um verdadeiro cavalheiro canino. Seus olhos expressivos transmitem uma mistura única de curiosidade e lealdade, refletindo a natureza afetuosa desse bulldog encantador. 
+Petyr é um companheiro brincalhão, sempre pronto para uma boa diversão ou um momento de carinho. Se você está em busca de um amigo leal com uma personalidade vibrante, Petyr está ansioso para trazer alegria e risadas à sua vida. 
+Venha conhecê-lo e descubra o encanto irresistível desse bulldog de coração grande.', '2019-08-19', true, 3, 'M', 1);
+
+-- Animal 23 ONG 1
+CALL NovoAnimal('Vina', 'Conheça Vina, uma adorável poodle que conquista corações com seu charme e inteligência. Com seus cachos macios e expressão doce, Vina é uma dama elegante de quatro patas, com quatro anos de pura graça canina. Ela é mais do que uma companheira, é uma amiga leal pronta para preencher seu dia com alegria e amor. 
+Vina é conhecida por sua natureza brincalhona e disposição para se aconchegar. Se você procura uma amiga peluda que traga alegria e afeto para sua vida, Vina é a poodle perfeita para iluminar seus dias. 
+Venha conhecê-la e descubra o encanto irresistível dessa poodle cheia de personalidade.', '2020-12-01', true, 2, 'F', 1);
+
+-- Animal 24 ONG 1
+CALL NovoAnimal('Luthor', 'Luthor, o nosso adorável Labrador de 11 anos, é uma verdadeira fonte de alegria e companheirismo em nossa casa. Com seu pelo dourado brilhante e olhos cheios de doçura, ele é muito mais do que um simples animal de estimação; é um membro querido da família. Ao longo dos anos, Luthor conquistou a todos com seu temperamento amigável e leal. Sempre pronto para uma brincadeira ou um afago, ele se destaca por sua energia contagiante e sua capacidade de iluminar até os dias mais nublados.
+Mesmo com seus 11 anos, Luthor mantém uma vitalidade incrível, ainda adorando suas caminhadas matinais e demonstrando entusiasmo sempre que a palavra "passeio" é mencionada. Sua inteligência e obediência fazem dele não apenas um excelente companheiro, mas também um cão notavelmente fácil de conviver. Em meio a seu amor pela vida e devoção inabalável à família, Luthor é uma verdadeira inspiração de como a idade pode ser apenas um número quando se trata de amor e felicidade canina. Seu olhar atencioso e leal é um lembrete constante do quanto ele significa para todos nós.', '2012-03-05', true, 1, 'M', 1);
+
+-- Animal 25 ONG 1
+CALL NovoAnimal('Arianne', 'Arianne, nossa adorável Bulldog de 1 ano, é uma explosão de energia e personalidade na nossa casa. Seu porte robusto e expressão marcante tornam impossível não se apaixonar por ela à primeira vista. Com sua pelagem tigrada e rugas encantadoras, Arianne é uma verdadeira representante do charme irresistível dessa raça.
+Apesar de sua juventude, Arianne já demonstra uma inteligência notável e uma curiosidade incessante pelo mundo ao seu redor. Seus olhos brilhantes denunciam uma alegria contagiante, e sua disposição para brincadeiras é interminável. Arianne é a companhia perfeita para aventuras ao ar livre, onde ela exibe sua agilidade e entusiasmo em cada passo. Sua natureza afetuosa e leal faz com que ela se destaque como uma amiga fiel, pronta para conquistar corações com sua personalidade cativante.', '2022-05-11', true, 3, 'F', 1);
+
+-- Animal 26 ONG 1
+CALL NovoAnimal('Otto', 'Otto, nosso charmoso Poodle, é uma verdadeira joia de pelagem fofa e olhos brilhantes que iluminam qualquer ambiente. Seu porte elegante e sua expressão inteligente fazem dele não apenas um cão de companhia, mas um membro querido da família. Com sua pelagem cuidadosamente mantida e sua atitude gentil, Otto é a personificação do estilo e da doçura canina.
+Apesar de sua aparência elegante, Otto é cheio de vitalidade e brincadeiras, revelando uma alegria contagiante que é difícil de resistir. Seus momentos de brincadeira são uma mistura encantadora de vivacidade e graça, destacando sua agilidade única. Além disso, sua inteligência notável torna o treinamento uma experiência agradável, e sua lealdade incondicional o transforma em um companheiro confiável em todas as situações. Otto é mais do que um simples cão de estimação; é a personificação de amor, elegância e diversão em quatro patas.', '2021-09-21', true, 2, 'M', 1);
+
+-- Animal 27 ONG 1
+CALL NovoAnimal('Gaella', 'Gaella, uma Pastor Alemã de 8 anos, cujo olhar sábio e expressão gentil contam a história de uma vida cheia de experiências e lealdade. Seu pelo impecável e marcantes marcas escuras destacam sua beleza atemporal, enquanto seus olhos transmitem a sabedoria adquirida ao longo dos anos. Gaella é uma companheira excepcional, pronta para compartilhar seu afeto e experiência de vida com uma família amorosa.
+Aos 8 anos, Gaella ainda está repleta de vitalidade e amor. Seu temperamento equilibrado e sereno faz dela a candidata ideal para um lar acolhedor. Com uma disposição tranquila, ela se adapta facilmente a diferentes ambientes e se dá bem com pessoas de todas as idades. Gaella é uma amiga fiel que, com seu histórico de vida, traz consigo uma incrível capacidade de se conectar emocionalmente com seus cuidadores. Se você está em busca de um companheiro leal, carinhoso e experiente, Gaella é a escolha perfeita para completar a sua família. Adote amor e sabedoria, adote Gaella.', '2015-04-10', true, 4, 'F', 1);
+
+-- Animal 28 ONG 1
+CALL NovoAnimal('Maerie', 'Conheça Maerie, uma adorável Buldogue, cuja presença calorosa e olhar meigo conquistam corações instantaneamente. Com seu pelo curto e características faciais distintas, Maerie é um exemplo clássico da doçura e charme dessa raça. Seus sete anos de vida a tornam uma companheira experiente, pronta para preencher um lar com amor e alegria duradouros.
+Maerie é muito mais do que uma cadela de porte elegante; ela é uma amiga leal e carinhosa, pronta para se aconchegar nos momentos calmos e participar de brincadeiras animadas. Sua personalidade tranquila e amigável faz dela uma excelente opção para lares de todos os tipos. Maerie se dá bem com crianças e adultos, e sua natureza amorosa torna-a uma candidata ideal para ser parte integrante de uma família amorosa. Se você está pronto para oferecer a Maerie um lar cheio de carinho e atenção, adote essa buldogue encantadora e encha sua vida de momentos especiais. Adote Maerie e descubra o amor incondicional que um cachorro mais experiente pode proporcionar.', '2016-05-31', true, 3, 'F', 1);
+
+-- Animal 29 ONG 1
+CALL NovoAnimal('Tintin', 'Apresentamos Tintin, um Poodle cheio de charme e personalidade que está pronto para encher seu lar de alegria e companheirismo. Com seu pelo macio e ondulado, Tintin é um verdadeiro exemplo da elegância canina. Este simpático Poodle, com apenas dois anos de idade, traz consigo uma energia contagiante e uma disposição amigável que o tornam uma adição perfeita para qualquer família.
+Tintin é mais do que apenas um rosto bonito; ele é um companheiro inteligente e leal, pronto para se envolver em brincadeiras animadas ou desfrutar de momentos relaxantes de carinho. Sua natureza afetuosa o torna particularmente adequado para lares com crianças e adultos. Tintin já está treinado e é facilmente adaptável, o que facilita a integração dele em novos ambientes. Se você procura um amigo peludo que combine charme, vivacidade e amor, adote Tintin e descubra como a presença dele pode transformar sua casa em um verdadeiro lar. Não perca a chance de dar a Tintin a família amorosa que ele merece.', '2018-07-24', true, 2, 'M', 1);
+
 
 INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (1, 'Qual é seu nome completo?', 1),
-(2, 'Qual a sua idade?', 1),
-(3, 'Qual seu email?', 1),
-(4, 'Qual seu telefone para contato?', 1),
-(5, 'Qual é sua cidade?', 1),
-(6, 'Qual é seu estado?', 1),
-(7, 'Qual seu endereço completo?', 1),
-(8, 'Qual é seu nome completo?', 2),
-(9, 'Qual a sua idade?', 2),
-(10, 'Qual seu email?', 2),
-(11, 'Qual seu telefone para contato?', 2),
-(12, 'Qual é sua cidade?', 2),
-(13, 'Qual é seu estado?', 2),
-(14, 'Qual seu endereço completo?', 2),
-(15, 'Qual é seu nome completo?', 3),
-(16, 'Qual a sua idade?', 3),
-(17, 'Qual seu email?', 3),
-(18, 'Qual seu telefone para contato?', 2),
-(19, 'Qual é sua cidade?', 3),
-(20, 'Qual é seu estado?', 3),
-(21, 'Qual seu endereço completo?', 3);
+(2, 'Qual seu email?', 1),
+(3, 'Qual seu telefone para contato?', 1),
+(4, 'Qual seu endereço completo? (nome da rua, número e cidade)', 1),
+(5, 'Você mora em casa ou apartamento?', 1),
+(6, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 1),
+(7, 'Você tem outros animais? Quais? São vacinados e castrados?', 1),
+(8, 'Já teve outros animais? O que aconteceu com eles?', 1),
+(9, 'Você é responsável na sua residência?', 1),
+(10, 'Quem será o responsável pelo animal?', 1),
+(11, 'Todos da casa estão cientes e concordam com a adoção?', 1),
+(12, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 1),
+(13, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 1),
+(14, 'Onde o animal dormiria, exatamente?', 1),
+(15, 'Qual seria a sua postura se seu animal subisse no seu sofá ou cama?' , 1),
+(16, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 1),
+(17, 'Já devolveu algum animal adotado?', 1),
+(18, 'Já teve que doar algum animal seu? Se sim, qual foi o motivo', 1),
+(19, 'Caso o animal seja um cachorro e cresça mais que o esperado, o que você faria?', 1),
+(20, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 1),
+(21, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 1),
+(22, 'Quantas horas por dia o animal passará sozinho?', 1),
+(23, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 1),
+(24, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 1),
+(25, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
+
+INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
+('2023-02-12', null, null, 1,  13),
+('2023-03-21', true, true, 19, 14),
+('2023-05-29', true, null, 16, 15),
+('2023-07-30', true, null, 11, 16),
+('2023-06-02', false, false, 6, 17),
+('2023-09-08', null, null, 20, 18 );
+-- ('2023-07-08',  );
+
+
+

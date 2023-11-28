@@ -46,61 +46,75 @@
 
 
             <tab-list class="tab-list-processed">
-                <tab tab="infos">Informações</tab>
-                <tab tab="history">Histórico</tab>
-                <tab tab="forms">Formulário</tab>
-            </tab-list>
-            <article>
-                <section>
-                    <div class="box">
-                        <h1>Dados</h1>
-                        <div class="grid2">
-                            <div>
-                                <h2>Animais</h2>
-                                <ul class="info">
-                                    <li>Cadastrados: <asp:Literal Text="" runat="server" ID="litTtalAnimais"/></li>
-                                    <li>Adotados: <asp:Literal Text="" runat="server" ID="litAdotados"/></li>
-                                </ul>
-                            </div>
-                            <div>
-                                <h2>Requisições</h2>
-                                <ul class="info">
-                                    <li>Novos: <asp:Literal Text="" runat="server" ID="litPedidosNovos"/></li>
-                                    <li>Permitidos: <asp:Literal Text="" runat="server" ID="litPermitidosPendentes"/></li>
-                                    <li>Finalizados: <asp:Literal Text="" runat="server" ID="litPedidosFinalizados"/></li>
-                                </ul>
+                <asp:Literal Text="" runat="server" ID="litTabs" /></tab-list>
+
+            <asp:Panel Visible="false" runat="server" ID="pnlInfos">
+                <article id="infos">
+                    <section>
+                        <div class="box">
+                            <h1>Dados</h1>
+                            <div class="grid2">
+                                <div>
+                                    <h2>Animais</h2>
+                                    <ul class="info">
+                                        <li>Cadastrados:
+                                            <asp:Literal Text="" runat="server" ID="litTtalAnimais" /></li>
+                                        <li>Adotados:
+                                            <asp:Literal Text="" runat="server" ID="litAdotados" /></li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h2>Requisições</h2>
+                                    <ul class="info">
+                                        <li>Novos:
+                                            <asp:Literal Text="" runat="server" ID="litPedidosNovos" /></li>
+                                        <li>Permitidos:
+                                            <asp:Literal Text="" runat="server" ID="litPermitidosPendentes" /></li>
+                                        <li>Finalizados:
+                                            <asp:Literal Text="" runat="server" ID="litPedidosFinalizados" /></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="box">
-                        <h1>Pedidos</h1>
-                        <div class="info">
-                            <h2>Pendentes</h2>
-                            <asp:Literal Text="" ID="litTblPendentes" runat="server"></asp:Literal>
+                        <div class="box">
+                            <h1>Pedidos</h1>
+                            <div class="info">
+                                <h2>Pendentes</h2>
+                                <asp:Literal Text="" ID="litTblPendentes" runat="server"></asp:Literal>
+                            </div>
+
+                            <div class="info">
+                                <h2>Aceitos</h2>
+                                <asp:Literal Text="" ID="litTblAceitos" runat="server"></asp:Literal>
+                            </div>
                         </div>
 
-                        <div class="info">
-                            <h2>Aceitos</h2>
-                            <asp:Literal Text="" ID="litTblAceitos" runat="server"></asp:Literal>
-                        </div>
-                    </div>
-
-                    <script src="./script/table.js"></script>
-                    <script src="./script/order-controller.js"></script>
-                </section>
-                <section class="box sticky">
-                    <h1>Adicionar</h1>
-                    <ul class="info">
-                        <li class="link">
-                            <img src="./img/icons/add.png" alt="Ícone da adicionar"><a href="./animal.aspx">Novo
+                        <script src="./script/table.js"></script>
+                        <script src="./script/order-controller.js"></script>
+                    </section>
+                    <section class="box sticky">
+                        <h1>Adicionar</h1>
+                        <ul class="info">
+                            <li class="link">
+                                <img src="./img/icons/add.png" alt="Ícone da adicionar"><a href="./animal.aspx">Novo
                         animal</a></li>
-                        <li class="link">
-                            <img src="./img/icons/add.png" alt="Ícone da adicionar"><a href="./evento.aspx">Novo
+                            <li class="link">
+                                <img src="./img/icons/add.png" alt="Ícone da adicionar"><a href="./evento.aspx">Novo
                         evento</a></li>
-                    </ul>
-                </section>
-            </article>
+                        </ul>
+                    </section>
+                </article>
+            </asp:Panel>
 
+            <asp:Panel ID="pnlHistory" runat="server">
+                <article>
+                    <section>
+                        <div class="box">
+                            <asp:Literal ID="litTblHistory" runat="server" Text=""></asp:Literal>
+                        </div>
+                    </section>
+                </article>
+            </asp:Panel>
         </main>
 
         <footer>
