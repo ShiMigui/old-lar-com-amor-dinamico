@@ -48,7 +48,7 @@
                 <div class="grid4 full-width">
                     <div class="itemForm">
                         <label for="selGenero">Gênero</label>
-                        <asp:DropDownList runat="server" ID="selGenero">
+                        <asp:DropDownList runat="server" ID="selGenero" AutoPostBack="true">
                             <asp:ListItem Text="Selecione" Value="0"></asp:ListItem>
                             <asp:ListItem Text="Macho" Value="M"></asp:ListItem>
                             <asp:ListItem Text="Fêmea" Value="F"></asp:ListItem>

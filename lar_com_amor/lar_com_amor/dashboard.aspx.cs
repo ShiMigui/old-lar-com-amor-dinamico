@@ -13,7 +13,6 @@ namespace lar_com_amor.build
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("1", "Ng Cahorros", "O");
             Usuario usuario = new Usuario();
 
             List<Parametro> Tabs = new List<Parametro>
@@ -123,7 +122,7 @@ namespace lar_com_amor.build
 
                     #region Preparando variáveis
                     List<Parametro> parametros = new List<Parametro>
-                    { 
+                    {
                         new Parametro("pcd_organizacao", usuario.Cd),
                         new Parametro("poffset", "0"),
                     };

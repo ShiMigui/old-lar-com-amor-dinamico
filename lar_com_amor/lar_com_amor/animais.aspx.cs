@@ -21,7 +21,7 @@ namespace lar_com_amor
                 Banco banco = new Banco();
                 Elemento.InsertDDLValues(selEspecie, banco.Consultar("PegarEspecies", null));
                 Elemento.InsertDDLValues(selPorte, banco.Consultar("PegarPortes", null));
-
+                litAnimais.Text = "";
             }
 
             //DDLs
@@ -29,7 +29,16 @@ namespace lar_com_amor
             // Espécie
             // Raça
             // Porte
+            string especie = "", porte = "", genero = "", raca = "", txt = inpPesquisa.Text;
 
+            if (selEspecie.SelectedValue != "0") especie = selEspecie.SelectedValue;
+            if (selRaca.SelectedValue != "0") raca = selRaca.SelectedValue;
+            if (selGenero.SelectedValue != "0") genero = selGenero.SelectedValue;
+            if (selPorte.SelectedValue != "0") porte = selPorte.SelectedValue;
+
+
+            Anuncios anuncios = new Anuncios();
+            litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetAnimais(txt, "", especie, raca, genero, porte, "0", "18"), "a", "Animais não encontrados");
 
 
         }
@@ -45,6 +54,7 @@ namespace lar_com_amor
             Banco banco = new Banco();
             List<Parametro> parametros = new List<Parametro> { new Parametro("pcd_especie", selEspecie.SelectedValue) };
             Elemento.InsertDDLValues(selRaca, banco.Consultar("PegarRacas", parametros));
+            selPorte.Enabled = true;
         }
 
         protected void selRaca_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,9 +65,9 @@ namespace lar_com_amor
 
             Banco banco = new Banco();
             List<Parametro> parametros = new List<Parametro> { new Parametro("pcd_raca", selRaca.SelectedValue) };
-            using(MySqlDataReader Data = banco.Consultar("PegarPorteRaca", parametros))
+            using (MySqlDataReader Data = banco.Consultar("PegarPorteRaca", parametros))
             {
-                if(Data.Read())
+                if (Data.Read())
                     selPorte.SelectedValue = Data[0].ToString();
             }
             selPorte.Enabled = false;
