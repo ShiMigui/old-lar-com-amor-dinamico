@@ -371,8 +371,3 @@ INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotan
 ('2023-07-30', true, null, 11, 16),
 ('2023-06-02', false, false, 6, 17),
 ('2023-09-08', null, null, 20, 18);
--- ('2023-07-08', null,  );
-/*select * from pedido;
-CALL AtualizarPedido(1, 1, '2023-11-28', true, true);
-*/
-select * from pedido;
