@@ -183,8 +183,6 @@
     <Content Include="dashboard.aspx" />
     <Content Include="eventos.aspx" />
     <Content Include="forms.aspx" />
-    <Content Include="script\forms-user.js" />
-    <Content Include="v1_forms.aspx" />
     <Content Include="img\animal\1.jpg" />
     <Content Include="img\animal\10.jpg" />
     <Content Include="img\animal\11.jpg" />
@@ -197,8 +195,29 @@
     <Content Include="img\animal\18.jpg" />
     <Content Include="img\animal\19.jpg" />
     <Content Include="img\animal\2.jpg" />
+    <Content Include="img\animal\20.jpg" />
+    <Content Include="img\animal\21.jpg" />
+    <Content Include="img\animal\22.jpg" />
+    <Content Include="img\animal\23.jpg" />
+    <Content Include="img\animal\24.jpg" />
+    <Content Include="img\animal\25.jpg" />
+    <Content Include="img\animal\26.jpg" />
+    <Content Include="img\animal\27.jpg" />
+    <Content Include="img\animal\28.jpg" />
+    <Content Include="img\animal\29.jpg" />
     <Content Include="img\animal\3.jpg" />
+    <Content Include="img\animal\30.jpg" />
+    <Content Include="img\animal\31.jpg" />
+    <Content Include="img\animal\32.jpg" />
+    <Content Include="img\animal\33.jpg" />
+    <Content Include="img\animal\34.jpg" />
+    <Content Include="img\animal\35.jpg" />
+    <Content Include="img\animal\36.jpg" />
+    <Content Include="img\animal\37.jpg" />
+    <Content Include="img\animal\38.jpg" />
+    <Content Include="img\animal\39.jpg" />
     <Content Include="img\animal\4.jpg" />
+    <Content Include="img\animal\40.jpg" />
     <Content Include="img\animal\5.jpg" />
     <Content Include="img\animal\6.jpg" />
     <Content Include="img\animal\7.jpg" />
@@ -206,7 +225,21 @@
     <Content Include="img\animal\9.jpg" />
     <Content Include="img\evento\1.jpg" />
     <Content Include="img\evento\10.jpg" />
+    <Content Include="img\evento\11.jpg" />
+    <Content Include="img\evento\12.jpg" />
+    <Content Include="img\evento\13.jpg" />
+    <Content Include="img\evento\14.jpg" />
+    <Content Include="img\evento\15.jpg" />
+    <Content Include="img\evento\16.jpg" />
+    <Content Include="img\evento\17.jpg" />
+    <Content Include="img\evento\18.jpg" />
+    <Content Include="img\evento\19.jpg" />
     <Content Include="img\evento\2.jpg" />
+    <Content Include="img\evento\20.jpg" />
+    <Content Include="img\evento\21.jpg" />
+    <Content Include="img\evento\22.jpg" />
+    <Content Include="img\evento\23.jpg" />
+    <Content Include="img\evento\24.jpg" />
     <Content Include="img\evento\3.jpg" />
     <Content Include="img\evento\4.jpg" />
     <Content Include="img\evento\5.jpg" />
@@ -214,6 +247,21 @@
     <Content Include="img\evento\7.jpg" />
     <Content Include="img\evento\8.jpg" />
     <Content Include="img\evento\9.jpg" />
+    <Content Include="img\usuario\1.jpg" />
+    <Content Include="img\usuario\10.jpg" />
+    <Content Include="img\usuario\11.jpg" />
+    <Content Include="img\usuario\12.jpg" />
+    <Content Include="img\usuario\2.jpg" />
+    <Content Include="img\usuario\3.jpg" />
+    <Content Include="img\usuario\4.jpg" />
+    <Content Include="img\usuario\5.jpg" />
+    <Content Include="img\usuario\6.jpg" />
+    <Content Include="img\usuario\7.jpg" />
+    <Content Include="img\usuario\8.jpg" />
+    <Content Include="img\usuario\9.jpg" />
+    <Content Include="lib\responderFormulario.aspx" />
+    <Content Include="script\forms-user.js" />
+    <Content Include="v1_forms.aspx" />
     <Content Include="img\icons\account.png" />
     <Content Include="img\icons\add.png" />
     <Content Include="img\icons\arrow-down.png" />
@@ -227,22 +275,8 @@
     <Content Include="img\icons\logo.png" />
     <Content Include="img\icons\more.png" />
     <Content Include="img\icons\search.png" />
-    <Content Include="img\usuario\1.jpg" />
-    <Content Include="img\usuario\10.jpg" />
-    <Content Include="img\usuario\2.jpg" />
-    <Content Include="img\usuario\3.jpg" />
-    <Content Include="img\usuario\5.jpg" />
-    <Content Include="img\usuario\6.png" />
-    <Content Include="img\usuario\7.png" />
-    <Content Include="img\usuario\8.jpg" />
-    <Content Include="img\usuario\9.jpg" />
-    <Content Include="img\usuario\FOCINHO_CARENTE.jpeg" />
-    <Content Include="img\usuario\MORADA_DA_FLORESTA_ABRIGO_DE_ANIMAIS.jpg" />
-    <Content Include="img\usuario\oasis.png" />
     <Content Include="index.aspx" />
-    <Content Include="lib\orgForms.aspx" />
     <Content Include="lib\sair.aspx" />
-    <Content Include="lib\userForms.aspx" />
     <Content Include="login.aspx" />
     <Content Include="organizacao.aspx" />
     <Content Include="organizacoes.aspx" />
@@ -305,6 +339,13 @@
     <Compile Include="forms.aspx.designer.cs">
       <DependentUpon>forms.aspx</DependentUpon>
     </Compile>
+    <Compile Include="lib\responderFormulario.aspx.cs">
+      <DependentUpon>responderFormulario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\responderFormulario.aspx.designer.cs">
+      <DependentUpon>responderFormulario.aspx</DependentUpon>
+    </Compile>
     <Compile Include="v1_forms.aspx.cs">
       <DependentUpon>v1_forms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -319,26 +360,12 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="lib\orgForms.aspx.cs">
-      <DependentUpon>orgForms.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="lib\orgForms.aspx.designer.cs">
-      <DependentUpon>orgForms.aspx</DependentUpon>
-    </Compile>
     <Compile Include="lib\sair.aspx.cs">
       <DependentUpon>sair.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="lib\sair.aspx.designer.cs">
       <DependentUpon>sair.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="lib\userForms.aspx.cs">
-      <DependentUpon>userForms.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="lib\userForms.aspx.designer.cs">
-      <DependentUpon>userForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

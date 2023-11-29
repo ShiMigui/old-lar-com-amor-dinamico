@@ -58,7 +58,6 @@ namespace lar_com_amor
             btnEnviar.Visible = true;
             Banco banco = new Banco();
             string dt = "";
-            bool icDt = false;
             List<Parametro> parametros = new List<Parametro>
             { new Parametro("pcd_animal", a), new Parametro("pcd_adotante", u) };
             using (MySqlDataReader Data = banco.Consultar($"SELECT dt_pedido FROM pedido WHERE cd_adotante = {u} AND cd_animal = {a} AND ic_permitido IS NULL AND ic_finalizado IS NULL"))
@@ -66,7 +65,6 @@ namespace lar_com_amor
                 if(Data.Read())
                 {
                     dt = Data["dt_pedido"].ToString().Split(' ')[0];
-                    icDt = true;
                 }
                 else
                 {

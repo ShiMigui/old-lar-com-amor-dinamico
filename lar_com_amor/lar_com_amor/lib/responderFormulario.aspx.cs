@@ -1,4 +1,5 @@
 ﻿using lar_com_amor.classes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace lar_com_amor.lib
         protected void Page_Load(object sender, EventArgs e)
         {
             Response.ContentType = "application/json";
+            if (String.IsNullOrEmpty(Request["qt"])) Response.Redirect("responderFormulario.aspx");
 
             #region Pegando parametros
             string cd_animal = "";
@@ -33,10 +35,30 @@ namespace lar_com_amor.lib
             }
             #endregion
 
-            string command = "";
-            for (int i = 1; i <= qt; i++)
+            try
             {
+                Banco banco = new Banco();
 
+                for (int i = 1; i <= qt; i++)
+                {
+                    string resp = Request[$"inp{i}"].ToString();
+                    List<Parametro> parametros = new List<Parametro>
+                    {
+                        new Parametro("pcd_animal", cd_animal),
+                        new Parametro("pcd_adotante", cd_adotante),
+                        new Parametro("pdt_pedido", Credenciais.DateToInput(dt_pedido)),
+                        new Parametro("pnm_resposta", resp),
+                        new Parametro("pcd_pergunta", i.ToString()),
+                    };
+
+                    banco.Executar("NovaRespostaByAnimal", parametros);
+                }
+                Retorno(true, "Pedido realizado");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+                Retorno(false, "Ocorreu um erro, tente mais tarde");
             }
         }
 

@@ -210,15 +210,7 @@ BEGIN
 END;
 $
 
-DROP PROCEDURE IF EXISTS PegarPerguntasByAnimal$
-CREATE PROCEDURE PegarPerguntasByAnimal(pcd_animal INT)
-BEGIN
-	SELECT p.cd_pergunta, p.nm_pergunta 
-	FROM animal a
-	JOIN usuario o ON o.cd_usuario = a.cd_organizacao
-	JOIN pergunta p where a.cd_animal = pcd_animal;
-END;
-$
+
 
 DROP PROCEDURE IF EXISTS PegarRespostasUsuario$
 CREATE PROCEDURE PegarRespostasUsuario(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE)
@@ -323,4 +315,16 @@ BEGIN
 	INSERT INTO resposta (nm_resposta, cd_pergunta, cd_organizacao, cd_animal, cd_adotante, dt_pedido) VALUES 
 	(pnm_resposta, pcd_pergunta, pcd_organizacao, pcd_animal, pcd_adotante, pdt_pedido);
 END$
+
+DROP PROCEDURE IF EXISTS PegarPerguntasByAnimal$
+CREATE PROCEDURE PegarPerguntasByAnimal(pcd_animal INT)
+BEGIN
+	SELECT p.cd_pergunta, p.nm_pergunta 
+	FROM animal a
+	JOIN usuario o ON o.cd_usuario = a.cd_organizacao
+	JOIN pergunta p ON p.cd_organizacao = o.cd_usuario
+    where a.cd_animal = pcd_animal;
+END;
+$
 DELIMITER ;
+

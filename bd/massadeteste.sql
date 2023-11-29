@@ -53,14 +53,28 @@ CALL NovoUsuario('Amigo não se compra', 'amigonaosecompra@gmail.com', '27892254
 CALL NovoUsuario('Oásis', 'oasis@gmail.com', '24542779286',27253510, 28311113000127, '123', 'O', 'O Lar Temporário Oásis é um enigma desvendado no coração do deserto, uma antiga promessa de cuidado e proteção para as criaturas de quatro patas. Como os mistérios do Nilo, nossa missão é resgatar, nutrir e salvaguardar os animais em necessidade, oferecendo um refúgio transitório, como uma pausa sob as sombras das palmeiras. Neste oásis, os cães e gatos recebem os cuidados dignos de faraós, onde são tratados como verdadeiras joias preciosas do reino animal. Buscamos os lares mais abençoados, onde esses seres mágicos encontrarão seu lar definitivo. Promovemos uma sabedoria ancestral sobre a importância da adoção consciente e do respeito aos seres vivos. No Lar Temporário Oásis, acreditamos que cada patinha é uma relíquia a ser protegida e reverenciada, e estamos comprometidos em traçar hieróglifos de amor e compaixão para o bem-estar destes seres encantados.');
 CALL NovoUsuario('Focinho Carente', 'Focinhocarente@gmail.com', '13991017696',11350240, 19147052000113, '123', 'O', 'O Focinho Carente é a centelha de esperança para as almas peludas que anseiam por um lar amoroso. Nossa missão é ser o abraço caloroso para aqueles que precisam, resgatando, acolhendo e cuidando de cães e gatos desamparados. Estendemos a eles não só cuidados médicos e físicos, mas um suporte emocional, uma promessa de que dias melhores virão. Buscamos lares onde esses seres tão especiais possam encontrar não apenas um teto, mas um porto seguro de afeto e carinho. Espalhamos o brilho da esperança por meio de programas educativos, compartilhando histórias de superação e amor incondicional. No Focinho Carente, cada patinha representa a chance de um novo começo, e estamos determinados a pintar um futuro repleto de alegria e novas oportunidades para cada um deles.');
 CALL NovoUsuario('Morada da Floresta', 'Morada@gmail.com', '13988616269', 11721030, 40404129000180, '123', 'O', 'A Morada da Floresta é o capítulo mais nobre e acalentador na história dos seres da mata. Nossa missão é resgatar, proteger e cuidar dos animais que habitam essas terras ancestrais, oferecendo-lhes um refúgio seguro como os antigos bosques. Somos guardiões de uma conexão ancestral, onde cães e gatos desprotegidos são acolhidos com a mesma reverência que os seres da floresta receberam dos antigos povos. Buscamos, como arautos do passado, lares onde esses animais possam ser honrados como membros sagrados de novas tribos, encontrando famílias que respeitem a harmonia entre homem e natureza. Além de acolher, compartilhamos o saber das matas por meio de programas educativos, preservando os laços místicos e o respeito à fauna que há séculos habitam essas terras. Na Morada da Floresta, cada patinha é um elo com os tempos antigos, e estamos empenhados em manter essa tradição de cuidado e proteção ao legado selvagem que nos cerca.');
-
+-- Adotantes
 CALL NovoUsuario('Joana Silva', 'joana@email.com', '13991027686', 11350240, '', '1234', 'A', '');
 CALL NovoUsuario('João da Silva', 'joao@gmail.com', '31987654321', 30111000, '', '54321', 'A', '');
 CALL NovoUsuario('Lívia Santos', 'livia.santos@gmail.com', '13987654321', 11015130, '', '262626', 'A', '');
 CALL NovoUsuario('Amélia Moura', 'moura.amelia@gmail.com', '13996654788', 38410150, '', '333','A', '' );
 CALL NovoUsuario('José Augusto', 'zezinho@gmail.com', '2455667890', 27253510, '', '245', 'A', '' );
 CALL NovoUsuario('Pedro Ferreira', 'ferreirapedro@gmail.com', '1144556739', 11721030, '', '0606', 'A', '' );
-
+CALL NovoUsuario('Lavinia Azevedo Rocha', 'LaviniaAzevedoRocha@gmail.com', '1987853064', 13465791, '', '3245', 'A', '' );
+CALL NovoUsuario('Vinícius Melo Gomes', 'ViniciusMeloGomes@gmail.com', '8187073510', 53560-056, '', '7865', 'A', '' );
+CALL NovoUsuario('Cauã Dias Ribeiro', 'CauaDiasRibeiro@gmail.com', '8590613274', 60331250, '', '9845', 'A', '' );
+CALL NovoUsuario('Letícia Cunha Costa', 'LeticiaCunhaCosta@gmail.com', '4564584152', 85909-230, '', '1254', 'A', '' );
+CALL NovoUsuario('Manuela Pereira Ribeiro', 'ManuelaPereiraRibeiro@gmail.com', '1124578316', 13301629, '', '1393', 'A', '' );
+CALL NovoUsuario('Otávio Correia Melo', 'OtavioCorreiaMelo@gmail.com', '3143235839', 35900823, '', '1529', 'A', '' );
+CALL NovoUsuario('Emily Goncalves Almeida', 'EmilyGoncalvesAlmeida@gmail.com', '8169456531', 54730270, '', '1046', 'A', '' );
+CALL NovoUsuario('Bianca Cunha Martins', 'BiancaCunhaMartins@gmail.com', '1153697905', 02652140, '', '1701', 'A', '' );
+CALL NovoUsuario('Beatrice Gomes Goncalves', 'BeatriceGomesGoncalves@gmail.com', '8572848846', 60764510, '', '1627', 'A', '' );
+CALL NovoUsuario('Vitór Ferreira Cardoso', 'VitorFerreiraCardoso@gmail.com', '1666627423', 14080095, '', '4022', 'A', '' );
+CALL NovoUsuario('Tiago Oliveira Castro', 'TiagoOliveiraCastro@gmail.com', '8557325562', 60865740, '', '2020', 'A', '' );
+CALL NovoUsuario('Danilo Alves Castro', 'DaniloAlvesCastro@gmail.com', '6245407092', 74915020, '', '1989', 'A', '' );
+CALL NovoUsuario('Igor Oliveira Pinto', 'IgorOliveiraPinto@gmail.com', '1160038043', 13222740, '', '8949', 'A', '' );
+CALL NovoUsuario('Anna Cunha Gomes', 'AnnaCunhaGomes@gmail.com', '1361913159', 11495077, '', '1478', 'A', '' );
+CALL NovoUsuario('Andre Souza Fernandes', 'AndreSouzaFernandes@gmail.com', '1133515149', 08507310, '', '1373', 'A', '' );
 
 INSERT INTO tipo_evento (cd_tipo, nm_tipo) VALUES 
 (1, 'Vacinação'),
@@ -125,6 +139,7 @@ INSERT INTO raca(cd_raca, nm_raca, cd_especie, sg_porte) VALUES
 (10, 'Rex', 3, 'M'),     -- Médio
 (11, 'Mini Lion', 3, 'P'), -- Pequeno
 (12, 'Fuzzy Lop', 3, 'G'); -- Grande
+
 -- Animal 1 - ONG 1
 CALL NovoAnimal(  'Buddy', 'Buddy, o labrador, é um cão de porte médio a grande, conhecido por sua personalidade amigável e carinhosa. Com um físico atlético e musculoso, ele possui uma pelagem densa e curta, geralmente em tons de preto, amarelo ou chocolate.
 Seus olhos expressivos e gentis transmitem uma inteligência notável, enquanto suas orelhas pendentes acrescentam charme ao seu rosto amigável. O nariz largo e úmido é uma característica distintiva, sempre pronto para investigar o ambiente com seu faro aguçado.
@@ -163,7 +178,7 @@ Seus olhos expressivos, geralmente grandes e amarelos, destacam-se em contraste 
 A personalidade de Bailey é tão única quanto sua aparência. Apesar de não ter pelos para demonstrar afeto, ele é extremamente carinhoso e apegado aos seus donos. Seu comportamento brincalhão e enérgico faz dele um ótimo companheiro para interações divertidas, além de ser conhecido por seu amor por aconchegar-se em busca de calor e carinho. Sua natureza extrovertida o torna um excelente gato para lares ativos, onde sua curiosidade infinita e personalidade afetuosa podem florescer plenamente.', '2020-11-28', false, 7, 'M', 2);
 
 -- Animal 8 ONG 3
-CALL NovoAnimal('Sophie', 'Sophie, a majestosa Maine Coon, é uma gata de porte impressionante e beleza estonteante. Com sua pelagem exuberante e longa, em tons variados como marrom, prateado ou creme, ela se destaca pelo seu tamanho impressionante, parecendo quase uma miniatura de um felino selvagem. Seus olhos grandes e expressivos, geralmente dourados ou âmbar, transmitem uma inteligência tranquila e cativante.
+CALL NovoAnimal('Sophie', 'Sophie, a majestosa Maine Coon, é uma gata de porte impressionante e beleza estonteante. Com sua pelagem exuberante e longa, em tons variados de creme, ela se destaca pelo seu tamanho impressionante, parecendo quase uma miniatura de um felino selvagem. Seus olhos grandes e expressivos, geralmente dourados ou âmbar, transmitem uma inteligência tranquila e cativante.
 Além da sua aparência deslumbrante, Sophie é conhecida por sua personalidade carismática e cativante. Ela é carinhosa, mas independente, desfrutando de momentos de tranquilidade e reflexão em sua própria companhia. No entanto, ela também é uma ótima companheira, apreciando interações afetuosas e participando de atividades familiares.
 Sua inteligência aguçada faz dela uma aprendiz ágil, capaz de entender e até mesmo criar brincadeiras desafiadoras. Sophie é uma gata que cria laços fortes com sua família, demonstrando afeto de maneiras únicas e encantadoras, tornando-se não apenas uma presença imponente, mas também um coração amoroso dentro do lar.', '2018-12-17', false, 8, 'F', 3);
 
@@ -219,37 +234,37 @@ CALL NovoAnimal('Charlie', 'Charlie, o adorável coelho da raça Holandesa, é u
 Além de sua aparência encantadora, Charlie é conhecido por sua natureza curiosa e brincalhona. Ele adora investigar seu ambiente, demonstrando uma energia cativante e entusiasmo por novas experiências. Sua disposição afetuosa e sociável o torna um companheiro adorável, especialmente para aqueles que buscam um amigo peludo e carinhoso.
 A inteligência observadora de Charlie o torna um coelho ágil e atento, sempre pronto para interagir com jogos e brinquedos desafiadores. Sua natureza dócil e sua disposição para interações humanas tornam-no não apenas uma adição encantadora para qualquer lar, mas também um amigo fiel e amoroso para toda a família.', '2018-09-03', true, 9, 'M', 3);
 
--- Animal 19 ONG 1
-CALL NovoAnimal('Bella', 'Bella, a encantadora labradora, é um pacote de alegria e lealdade. Com sua pelagem brilhante e olhos expressivos, ela exibe uma energia contagiante e uma disposição amigável. Seu pelo curto e denso, frequentemente em tons de amarelo, chocolate ou preto, realça sua presença confiante e atlética.
+-- Animal 19 ONG 10
+CALL NovoAnimal('Bella', 'Bella, a encantadora labradora, é um pacote de alegria e lealdade. Com sua pelagem brilhante e olhos expressivos, ela exibe uma energia contagiante e uma disposição amigável. Seu pelo preto curto e denso, realça sua presença confiante e atlética.
 Além da sua aparência adorável, Bella é conhecida por sua personalidade afetuosa e carinhosa. Ela é amigável e leal, sempre pronta para se envolver com sua família humana. Sua natureza brincalhona e sua disposição para participar de atividades a tornam não apenas uma excelente companheira, mas também uma fonte constante de diversão para todos ao seu redor.
-A inteligência aguçada de Bella a torna uma aprendiz ágil, capaz de compreender comandos e responder a treinamentos com facilidade. Sua doçura e presença amorosa fazem dela não apenas uma labradora encantadora, mas também uma amiga confiável e amorosa, pronta para compartilhar momentos inesquecíveis ao lado de sua família.', '2021-08-01', false, 1, 'F', 1);
+A inteligência aguçada de Bella a torna uma aprendiz ágil, capaz de compreender comandos e responder a treinamentos com facilidade. Sua doçura e presença amorosa fazem dela não apenas uma labradora encantadora, mas também uma amiga confiável e amorosa, pronta para compartilhar momentos inesquecíveis ao lado de sua família.', '2021-08-01', false, 1, 'F', 10);
 
--- Animal 20 ONG 1
+-- Animal 20 ONG 11
 CALL NovoAnimal('Donna', 'Donna, a nossa encantadora labradora de 10 anos, é uma verdadeira dama de quatro patas que conquista corações com seu charme e sabedoria. Com seu pelo dourado reluzente e olhos cheios de ternura, ela é uma companheira leal, pronta para espalhar amor e alegria em qualquer lar.
 Ao longo dos anos, Donna desenvolveu uma personalidade serena e gentil, tornando-se a confidente perfeita para longos passeios calmos ou simplesmente para um momento relaxante ao seu lado. Mesmo com sua idade, seu espírito vibrante e leal continua a inspirar, mostrando que a verdadeira beleza está na alma. 
-Donna aguarda ansiosamente por uma família dedicada, pronta para acolher a calorosa presença e a experiência única que uma labradora mais sábia pode proporcionar. Venha conhecer Donna, e descubra a beleza atemporal de um amor canino verdadeiro.', '2013-06-12', true, 1, 'F', 1);
+Donna aguarda ansiosamente por uma família dedicada, pronta para acolher a calorosa presença e a experiência única que uma labradora mais sábia pode proporcionar. Venha conhecer Donna, e descubra a beleza atemporal de um amor canino verdadeiro.', '2013-06-12', true, 1, 'F', 11);
 
--- Animal 21 ONG 1
+-- Animal 21 ONG 12
 CALL NovoAnimal('Lyara', 'Conheça Lyara, a deslumbrante pastora alemã que encanta a todos com sua presença majestosa e lealdade inabalável. Com sua pelagem exuberante e expressão inteligente, Lyara é uma visão de beleza canina. Seus olhos atentos contam histórias de sabedoria, refletindo uma alma gentil e protetora. 
 Aos seis anos, Lyara é uma companheira vibrante, pronta para aventuras ao ar livre e momentos de ternura em casa. Essa pastora alemã excepcional aguarda por uma família que aprecie não apenas sua imponência física, mas também a doçura e lealdade que ela oferece a quem a acolhe. 
-Venha conhecer Lyara e descubra a alegria de compartilhar a vida com uma amiga tão única e dedicada.', '2017-02-01', true, 4, 'F', 1);
+Venha conhecer Lyara e descubra a alegria de compartilhar a vida com uma amiga tão única e dedicada.', '2017-02-01', true, 4, 'F', 12);
 
--- Animal 22 ONG 1
+-- Animal 22 ONG 3
 CALL NovoAnimal('Petyr', 'Conheça Petyr, o bulldog de 4 anos cheio de personalidade e charme. Com seu porte robusto e rugas adoráveis, Petyr é um verdadeiro cavalheiro canino. Seus olhos expressivos transmitem uma mistura única de curiosidade e lealdade, refletindo a natureza afetuosa desse bulldog encantador. 
 Petyr é um companheiro brincalhão, sempre pronto para uma boa diversão ou um momento de carinho. Se você está em busca de um amigo leal com uma personalidade vibrante, Petyr está ansioso para trazer alegria e risadas à sua vida. 
-Venha conhecê-lo e descubra o encanto irresistível desse bulldog de coração grande.', '2019-08-19', true, 3, 'M', 1);
+Venha conhecê-lo e descubra o encanto irresistível desse bulldog de coração grande.', '2019-08-19', true, 3, 'M', 3);
 
--- Animal 23 ONG 1
+-- Animal 23 ONG 5
 CALL NovoAnimal('Vina', 'Conheça Vina, uma adorável poodle que conquista corações com seu charme e inteligência. Com seus cachos macios e expressão doce, Vina é uma dama elegante de quatro patas, com quatro anos de pura graça canina. Ela é mais do que uma companheira, é uma amiga leal pronta para preencher seu dia com alegria e amor. 
 Vina é conhecida por sua natureza brincalhona e disposição para se aconchegar. Se você procura uma amiga peluda que traga alegria e afeto para sua vida, Vina é a poodle perfeita para iluminar seus dias. 
-Venha conhecê-la e descubra o encanto irresistível dessa poodle cheia de personalidade.', '2020-12-01', true, 2, 'F', 1);
+Venha conhecê-la e descubra o encanto irresistível dessa poodle cheia de personalidade.', '2020-12-01', true, 2, 'F', 5);
 
 -- Animal 24 ONG 1
 CALL NovoAnimal('Luthor', 'Luthor, o nosso adorável Labrador de 11 anos, é uma verdadeira fonte de alegria e companheirismo em nossa casa. Com seu pelo dourado brilhante e olhos cheios de doçura, ele é muito mais do que um simples animal de estimação; é um membro querido da família. Ao longo dos anos, Luthor conquistou a todos com seu temperamento amigável e leal. Sempre pronto para uma brincadeira ou um afago, ele se destaca por sua energia contagiante e sua capacidade de iluminar até os dias mais nublados.
 Mesmo com seus 11 anos, Luthor mantém uma vitalidade incrível, ainda adorando suas caminhadas matinais e demonstrando entusiasmo sempre que a palavra "passeio" é mencionada. Sua inteligência e obediência fazem dele não apenas um excelente companheiro, mas também um cão notavelmente fácil de conviver. Em meio a seu amor pela vida e devoção inabalável à família, Luthor é uma verdadeira inspiração de como a idade pode ser apenas um número quando se trata de amor e felicidade canina. Seu olhar atencioso e leal é um lembrete constante do quanto ele significa para todos nós.', '2012-03-05', true, 1, 'M', 1);
 
 -- Animal 25 ONG 1
-CALL NovoAnimal('Arianne', 'Arianne, nossa adorável Bulldog de 1 ano, é uma explosão de energia e personalidade na nossa casa. Seu porte robusto e expressão marcante tornam impossível não se apaixonar por ela à primeira vista. Com sua pelagem tigrada e rugas encantadoras, Arianne é uma verdadeira representante do charme irresistível dessa raça.
+CALL NovoAnimal('Arianne', 'Arianne é uma explosão de energia e personalidade na nossa casa. Seu porte robusto e expressão marcante tornam impossível não se apaixonar por ela à primeira vista. Com sua pelagem tigrada e rugas encantadoras, Arianne é uma verdadeira representante do charme irresistível dessa raça.
 Apesar de sua juventude, Arianne já demonstra uma inteligência notável e uma curiosidade incessante pelo mundo ao seu redor. Seus olhos brilhantes denunciam uma alegria contagiante, e sua disposição para brincadeiras é interminável. Arianne é a companhia perfeita para aventuras ao ar livre, onde ela exibe sua agilidade e entusiasmo em cada passo. Sua natureza afetuosa e leal faz com que ela se destaque como uma amiga fiel, pronta para conquistar corações com sua personalidade cativante.', '2022-05-11', true, 3, 'F', 1);
 
 -- Animal 26 ONG 1
@@ -267,6 +282,53 @@ Maerie é muito mais do que uma cadela de porte elegante; ela é uma amiga leal 
 -- Animal 29 ONG 1
 CALL NovoAnimal('Tintin', 'Apresentamos Tintin, um Poodle cheio de charme e personalidade que está pronto para encher seu lar de alegria e companheirismo. Com seu pelo macio e ondulado, Tintin é um verdadeiro exemplo da elegância canina. Este simpático Poodle, com apenas dois anos de idade, traz consigo uma energia contagiante e uma disposição amigável que o tornam uma adição perfeita para qualquer família.
 Tintin é mais do que apenas um rosto bonito; ele é um companheiro inteligente e leal, pronto para se envolver em brincadeiras animadas ou desfrutar de momentos relaxantes de carinho. Sua natureza afetuosa o torna particularmente adequado para lares com crianças e adultos. Tintin já está treinado e é facilmente adaptável, o que facilita a integração dele em novos ambientes. Se você procura um amigo peludo que combine charme, vivacidade e amor, adote Tintin e descubra como a presença dele pode transformar sua casa em um verdadeiro lar. Não perca a chance de dar a Tintin a família amorosa que ele merece.', '2018-07-24', true, 2, 'M', 1);
+
+-- Animal 30 ONG 4
+CALL NovoAnimal('Zion', 'Conheça Zion, um coelho Mini Lion que traz consigo uma dose extra de fofura para aquecer qualquer lar. Com sua pelagem exuberante e orelhas caracteristicamente adornadas, Zion é uma verdadeira obra de arte da natureza. Este pequeno amigo, com apenas um ano de idade, é a combinação perfeita de curiosidade e doçura, pronto para encantar seus dias com suas travessuras adoráveis.
+Zion é mais do que apenas um coelhinho bonito; ele é um companheiro tranquilo e amoroso, perfeito para lares que buscam um animal de estimação dócil e de fácil convívio. Seu comportamento amigável o torna uma excelente opção para famílias com crianças ou para quem procura uma presença reconfortante em casa. Zion já está acostumado ao ambiente interno e é facilmente treinável, facilitando sua adaptação a novos lares. Adote Zion e descubra como a presença desse coelhinho encantador pode iluminar seus dias com alegria e carinho. Não deixe passar a oportunidade de dar a Zion um lar cheio de amor e cuidado.', '2022-11-27', true, 11, 'M', 2);
+
+-- Animal 31 ONG 4
+CALL NovoAnimal('Kaká', 'Apresentamos Kaká, uma coelha Holandesa que esbanja charme e personalidade em suas orelhinhas distintas e pelagem marcante. Com seus olhos curiosos e postura elegante, Kaká, de dois anos de idade, é um encanto em forma de coelhinha. Ela traz consigo uma combinação única de vivacidade e doçura, tornando-a uma adição perfeita para lares que buscam uma companhia carinhosa.
+Kaká é uma coelha inteligente e sociável, pronta para se envolver em brincadeiras suaves ou simplesmente relaxar ao lado de seus cuidadores. Sua natureza dócil faz dela uma excelente opção para famílias com crianças ou para quem deseja um animal de estimação afetuoso. Kaká é cuidadosa e receptiva a carinhos, o que torna a interação com ela uma experiência verdadeiramente reconfortante. Se você está em busca de uma coelha adorável e encantadora, adote Kaká e descubra como ela pode transformar seu lar em um refúgio de alegria e carinho. Não perca a chance de dar a Kaká o amor e a atenção que ela merece.', '2020-10-04', true, 9, 'F', 4);
+
+-- Animal 32 ONG 3
+CALL NovoAnimal('Jonas', 'Conheça Jonas, um coelho Fuzzy Lop que é a personificação da fofura em quatro patas. Com suas orelhas caídas e pelagem irresistivelmente macia, Jonas é um pequeno encanto de orelhas felpudas. Aos três anos de idade, ele carrega consigo uma mistura única de curiosidade e tranquilidade, tornando-o um coelhinho ideal para quem busca uma companhia adorável.
+Jonas é mais do que apenas um rostinho bonito; ele é um coelho inteligente e gentil, pronto para explorar seu novo lar e se aconchegar em momentos de carinho. Sua pelagem densa requer cuidados regulares, tornando a escovação não apenas uma necessidade, mas também uma oportunidade de fortalecer os laços entre você e seu novo amigo peludo. Se você está pronto para acolher um coelho que é uma verdadeira bola de pelos amorosa, adote Jonas e dê a ele um lar repleto de cuidados e afeto. Não perca a chance de ter um coelhinho que vai encher seus dias de alegria e suavidade.', '2020-03-19', true, 12, 'M', 3);
+
+-- Animal 33 ONG 4
+CALL NovoAnimal('Regina', 'Conheça Regina, uma coelha Rex que cativa corações com sua pelagem única e personalidade encantadora. Com seu pelo curto, macio e aveludado, Regina é uma verdadeira rainha entre os coelhos, destacando-se por sua beleza distinta. Aos quatro anos de idade, ela traz consigo a serenidade e a graça que tornam os coelhos Rex tão adoráveis.
+Regina é mais do que apenas uma coelha bonita; ela é uma companheira afetuosa, pronta para preencher sua casa com carinho e charme. Seus olhos curiosos e orelhas delicadas fazem dela uma adição encantadora para famílias que buscam um coelhinho amigável. Com um temperamento dócil, Regina se adapta facilmente a novos ambientes e está ansiosa para explorar cada cantinho de seu futuro lar. Se você está pronto para dar um lar a uma coelha cheia de graça e ternura, adote Regina e descubra como sua presença pode encher seus dias de alegria. Não perca a oportunidade de acolher essa adorável coelha Rex em sua vida.', '2019-11-12', true, 10, 'F', 4);
+
+-- Animal 34 ONG 2
+CALL NovoAnimal('Bolinha', 'Conheça Bolinha, o Mini Lion, conquista corações com sua aparência adorável e personalidade cativante. Com sua pelagem exuberante e a juba que lhe confere um charme único, Bolinha é uma verdadeira bola de fofura em quatro patas.  Este coelhinho traz consigo uma mistura irresistível de curiosidade e doçura.
+Bolinha não é apenas uma bolinha de pelos; ele é um coelho inteligente e brincalhão, pronto para se envolver em momentos divertidos e interações amorosas. Seu tamanho compacto e disposição amigável fazem dele o companheiro perfeito para lares que buscam um pet carinhoso e alegre. Bolinha adora receber carinhos e é rápido em se adaptar a novas situações. Se você está pronto para dar um lar a este coelhinho encantador, adote Bolinha e descubra como sua presença pode trazer um toque especial de alegria e amor ao seu dia a dia. Não perca a chance de acolher essa bolinha de pelos cheia de afeto em sua vida.', '2017-05-20', true, 11, 'M', 2);
+
+-- Animal 35 ONG 3
+CALL NovoAnimal('Mena', 'Apresentamos Mena, uma coelha Rex de pelagem macia e encantadora, pronta para conquistar um lar com sua doçura incomparável. Com seu pelo curto e aveludado que destaca sua beleza única, Mena é uma adição encantadora para qualquer família em busca de uma companhia afetuosa. Seus olhos curiosos e orelhas delicadas são um convite para momentos de carinho e ternura.
+Mena é mais do que uma coelha de aparência graciosa; ela é uma amiga fiel, ansiosa para compartilhar momentos de alegria e brincadeiras em seu novo lar. Sua personalidade dócil e adaptável a tornam uma opção ideal para famílias e lares que procuram uma coelha de temperamento amigável. Mena já está pronta para oferecer e receber amor incondicional, tornando-a a candidata perfeita para quem busca uma amizade peluda repleta de carinho. Se você está pronto para adicionar um toque de suavidade e aconchego à sua vida, adote Mena e descubra como a presença dela pode transformar seus dias em momentos especiais de cumplicidade. Não deixe escapar a oportunidade de acolher essa coelhinha adorável em sua família.', 
+'2019-10-12', true, 10, 'F', 3);
+
+-- Animal 36 ONG 5
+CALL NovoAnimal('Bruno', ' Bruno tem personalidade marcante e pelagem distintiva. Com suas orelhas curvas e marcações características, Bruno é uma adorável bolinha de pelo pronto para alegrar o coração de sua futura família adotiva. Seu pelo curto e a combinação única de cores fazem dele um coelho não apenas encantador, mas também memorável.
+Bruno é mais do que apenas um rosto bonito; ele é um coelho inteligente e brincalhão, pronto para trazer alegria e diversão ao seu novo lar. Sua natureza curiosa e expressão animada o tornam um companheiro encantador para lares que procuram uma energia positiva e afetuosa. Bruno está ansioso para explorar seu ambiente e formar laços especiais com aqueles que o acolherem. Se você está pronto para adotar um coelho Holandês cheio de carisma e charme, Bruno está esperando por você para preencher sua vida com amor peludo. Não perca a oportunidade de fazer de Bruno o membro peludo e carinhoso de sua família.', '2022-09-30', true, 9, 'M', 5);
+
+-- Animal 37 ONG 4
+CALL NovoAnimal('Zara', 'Apresentamos Zara, uma coelha Fuzzy Lop de puro encanto e personalidade cativante. Com sua pelagem felpuda e orelhas caídas, Zara é uma verdadeira princesa entre os coelhos, pronta para conquistar corações com sua doçura. Seu pelo macio e olhos expressivos fazem dela não apenas uma coelha adorável, mas uma presença reconfortante para qualquer lar.
+Zara não é apenas uma coelha bonita; ela é uma companheira afetuosa e curiosa, ansiosa para se envolver em brincadeiras suaves e momentos de carinho. Sua natureza tranquila e amigável a torna uma opção ideal para famílias e indivíduos em busca de uma coelha de temperamento dócil. Zara está pronta para se integrar ao seu novo lar, trazendo consigo toda a ternura e charme que os coelhos Fuzzy Lop têm a oferecer. Se você está pronto para receber em sua casa um coelhinho cheio de amor e pelagem fofa, adote Zara e descubra como sua presença pode iluminar seus dias com alegria. Não perca a chance de fazer desta coelha Fuzzy Lop uma parte especial da sua vida.', '2019-01-06', true, 12, 'F', 4);
+
+-- Animal 38 ONG 3
+CALL NovoAnimal('Liza', 'Com olhos brilhantes e pelagem marcada, Liza está pronta para encantar sua vida com sua presença graciosa. Com suas orelhas distintas e sua combinação de cores expressiva, Liza é uma coelha que se destaca por sua beleza e personalidade única. Seu pelo curto e brilhante adiciona um toque de elegância à sua figura adorável.
+Liza é muito mais do que uma coelha bonita; ela é uma amiga carinhosa, ansiosa para compartilhar amor e momentos especiais com sua futura família. Sua natureza curiosa e brincalhona faz dela uma adição perfeita para lares que procuram um pet ativo e afetuoso. Liza está pronta para criar laços duradouros e trazer alegria aos dias de quem a adotar. Se você está pronto para dar um lar acolhedor a uma coelha Holandesa cheia de charme, adote Liza e descubra como a alegria peluda dela pode transformar sua casa em um lugar mais feliz. Não perca a oportunidade de fazer de Liza a companheira carinhosa que você estava esperando.', '2018-03-16', true, 9, 'F', 4);
+
+-- Animal 39 ONG 4
+CALL NovoAnimal('Luka', 'Luka, um coelho Rex de pelagem suave e aparência distintiva que certamente roubará seu coração. Com seu pelo curto e denso, Luka destaca-se não apenas pela sua beleza, mas também pela sua personalidade cativante. Seu visual único, com orelhas delicadas e marcações elegantes, torna Luka um verdadeiro protagonista entre os coelhos.
+Luka é mais do que apenas um coelho bonito; ele é um companheiro amigável e curioso, pronto para explorar e compartilhar momentos especiais com sua futura família. Sua natureza dócil e atenta faz dele um pet encantador para lares que buscam uma amizade peluda. Luka está ansioso para encontrar um lugar para chamar de lar, onde possa trazer alegria e diversão com suas travessuras e carinho. Se você está pronto para adotar um coelho Rex cheio de charme e personalidade, traga Luka para sua vida e descubra como a presença peluda dele pode fazer toda a diferença. Não perca a oportunidade de dar a Luka um lar amoroso e acolhedor.
+', '2023-01-06', true, 10, 'M', 4);
+
+-- Animal 40 ONG 4
+CALL NovoAnimal('Bebel', 'Conheça Bebel, uma coelha Fuzzy Lop que é pura fofura em quatro patas. Com sua pelagem incrivelmente macia e suas orelhinhas caídas, Bebel é uma verdadeira princesa peluda. Seu pelo denso e aveludado é uma tentação irresistível para quem busca um coelho repleto de charme e carinho.
+Bebel não é apenas um rostinho bonito; ela é uma coelha encantadora, pronta para preencher seu lar com amor e momentos de ternura. Sua natureza brincalhona e curiosa a torna uma companhia divertida, perfeita para famílias que procuram um pet animado. Bebel está ansiosa para encontrar um lar amoroso, onde possa expressar todo o carinho e doçura que carrega consigo. Se você está pronto para adotar uma coelha Fuzzy Lop cheia de personalidade e suavidade, Bebel está aguardando ansiosamente por uma família para chamar de sua. Não perca a chance de dar a Bebel um lar acolhedor e repleto de carinho.', '2020-06-26', true, 12, 'F', 4);
+
 
 
 INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
@@ -294,16 +356,70 @@ INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (22, 'Quantas horas por dia o animal passará sozinho?', 1),
 (23, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 1),
 (24, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 1),
-(25, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
+(25, 'Atualmente você está trabalhando? Qual sua profissão?', 1),
+(26, 'Qual é seu nome completo?', 2),
+(27, 'Qual seu email?', 2),
+(28, 'Qual seu telefone para contato?', 2),
+(29, 'Qual seu endereço completo? (nome da rua, número e cidade)', 2),
+(30, 'Você mora em casa ou apartamento?', 2),
+(31, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 2),
+(32, 'Você tem outros animais? Quais? São vacinados e castrados?', 2),
+(33, 'Já teve outros animais? O que aconteceu com eles?', 2),
+(34, 'Você é responsável na sua residência?', 2),
+(35, 'Quem será o responsável pelo animal?', 2),
+(36, 'Todos da casa estão cientes e concordam com a adoção?', 2),
+(37, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 2),
+(38, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 2),
+(39, 'Onde o animal dormiria, exatamente?', 2),
+(40, 'Qual seria a sua postura se seu animal subisse no seu sofá ou cama?' , 1),
+(41, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 2),
+(42, 'Já devolveu algum animal adotado?', 2),
+(43, 'Já teve que doar algum animal seu? Se sim, qual foi o motivo', 2),
+(44, 'Caso o animal seja um cachorro e cresça mais que o esperado, o que você faria?', 2),
+(45, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 2),
+(46, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 2),
+(47, 'Quantas horas por dia o animal passará sozinho?', 2),
+(48, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 2),
+(49, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 2),
+(50, 'Atualmente você está trabalhando? Qual sua profissão?', 2),
+(51, 'Qual é seu nome completo?', 3),
+(52, 'Qual seu email?', 3),
+(53, 'Qual seu telefone para contato?', 3),
+(54, 'Qual seu endereço completo? (nome da rua, número e cidade)', 3),
+(55, 'Você mora em casa ou apartamento?', 3),
+(56, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 3),
+(57, 'Você tem outros animais? Quais? São vacinados e castrados?', 3),
+(58, 'Já teve outros animais? O que aconteceu com eles?', 3),
+(59, 'Você é responsável na sua residência?', 3),
+(60, 'Quem será o responsável pelo animal?', 3),
+(61, 'Todos da casa estão cientes e concordam com a adoção?', 3),
+(62, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 3),
+(63, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 3),
+(64, 'Onde o animal dormiria, exatamente?', 3),
+(65, 'Qual seria a sua postura se seu animal subisse no seu sofá ou cama?' , 3),
+(66, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 3),
+(67, 'Já devolveu algum animal adotado?', 3),
+(68, 'Já teve que doar algum animal seu? Se sim, qual foi o motivo', 3),
+(69, 'Caso o animal seja um cachorro e cresça mais que o esperado, o que você faria?', 3),
+(70, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 3),
+(71, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 3),
+(72, 'Quantas horas por dia o animal passará sozinho?', 3),
+(73, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 3),
+(74, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 3),
+(75, 'Atualmente você está trabalhando? Qual sua profissão?', 3);
+
+
+-- INSERT INTO resposta (nm_resposta, cd_pergunta, cd_organizacao, cd_animal)
+
 
 INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
 ('2023-02-12', null, null, 1,  13),
-('2023-02-12', null, null, 1,  1),
 ('2023-03-21', true, true, 19, 14),
 ('2023-05-29', true, null, 16, 15),
 ('2023-07-30', true, null, 11, 16),
 ('2023-06-02', false, false, 6, 17),
-('2023-09-08', null, null, 20, 18 );
--- ('2023-07-08',  );
-call NovaRespostaByAnimal(1, 1, '2023-02-12', "TESTE", 1);
-select * from resposta;
+('2023-09-08', null, null, 20, 18);
+-- ('2023-07-08', null,  );
+
+
+
