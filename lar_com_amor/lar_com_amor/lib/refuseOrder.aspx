@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="refuseOrder.aspx.cs" Inherits="lar_com_amor.lib.acceptOrder" %>

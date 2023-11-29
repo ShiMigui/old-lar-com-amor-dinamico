@@ -13,6 +13,7 @@ namespace lar_com_amor.build
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Usuario.Login("1", "Ng Cahorros", "O");
             Usuario usuario = new Usuario();
 
             List<Parametro> Tabs = new List<Parametro>
@@ -144,8 +145,8 @@ namespace lar_com_amor.build
                                 string nm_an = Data["nm_animal"].ToString();
                                 string cd_an = Data["cd_animal"].ToString();
                                 string dt = Data["dt_pedido"].ToString().Split(' ')[0];
-                                bool permitido = Data["ic_permitido"].ToString() == "true";
-                                bool finalizado = Data["ic_finalizado"].ToString() == "true";
+                                bool permitido = Data["ic_permitido"].ToString() == "True";
+                                bool finalizado = Data["ic_finalizado"].ToString() == "True";
                                 content.Add(new List<string>
                                 {
                                     nm_ad,

@@ -259,6 +259,8 @@
     <Content Include="img\usuario\7.jpg" />
     <Content Include="img\usuario\8.jpg" />
     <Content Include="img\usuario\9.jpg" />
+    <Content Include="lib\refuseOrder.aspx" />
+    <Content Include="lib\acceptOrder.aspx" />
     <Content Include="lib\responderFormulario.aspx" />
     <Content Include="script\forms-user.js" />
     <Content Include="v1_forms.aspx" />
@@ -338,6 +340,20 @@
     </Compile>
     <Compile Include="forms.aspx.designer.cs">
       <DependentUpon>forms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\refuseOrder.aspx.cs">
+      <DependentUpon>refuseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\refuseOrder.aspx.designer.cs">
+      <DependentUpon>refuseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\acceptOrder.aspx.cs">
+      <DependentUpon>acceptOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\acceptOrder.aspx.designer.cs">
+      <DependentUpon>acceptOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="lib\responderFormulario.aspx.cs">
       <DependentUpon>responderFormulario.aspx</DependentUpon>
