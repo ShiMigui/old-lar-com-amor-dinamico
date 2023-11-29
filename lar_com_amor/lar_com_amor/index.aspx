@@ -41,13 +41,13 @@
     </header>
 
     <main class="limiter">
-        
+
 
         <article class="content-box grid2">
             <section>
                 <h1>Lar com amor</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel tempore maxime minima. Aspernatur itaque autem, nostrum, ipsum suscipit minima nam a dolores vel praesentium dolorem sunt explicabo error mollitia culpa!</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio voluptate placeat, unde ex fuga minus quia eaque accusamus autem inventore aspernatur illo commodi cum itaque ducimus sapiente ratione. Possimus, dignissimos.</p>
+                <p>Bem-vindos ao lar com amor!</p>
+                <p>Nosso objetivo facilitar o processo de adoção de animais resgatados, além de proporcionar a oportunidade para doações monetárias e divulgação de outros projetos das organizações que os resgatam e acolhem. Acreditamos que é fundamental criar uma conexão significativa entre os futuros adotantes, as ONGs e os animais em busca de um lar amoroso!</p>
             </section>
             <img src="./img/icons/garota_e_cachorro.png" alt="">
         </article>
