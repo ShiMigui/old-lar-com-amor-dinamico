@@ -77,14 +77,14 @@
                             </div>
                         </div>
                         <div class="box">
-                            <h1>Pedidos</h1>
+                            <h1>Requisições</h1>
                             <div class="info">
-                                <h2>Pendentes</h2>
+                                <h2>Novos</h2>
                                 <asp:Literal Text="" ID="litTblPendentes" runat="server"></asp:Literal>
                             </div>
 
                             <div class="info">
-                                <h2>Aceitos</h2>
+                                <h2>Permitidos</h2>
                                 <asp:Literal Text="" ID="litTblAceitos" runat="server"></asp:Literal>
                             </div>
                         </div>

@@ -260,7 +260,7 @@ BEGIN
             AND p3.ic_finalizado IS NULL
             AND p3.cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_permitidos,
         (SELECT COUNT(*) FROM pedido p4
-            WHERE p4.ic_finalizado = TRUE
+            WHERE p4.ic_finalizado IS NOT NULL
             AND p4.cd_animal IN (SELECT cd_animal FROM animal WHERE cd_organizacao = pcd_organizacao)) AS pedidos_finalizados;
 END$
 
@@ -289,7 +289,7 @@ END$
 DROP PROCEDURE IF EXISTS TabHistoricoPedidos$
 CREATE PROCEDURE TabHistoricoPedidos(pcd_organizacao INT, poffset INT)
 BEGIN
-	SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido
+	SELECT u.nm_usuario AS nm_adotante, p.cd_adotante, a.nm_animal, p.cd_animal, p.dt_pedido, p.ic_permitido, p.ic_finalizado
 	FROM pedido p
     INNER JOIN usuario u ON p.cd_adotante = u.cd_usuario
     INNER JOIN animal a ON p.cd_animal = a.cd_animal
@@ -324,7 +324,15 @@ BEGIN
 	JOIN usuario o ON o.cd_usuario = a.cd_organizacao
 	JOIN pergunta p ON p.cd_organizacao = o.cd_usuario
     where a.cd_animal = pcd_animal;
-END;
-$
+END$
+
+DROP PROCEDURE IF EXISTS AtualizarPedido$
+CREATE PROCEDURE AtualizarPedido(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE, pic_permitido BOOLEAN, pic_finalizado BOOLEAN)
+BEGIN 
+	UPDATE pedido 
+		SET ic_permitido = pic_permitido,
+        ic_finalizado = pic_finalizado
+        WHERE cd_animal = pcd_animal AND cd_adotante = pcd_adotante AND dt_pedido = pdt_pedido;
+END$
 DELIMITER ;
 

@@ -51,6 +51,33 @@ namespace lar_com_amor
         protected global::System.Web.UI.WebControls.Button btnEnviar;
 
         /// <summary>
+        /// Controle pnlOrgControll.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlOrgControll;
+
+        /// <summary>
+        /// Controle btnAceitar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAceitar;
+
+        /// <summary>
+        /// Controle btnRecusar.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnRecusar;
+
+        /// <summary>
         /// Controle litMsg.
         /// </summary>
         /// <remarks>

@@ -106,7 +106,7 @@
 
                     <div class="buttons flex">
                         <%--<a href="forms.aspx" class="button">Pedir adoção</a>--%>
-                        <asp:HyperLink ID="lnkBtn" runat="server" CssClass="button">Pedir animal</asp:HyperLink>
+                        <asp:HyperLink ID="lnkBtn" runat="server" CssClass="button">Requisitar animal</asp:HyperLink>
                         <asp:Button runat="server" ID="btnAdicionar" Visible="false" Text="Adicionar" OnClick="btnAdicionar_Click" />
                         <asp:Button runat="server" ID="btnExcluir" Visible="false" Text="Excluir" OnClick="btnExcluir_Click" />
                         <asp:Button runat="server" ID="btnSalvar" Visible="false" Text="Salvar" OnClick="btnSalvar_Click" />

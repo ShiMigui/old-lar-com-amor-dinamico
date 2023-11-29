@@ -13,7 +13,6 @@ namespace lar_com_amor.build
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("1", "Ng Cachorros", "O");
             Usuario usuario = new Usuario();
 
             List<Parametro> Tabs = new List<Parametro>
@@ -87,7 +86,7 @@ namespace lar_com_amor.build
                     #endregion
 
                     #region Tabela adoção aceita
-                    header.Add("Confirmar adoção");
+                    header.Add("Finalizar adoção");
                     using (MySqlDataReader Data = banco.Consultar("TabPedidosAceitos", parametros))
                     {
                         if (Data.HasRows)
@@ -106,7 +105,7 @@ namespace lar_com_amor.build
                                 nm_ad,
                                 $"<a href='animal.aspx?cd={cd_an}'>{nm_an}</a>",
                                 $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}'><b>Ver respostas</b></a>",
-                                $@"<img src='./img/icons/confirm.png' alt='ícone de confirmara adoção' {p} class='icon-accept-order'>
+                                $@"<img src='./img/icons/confirm.png' alt='ícone de confirmar a adoção' {p} class='icon-accept-order'>
                                 <img src='./img/icons/close.png' alt='ícone de confirmara adoção' {p} class='icon-refuse-order'>"
                             });
                             }
@@ -145,11 +144,15 @@ namespace lar_com_amor.build
                                 string nm_an = Data["nm_animal"].ToString();
                                 string cd_an = Data["cd_animal"].ToString();
                                 string dt = Data["dt_pedido"].ToString().Split(' ')[0];
+                                bool permitido = Data["ic_permitido"].ToString() == "true";
+                                bool finalizado = Data["ic_finalizado"].ToString() == "true";
                                 content.Add(new List<string>
                                 {
                                     nm_ad,
                                     $"<a href='animal.aspx?cd={cd_an}'>{nm_an}</a>",
-                                    $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}'><b>Ver respostas</b></a>"
+                                    $"<a href='forms.aspx?a={cd_an}&&u={cd_ad}&&dt={dt}'><b>Ver respostas</b></a>",
+                                    permitido?"Sim":"Não",
+                                    finalizado?"Sim":"Não",
                                 });
                             }
 

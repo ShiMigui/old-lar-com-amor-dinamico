@@ -42,7 +42,7 @@
         </header>
 
         <main>
-            <section class="limiter">
+            <section class="limiter-700">
                 <section id="perguntas" class="flexColumn">
                     <asp:Literal runat="server" ID="litPerguntas" Text=""></asp:Literal>
                 </section>
@@ -50,6 +50,10 @@
                 <div class="flex justEnd">
                     <asp:Button runat="server" ID="btnEnviar" Text="Enviar" Visible="false" />
                 </div>
+                <asp:Panel CssClass="flex justCenter alignCenter" runat="server" ID="pnlOrgControll" Visible="false">
+                    <asp:Button runat="server" ID="btnAceitar" Text="Aceitar" OnClick="btnAceitar_Click" />
+                    <asp:Button runat="server" ID="btnRecusar" Text="Recusar" OnClick="btnRecusar_Click" />
+                </asp:Panel>
             </section>
         </main>
 

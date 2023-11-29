@@ -356,57 +356,7 @@ INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (22, 'Quantas horas por dia o animal passará sozinho?', 1),
 (23, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 1),
 (24, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 1),
-(25, 'Atualmente você está trabalhando? Qual sua profissão?', 1),
-(26, 'Qual é seu nome completo?', 2),
-(27, 'Qual seu email?', 2),
-(28, 'Qual seu telefone para contato?', 2),
-(29, 'Qual seu endereço completo? (nome da rua, número e cidade)', 2),
-(30, 'Você mora em casa ou apartamento?', 2),
-(31, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 2),
-(32, 'Você tem outros animais? Quais? São vacinados e castrados?', 2),
-(33, 'Já teve outros animais? O que aconteceu com eles?', 2),
-(34, 'Você é responsável na sua residência?', 2),
-(35, 'Quem será o responsável pelo animal?', 2),
-(36, 'Todos da casa estão cientes e concordam com a adoção?', 2),
-(37, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 2),
-(38, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 2),
-(39, 'Onde o animal dormiria, exatamente?', 2),
-(40, 'Qual seria a sua postura se seu animal subisse no seu sofá ou cama?' , 1),
-(41, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 2),
-(42, 'Já devolveu algum animal adotado?', 2),
-(43, 'Já teve que doar algum animal seu? Se sim, qual foi o motivo', 2),
-(44, 'Caso o animal seja um cachorro e cresça mais que o esperado, o que você faria?', 2),
-(45, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 2),
-(46, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 2),
-(47, 'Quantas horas por dia o animal passará sozinho?', 2),
-(48, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 2),
-(49, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 2),
-(50, 'Atualmente você está trabalhando? Qual sua profissão?', 2),
-(51, 'Qual é seu nome completo?', 3),
-(52, 'Qual seu email?', 3),
-(53, 'Qual seu telefone para contato?', 3),
-(54, 'Qual seu endereço completo? (nome da rua, número e cidade)', 3),
-(55, 'Você mora em casa ou apartamento?', 3),
-(56, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 3),
-(57, 'Você tem outros animais? Quais? São vacinados e castrados?', 3),
-(58, 'Já teve outros animais? O que aconteceu com eles?', 3),
-(59, 'Você é responsável na sua residência?', 3),
-(60, 'Quem será o responsável pelo animal?', 3),
-(61, 'Todos da casa estão cientes e concordam com a adoção?', 3),
-(62, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 3),
-(63, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 3),
-(64, 'Onde o animal dormiria, exatamente?', 3),
-(65, 'Qual seria a sua postura se seu animal subisse no seu sofá ou cama?' , 3),
-(66, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 3),
-(67, 'Já devolveu algum animal adotado?', 3),
-(68, 'Já teve que doar algum animal seu? Se sim, qual foi o motivo', 3),
-(69, 'Caso o animal seja um cachorro e cresça mais que o esperado, o que você faria?', 3),
-(70, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 3),
-(71, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 3),
-(72, 'Quantas horas por dia o animal passará sozinho?', 3),
-(73, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 3),
-(74, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 3),
-(75, 'Atualmente você está trabalhando? Qual sua profissão?', 3);
+(25, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
 
 
 -- INSERT INTO resposta (nm_resposta, cd_pergunta, cd_organizacao, cd_animal)
@@ -420,6 +370,6 @@ INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotan
 ('2023-06-02', false, false, 6, 17),
 ('2023-09-08', null, null, 20, 18);
 -- ('2023-07-08', null,  );
-
-
-
+/*select * from pedido;
+CALL AtualizarPedido(1, 1, '2023-11-28', true, true);
+*/

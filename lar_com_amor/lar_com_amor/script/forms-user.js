@@ -12,11 +12,21 @@ document.addEventListener("submit", (e) => {
 
     let complement = "";
     const inputs = document.querySelectorAll("#perguntas input")
-    inputs.forEach(el => complement += `&&${el.id}=${encodeURIComponent(el.value)}`);
+    let cdsArray = [];
+    inputs.forEach(el => {
+        complement += `&&${el.id}=${encodeURIComponent(el.value)}`;
+        cdsArray.push(el.getAttribute("cd"));
+    });
 
-    let link = `./lib/responderFormulario.aspx?qt=${inputs.length}&&cd_adotante=${cd_adotante}&&cd_animal=${cd_animal}&&dt_pedido=${dt_pedido}${complement}`;
+    let cds = "&&cds=" + cdsArray.join(",");
+
+    let link = `./lib/responderFormulario.aspx?${cds}&&cd_adotante=${cd_adotante}&&cd_animal=${cd_animal}&&dt_pedido=${dt_pedido}${complement}`;
     console.log(link);
     fetch(link).then(resp => resp.json()).then(resp => {
+
         if (resp.ok) window.location.reload();
-    })
-})
+
+        document.querySelector("body").innerHTML += resp.msg;
+        mostrarMessage();
+    });
+});
