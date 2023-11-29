@@ -35,7 +35,8 @@ INSERT INTO cep (cd_cep, nm_rua, cd_cidade)VALUES
 (38410150, 'Rua Agripino Valeriano da Silva', 12),
 (11089170, 'Rua Alberto de Carvalho', 1),
 (11350420, 'Rua Carlos Marques de Carvalho (Tancredo Neves)', 2),
-(11721030, 'Rua Durval Pereira da Fonseca', 3);
+(11721030, 'Rua Durval Pereira da Fonseca', 3),
+(11325110, 'Rua Joaquim Barbosa dos Santos', 2);
 
 INSERT INTO tipo_usuario (sg_tipo, nm_tipo) VALUES
 ('A', 'Adotante'),
@@ -75,6 +76,7 @@ CALL NovoUsuario('Danilo Alves Castro', 'DaniloAlvesCastro@gmail.com', '62454070
 CALL NovoUsuario('Igor Oliveira Pinto', 'IgorOliveiraPinto@gmail.com', '1160038043', 13222740, '', '8949', 'A', '' );
 CALL NovoUsuario('Anna Cunha Gomes', 'AnnaCunhaGomes@gmail.com', '1361913159', 11495077, '', '1478', 'A', '' );
 CALL NovoUsuario('Andre Souza Fernandes', 'AndreSouzaFernandes@gmail.com', '1133515149', 08507310, '', '1373', 'A', '' );
+CALL NovoUsuario('Miguel Nascimento dos Santos', 'miguel.nasto@gmail.com', '13996722405', 11325110, '', '5556', 'A', '');
 
 INSERT INTO tipo_evento (cd_tipo, nm_tipo) VALUES 
 (1, 'Vacinação'),
@@ -373,3 +375,4 @@ INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotan
 /*select * from pedido;
 CALL AtualizarPedido(1, 1, '2023-11-28', true, true);
 */
+select * from pedido;

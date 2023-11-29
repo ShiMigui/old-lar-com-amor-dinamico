@@ -42,7 +42,7 @@
         </header>
 
         <main class="limiter">
-            <article class="content-box flex" id="anuncio-panel">
+            <article class="content-box flex alignEnd" id="anuncio-panel">
                 <section id="left-panel">
                     <asp:Image ID="imgAnimal" runat="server" CssClass="animalPhoto" />
                 </section>

@@ -473,14 +473,8 @@ main .textEnd {
 }
 
 #campo-pesquisa {
-    max-width: 500px;
     margin-inline: auto
 }
-
-    #campo-pesquisa > *:not(:last-child) {
-        margin-bottom: 20px
-    }
-
     #campo-pesquisa > div:first-child {
         width: 100%;
         display: flex
@@ -728,7 +722,7 @@ table {
         transition: .3s
     }
 
-        table tr.dark td {
+        table tr td {
             border-bottom: 1px solid #fe7f2d
         }
 

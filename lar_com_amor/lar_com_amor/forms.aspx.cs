@@ -14,6 +14,7 @@ namespace lar_com_amor
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
+            usuario.VerificarLogin();
             if (!IsPostBack)
             {
                 usuario.HeaderContent(litHeader);
@@ -148,12 +149,12 @@ namespace lar_com_amor
                 new Parametro("pcd_animal", a),
                 new Parametro("pcd_adotante", u),
                 new Parametro("pdt_pedido", Credenciais.DateToInput(dt)),
-                new Parametro("pic_permitido", "TRUE"),
+                new Parametro("pic_permitido", "1"),
                 new Parametro("pic_finalizado", null),
             };
             Banco banco = new Banco();
             banco.Executar("AtualizarPedido", parametros);
-            litMsg.Text = Elemento.Success("Pedido aceito");
+            Response.Redirect("index.aspx");
         }
 
         protected void btnRecusar_Click(object sender, EventArgs e)
@@ -171,12 +172,12 @@ namespace lar_com_amor
                 new Parametro("pcd_animal", a),
                 new Parametro("pcd_adotante", u),
                 new Parametro("pdt_pedido", Credenciais.DateToInput(dt)),
-                new Parametro("pic_permitido", "FALSE"),
-                new Parametro("pic_finalizado", "FALSE"),
+                new Parametro("pic_permitido", "0"),
+                new Parametro("pic_finalizado", "0"),
             };
             Banco banco = new Banco();
             banco.Executar("AtualizarPedido", parametros);
-            litMsg.Text = Elemento.Success("Pedido recusado");
+            Response.Redirect("index.aspx");
         }
     }
 }
