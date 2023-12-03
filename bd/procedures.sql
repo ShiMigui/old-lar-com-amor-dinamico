@@ -74,14 +74,13 @@ END;
 
 DROP PROCEDURE IF EXISTS NovoUsuario $ 
 CREATE PROCEDURE NovoUsuario(pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(12), pnm_senha VARCHAR(60), 
-pdt_nascimento DATE, pcd_cnpj VARCHAR(14), pcd_cep VARCHAR(8), psg_tipo VARCHAR(1), pnm_codigo VARCHAR(8))
+pdt_nascimento DATE, pcd_cnpj VARCHAR(14), pcd_cep VARCHAR(8), psg_tipo VARCHAR(1))
 BEGIN 
     DECLARE pcd_usuario INT;
     SELECT COALESCE(MAX(cd_usuario) + 1, 1) INTO pcd_usuario FROM usuario;
     
 	INSERT INTO usuario (cd_usuario, nm_usuario, nm_email, nm_telefone, nm_senha, ds_usuario, dt_nascimento, cd_cnpj, cd_cep, sg_tipo, ic_ativo) VALUES
-    (pcd_usuario, pnm_usuario, pnm_email, pnm_telefone, MD5(pnm_senha), NULL, pdt_nascimento, pcd_cnpj, pcd_cep, psg_tipo, 0);
-    CALL NovaVerificacao(pcd_usuario, pnm_codigo, 1);
+    (pcd_usuario, pnm_usuario, pnm_email, pnm_telefone, MD5(pnm_senha), NULL, pdt_nascimento, pcd_cnpj, pcd_cep, psg_tipo, 1);
 END;
 $
 
