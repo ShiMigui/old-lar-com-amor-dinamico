@@ -134,6 +134,7 @@ INSERT INTO evento (cd_evento, nm_evento, ds_evento, dt_inicio, dt_final, cd_org
 
 INSERT INTO porte (sg_porte, nm_porte) VALUES 
 ('G', 'Grande'),
+('I', 'Indefinido'),
 ('M','Médio'),
 ('P', 'Pequeno');
 
@@ -144,8 +145,7 @@ INSERT INTO genero (sg_genero, nm_genero) VALUES
 INSERT INTO especie(cd_especie, nm_especie) VALUES
 (1, 'Cachorro'),
 (2, 'Gato'),
-(3, 'Coelho'),
-(4, 'Ave');
+(3, 'Coelho');
 
 INSERT INTO raca(cd_raca, nm_raca, cd_especie, sg_porte) VALUES
 (1, 'Labrador', 1, 'G'), 
