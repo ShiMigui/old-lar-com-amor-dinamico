@@ -104,13 +104,25 @@ BEGIN
     INSERT INTO cidade (cd_cidade, nm_cidade, sg_estado) VALUES (pcd_cidade, pnm_cidade, psg_estado);
 END;
 $
-
-DROP PROCEDURE IF EXISTS NovoCEP$
-CREATE PROCEDURE NovoCEP(pcd_cep VARCHAR(8), pnm_rua VARCHAR(255), pcd_cidade INT)
+DROP PROCEDURE IF EXISTS NovoCep$
+CREATE PROCEDURE NovoCep(pcd_cep VARCHAR(8), pnm_rua VARCHAR(255), pnm_cidade VARCHAR(30), psg_estado VARCHAR(2))
 BEGIN
+    DECLARE pcd_cidade INT;
+    
+    SELECT cd_cidade INTO pcd_cidade 
+    FROM cidade 
+    WHERE nm_cidade = pnm_cidade AND sg_estado = psg_estado;
+    
+    IF pcd_cidade IS NULL THEN
+        CALL NovoCidade(pnm_cidade, psg_estado);
+        SELECT cd_cidade INTO pcd_cidade 
+        FROM cidade 
+        WHERE nm_cidade = pnm_cidade AND sg_estado = psg_estado;
+    END IF;
+    
+    -- Adiciona o CEP à cidade existente ou recém-criada
     INSERT INTO cep (cd_cep, nm_rua, cd_cidade) VALUES (pcd_cep, pnm_rua, pcd_cidade);
-END;
-$
+END$
 
 DROP PROCEDURE IF EXISTS DeletarAnimal$
 CREATE PROCEDURE DeletarAnimal(pcd_animal INT)
@@ -195,6 +207,14 @@ BEGIN
 END;
 $
 
+DROP PROCEDURE if EXISTS PegarCep$
+CREATE PROCEDURE PegarCep(pcd_cep VARCHAR(8))
+BEGIN
+	SELECT c.sg_estado, c.nm_cidade, cep.nm_rua FROM cep
+	JOIN cidade c ON cep.cd_cidade = c.cd_cidade
+    Where cep.cd_cep = pcd_cep;
+END;
+$
 
 DROP PROCEDURE IF EXISTS Login$
 CREATE PROCEDURE Login(pnm_login text, pnm_senha text)
