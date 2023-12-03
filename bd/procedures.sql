@@ -60,18 +60,30 @@ BEGIN
 END;
 $
 
-/*DROP PROCEDURE IF EXISTS NovoUsuario $ 
-CREATE PROCEDURE NovoUsuario(pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(11), pcd_cep VARCHAR(8), pcd_cnpj VARCHAR(14), pnm_senha VARCHAR(32), psg_tipo VARCHAR(1), pds_usuario TEXT )
+DROP PROCEDURE IF EXISTS NovaVerificacao $ 
+CREATE PROCEDURE NovaVerificacao(pcd_usuario INT, pnm_codigo VARCHAR(8), pqt_dias INT)
+BEGIN 
+    INSERT INTO codigo_verificacao (dt_expiracao, ic_usado, nm_codigo, cd_usuario) 
+    VALUES (
+        DATE_ADD(NOW(), INTERVAL pqt_dias DAY), 
+        FALSE, 
+        pnm_codigo,
+        pcd_usuario
+    );
+END;
+
+DROP PROCEDURE IF EXISTS NovoUsuario $ 
+CREATE PROCEDURE NovoUsuario(pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(12), pnm_senha VARCHAR(60), 
+pdt_nascimento DATE, pcd_cnpj VARCHAR(14), pcd_cep VARCHAR(8), psg_tipo VARCHAR(1), pnm_codigo VARCHAR(8))
 BEGIN 
     DECLARE pcd_usuario INT;
-
     SELECT COALESCE(MAX(cd_usuario) + 1, 1) INTO pcd_usuario FROM usuario;
-
-    INSERT INTO usuario (cd_usuario, ic_ativo, nm_senha, cd_cnpj, sg_tipo)  VALUES (pcd_usuario, true, MD5(pnm_senha), pcd_cnpj, psg_tipo);
-
-    CALL AtualizarPerfilUsuario(pcd_usuario, pnm_usuario, pnm_email, pnm_telefone, pds_usuario, pcd_cep);
+    
+	INSERT INTO usuario (cd_usuario, nm_usuario, nm_email, nm_telefone, nm_senha, ds_usuario, dt_nascimento, cd_cnpj, cd_cep, sg_tipo, ic_ativo) VALUES
+    (pcd_usuario, pnm_usuario, pnm_email, pnm_telefone, MD5(pnm_senha), NULL, pdt_nascimento, pcd_cnpj, pcd_cep, psg_tipo, 0);
+    CALL NovaVerificacao(pcd_usuario, pnm_codigo, 1);
 END;
-$*/
+$
 
 DROP PROCEDURE IF EXISTS NovoEvento $
 CREATE PROCEDURE NovoEvento(pnm_evento VARCHAR(255), pds_evento TEXT, pdt_inicio DATETIME, pdt_final DATETIME, pcd_organizacao INT, pcd_tipo INT)
