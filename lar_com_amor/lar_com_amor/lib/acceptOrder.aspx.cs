@@ -24,7 +24,7 @@ namespace lar_com_amor.lib
             // TODO: Trocar todos pedidos do animal para ic_finalizado = false
             // TODO: Mandar email notifcando usuarios
             // TODO: Mandar email notifcando adotante
-
+            
 
             Banco banco = new Banco();
             List<Parametro> parametros = new List<Parametro>

@@ -10,7 +10,7 @@ namespace lar_com_amor.classes
     public class Email
     {
         private string Mail = "larcomamoroficial@outlook.com";
-        private string Password = "OsIncriveis";
+        private string Password = "";
 
         public bool SendMail(string content = "",string Subject = "", string To = "")
         {

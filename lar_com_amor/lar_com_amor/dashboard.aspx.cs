@@ -14,19 +14,22 @@ namespace lar_com_amor.build
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
+            Usuario.Login("1", "Ng Cahorros", "O");
 
-            List<Parametro> Tabs = new List<Parametro>
-            {
-                new Parametro("Informações", "infos"),
-                new Parametro("Histórico", "history"),
-                new Parametro("Formulário", "forms"),
-            };
-            litTabs.Text = Elemento.tabList(Tabs, $"dashboard.aspx?");
+            usuario.VerificarLogin();
+            if (!usuario.Logado || !usuario.IsOrg) Response.Redirect("index.aspx");
 
             if (!IsPostBack)
             {
+                List<Parametro> Tabs = new List<Parametro>
+                {
+                    new Parametro("Informações", "infos"),
+                    new Parametro("Histórico", "history"),
+                    new Parametro("Formulário", "forms"),
+                };
+                litTabs.Text = Elemento.tabList(Tabs, $"dashboard.aspx?");
+
                 usuario.HeaderContent(litHeader);
-                if (!usuario.Logado || !usuario.IsOrg) Response.Redirect("index.aspx");
 
                 string tab = "infos";
                 if (!String.IsNullOrEmpty(Request["tab"])) tab = Request["tab"].ToString();

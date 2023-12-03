@@ -144,6 +144,7 @@ namespace lar_com_amor
             a = Request["a"].ToString();
             dt = Request["dt"].ToString();
 
+            #region Permitindo pedido
             List<Parametro> parametros = new List<Parametro>
             {
                 new Parametro("pcd_animal", a),
@@ -154,6 +155,12 @@ namespace lar_com_amor
             };
             Banco banco = new Banco();
             banco.Executar("AtualizarPedido", parametros);
+            #endregion
+
+            parametros = new List<Parametro>
+            {new Parametro("pcd_animal", a)};
+            banco.Executar("FinalizarPedidos", parametros);
+
             Response.Redirect("index.aspx");
         }
 

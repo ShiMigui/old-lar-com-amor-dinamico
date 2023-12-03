@@ -365,4 +365,14 @@ BEGIN
         ic_finalizado = pic_finalizado
         WHERE cd_animal = pcd_animal AND cd_adotante = pcd_adotante AND dt_pedido = pdt_pedido;
 END$
+
+DROP PROCEDURE IF EXISTS FinalizarPedidos$
+CREATE PROCEDURE FinalizarPedidos(pcd_animal INT)
+BEGIN 
+    UPDATE pedido
+    SET ic_finalizado = FALSE,
+    ic_permitido = FALSE
+    WHERE cd_animal = pcd_animal AND ic_permitido IS NOT TRUE;
+END$
+
 DELIMITER ;

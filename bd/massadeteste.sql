@@ -380,7 +380,8 @@ INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (25, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
 
 INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
-('2023-02-12', null, null, 1,  13),
+('2023-02-12', true, null, 1,  13),
+('2022-02-12', true, null, 1,  13),
 ('2023-03-21', true, true, 19, 14),
 ('2023-05-29', true, null, 16, 15),
 ('2023-07-30', true, null, 11, 16),
