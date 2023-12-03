@@ -140,7 +140,8 @@ INSERT INTO tipo_evento (cd_tipo, nm_tipo) VALUES
 (2, 'Banho e Tosa'),
 (3, 'Adoção');
 
-INSERT INTO evento (cd_evento, nm_evento, ds_evento, dt_inicio, dt_final, cd_organizacao, cd_tipo) VALUES (1, 'Pet day', 'Evento de adoção de animais. Venha conhecer animais adoráveis em busca de um novo lar!', '2024-12-02 13:00', '2024-12-02 19:00', 2, 1),
+INSERT INTO evento (cd_evento, nm_evento, ds_evento, dt_inicio, dt_final, cd_organizacao, cd_tipo) VALUES 
+(1, 'Pet day', 'Evento de adoção de animais. Venha conhecer animais adoráveis em busca de um novo lar!', '2024-12-02 13:00', '2024-12-02 19:00', 2, 1),
 (2, 'Feira de adoção', 'Junte-se a nós na "Feira de Adoção", um evento emocionante e cheio de amor dedicado a encontrar casais amorosos para animais necessitados. Neste dia especial, teremos uma variedade de cães e gatos adoráveis ​​aguardando ansiosamente por uma nova família. ', '2024-08-01 10:00', '2024-08-01 16:00', 2, 1),
 (3, 'Pet Lover''s', 'Um evento caloroso para adoção de animais em busca de lares amorosos.', '2024-12-12 10:00:00', '2024-12-12 17:00:00', 2, 1),
 (4, 'Feirinha de adoção', ' Venha conhecer esses companheiros leais, interaja com eles e descubra como você pode fazer a diferença em suas vidas. Uma equipe de adoção estará presente para orientá-lo durante o processo de adoção.  ', '2024-08-01 10:00', '2024-08-01 16:00', 2, 2),
