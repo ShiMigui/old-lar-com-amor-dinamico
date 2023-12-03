@@ -182,23 +182,18 @@ INSERT INTO especie(cd_especie, nm_especie) VALUES
 (4, 'Ave');
 
 INSERT INTO raca(cd_raca, nm_raca, cd_especie, sg_porte) VALUES
--- Raças para Cachorros (cd_especie = 1)
-(1, 'Labrador', 1, 'G'), -- Grande
-(2, 'Poodle', 1, 'M'),   -- Médio
-(3, 'Bulldog', 1, 'P'),  -- Pequeno
-(4, 'Pastor Alemão', 1, 'G'), -- Grande
-
--- Raças para Gatos (cd_especie = 2)
-(5, 'Siamês', 2, 'P'),   -- Pequeno
-(6, 'Persa', 2, 'M'),    -- Médio
-(7, 'Sphynx', 2, 'P'),   -- Pequeno
-(8, 'Maine Coon', 2, 'G'), -- Grande
-
--- Raças para Coelhos (cd_especie = 3)
-(9, 'Holandês', 3, 'P'), -- Pequeno
-(10, 'Rex', 3, 'M'),     -- Médio
-(11, 'Mini Lion', 3, 'P'), -- Pequeno
-(12, 'Fuzzy Lop', 3, 'G'); -- Grande
+(1, 'Labrador', 1, 'G'), 
+(2, 'Poodle', 1, 'M'),  
+(3, 'Bulldog', 1, 'P'), 
+(4, 'Pastor Alemão', 1, 'G'),
+(5, 'Siamês', 2, 'P'),
+(6, 'Persa', 2, 'M'), 
+(7, 'Sphynx', 2, 'P'),
+(8, 'Maine Coon', 2, 'G'),
+(9, 'Holandês', 3, 'P'),
+(10, 'Rex', 3, 'M'),
+(11, 'Mini Lion', 3, 'P'),
+(12, 'Fuzzy Lop', 3, 'G');
 
 -- Animal 1 - ONG 1
 CALL NovoAnimal(  'Buddy', 'Buddy, o labrador, é um cão de porte médio a grande, conhecido por sua personalidade amigável e carinhosa. Com um físico atlético e musculoso, ele possui uma pelagem densa e curta, geralmente em tons de preto, amarelo ou chocolate.
@@ -417,10 +412,6 @@ INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
 (23, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 1),
 (24, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 1),
 (25, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
-
-
--- INSERT INTO resposta (nm_resposta, cd_pergunta, cd_organizacao, cd_animal)
-
 
 INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
 ('2023-02-12', null, null, 1,  13),
