@@ -24,6 +24,15 @@ namespace lar_com_amor
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Controle pnlCadastro.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCadastro;
+
+        /// <summary>
         /// Controle litTabs.
         /// </summary>
         /// <remarks>
@@ -51,6 +60,15 @@ namespace lar_com_amor
         protected global::System.Web.UI.WebControls.TextBox inpNome;
 
         /// <summary>
+        /// Controle pnlCnpj.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlCnpj;
+
+        /// <summary>
         /// Controle inpCNPJ.
         /// </summary>
         /// <remarks>
@@ -58,6 +76,24 @@ namespace lar_com_amor
         /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inpCNPJ;
+
+        /// <summary>
+        /// Controle pnlDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlDate;
+
+        /// <summary>
+        /// Controle inpDate.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Para modificar, mova a declaração de campo do arquivo de designer a um arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inpDate;
 
         /// <summary>
         /// Controle inpEmail.

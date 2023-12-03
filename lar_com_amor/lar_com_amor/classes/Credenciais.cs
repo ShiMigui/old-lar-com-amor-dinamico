@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Runtime.ConstrainedExecution;
 using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 
 namespace lar_com_amor.classes
@@ -26,7 +27,7 @@ namespace lar_com_amor.classes
             return new string(nm.Where(char.IsDigit).ToArray());
         }
 
-        public string GerarCodigo(int length = 8)
+        public static string GerarCodigo(int length = 8)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             StringBuilder codigo = new StringBuilder(length);
@@ -73,116 +74,82 @@ namespace lar_com_amor.classes
             {
                 try
                 {
-                    #region Requisição
-                    HttpResponseMessage response = client.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
-                    if (response.IsSuccessStatusCode)
+                    Banco banco = new Banco();
+                    #region Verificando cep no banco de dados
+                    List<Parametro> parametros = new List<Parametro> { new Parametro("pcd_cep", cep) };
+                    try
                     {
-                        string jsonResponse = response.Content.ReadAsStringAsync().Result;
-                        JObject json = JObject.Parse(jsonResponse);
-                        json.Add("ok", true);
-                        json["cep"] = cep;
-                        #region Json retorno
-                        /*
-                         {
-                          "cep": "01001-000",
-                          "logradouro": "Praça da Sé",
-                          "complemento": "lado ímpar",
-                          "bairro": "Sé",
-                          "localidade": "São Paulo",
-                          "uf": "SP",
-                          "ibge": "3550308",
-                          "gia": "1004",
-                          "ddd": "11",
-                          "siafi": "7107"
+                        using(MySqlDataReader data = banco.Consultar("PegarCep", parametros))
+                        {
+                            if (data.Read())
+                            {
+                                JObject json = new JObject();
+                                json.Add("uf", data[0].ToString());
+                                json.Add("localidade", data[1].ToString());
+                                json.Add("logradouro", data[2].ToString());
+                                json.Add("ok", true);
+                                json["cep"] = cep;
+                                return json;
+                            }
                         }
-                         */
-                        #endregion
-                        return json;
                     }
-                    else
+                    catch
                     {
-                        return JObject.Parse("{ok: false, \"msg\": \"Cep não foi encontrado\"}");
+                        return JObject.Parse("{ok: false, \"msg\": \"Erro ao conectar com o servidor\"}");
                     }
                     #endregion
-                }
-                catch
-                {
-                    return JObject.Parse("{ok: false, \"msg\": \"Erro ao tentar fazer requisição\"}");
-                }
-            }
-        }
 
-        /*public static JObject GetCep(string cep)
-        {
-            cep = OnlyNumber(cep);
-            using (HttpClient client = new HttpClient())
-            {
-                try
-                {
+                    #region Adicionando Cep ao banco caso não exista
                     HttpResponseMessage response = client.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
-
                     if (response.IsSuccessStatusCode)
                     {
                         string jsonResponse = response.Content.ReadAsStringAsync().Result;
                         JObject json = JObject.Parse(jsonResponse);
-                        json["ok"] = true;
-                        bool bd = AddCepToBd(cep, json);
-                        if(!bd) return JObject.Parse("{ok: false, \"msg\": \"Não foi poss´vel adicionar sua cidade ao BD\"}");
-                        return json;
+                        if (json["erro"] != null) return JObject.Parse("{ok: false, \"msg\": \"Cep não existe\"}");
+
+                        json.Add("ok", true);
+                        json["cep"] = cep;
+                        if(NovoCep(json)) return json;
+                        return JObject.Parse("{ok: false, \"msg\": \"Não foi possível verificar o cep\"}");
                     }
-                    else
-                    {
-                        return JObject.Parse("{ok: false, \"msg\": \"Parece que seu cep não foi encontrado\"}");
-                    }
+                    else return JObject.Parse("{ok: false, \"msg\": \"Falha ao tentar encontrar cep\"}");
+                    #endregion
                 }
-                catch
+                catch 
                 {
                     return JObject.Parse("{ok: false, \"msg\": \"Erro ao tentar fazer requisição\"}");
                 }
             }
         }
 
-        public static bool AddCepToBd(string cep, JObject json)
+        public static bool NovoCep(JObject json)
         {
+            List<Parametro> parametros = new List<Parametro>
+            {
+                 new Parametro ("pcd_cep", json["cep"].ToString()),
+                 new Parametro ("pnm_rua", json["logradouro"].ToString()),
+                 new Parametro ("pnm_cidade", json["localidade"].ToString()),
+                 new Parametro ("psg_estado", json["uf"].ToString()),
+            };
             Banco banco = new Banco();
-            string cdCidade = "";
-            using (MySqlDataReader Data = banco.Consultar($"SELECT cd_cidade FROM cidade WHERE nm_cidade = '{json["localidade"]}'"))
-            {
-                if (Data.Read()) cdCidade = Data[0].ToString();
-                else
-                {
-                    List<Parametro> parametros = new List<Parametro>();
-                    parametros.Add(new Parametro("pnm_cidade", json["localidade"].ToString()));
-                    parametros.Add(new Parametro("psg_estado", json["uf"].ToString()));
-                    banco.Executar("NovoCidade", parametros);
-                }
-            }
-
-            using (MySqlDataReader Data = banco.Consultar($"SELECT cd_cidade FROM cidade WHERE nm_cidade = '{json["localidade"]}'"))
-            {
-                if (Data.Read()) cdCidade = Data[0].ToString();
-                else return false;
-            }
-
-            using (MySqlDataReader Data = banco.Consultar($"SELECT cd_cep FROM cep WHERE cd_cep = '{cep}'"))
-            {
-                if (Data.Read()) return true;
-            }
-
             try
             {
-                List<Parametro> parametros = new List<Parametro>();
-                parametros.Add(new Parametro("pcd_cep", cep));
-                parametros.Add(new Parametro("pnm_rua", json["logradouro"].ToString()));
-                parametros.Add(new Parametro("pcd_cidade", cdCidade));
-                banco.Executar("NovoCEP", parametros);
+                banco.Executar("NovoCep", parametros);
                 return true;
             }
             catch
             {
                 return false;
             }
-        }*/
+        }
+
+        public static string ValidatePhone(string numero)
+        {
+            numero = OnlyNumber(numero.Replace("+55", ""));
+
+            if ((numero.Length >= 10 && numero.Length <= 11)) return numero;
+            else return null;
+        }
 
         public static string CalcularIdadeTexto(string dataNascimento)
         {

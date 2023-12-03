@@ -23,23 +23,26 @@
             </div>
             <section class="form justCenter">
 
-                <section class="limiter-600 flexColumn full-width margin-auto">
+                <asp:Panel ID="pnlCadastro" runat="server" CssClass="limiter-600 flexColumn full-width margin-auto">
                     <tab-list>
                         <asp:Literal Text="" runat="server" ID="litTabs"></asp:Literal>
                     </tab-list>
 
                     <div class="itemForm">
-                        <label for="inpNome">
-                            Nome
-        <asp:Literal runat="server" ID="litNome" Text="do adotante"></asp:Literal>
-                        </label>
-                        <asp:TextBox Text="" ID="inpNome" runat="server" required=""></asp:TextBox>
+                        <label for="inpNome">Nome
+                            <asp:Literal runat="server" ID="litNome" Text="do adotante"></asp:Literal></label>
+                        <asp:TextBox ID="inpNome" runat="server" required=""></asp:TextBox>
                         <%--<input type="text" id="inpNome" required="">--%>
                     </div>
 
-                    <asp:Panel runat="server" Visible="false" CssClass="itemForm">
+                    <asp:Panel runat="server" Visible="false" CssClass="itemForm" ID="pnlCnpj">
                         <label for="inpCNPJ">CNPJ</label>
                         <asp:TextBox Text="" ID="inpCNPJ" runat="server" required=""></asp:TextBox>
+                    </asp:Panel>
+
+                    <asp:Panel runat="server" Visible="false" CssClass="itemForm" ID="pnlDate">
+                        <label for="inpDate">Data de nascimento</label>
+                        <asp:TextBox Text="" TextMode="Date" ID="inpDate" runat="server" required=""></asp:TextBox>
                     </asp:Panel>
 
                     <div class="itemForm">
@@ -54,8 +57,9 @@
 
                     <div class="itemForm">
                         <label for="inpCep">CEP</label>
-                        <asp:TextBox Text="" ID="inpCep" runat="server" required=""></asp:TextBox>
+                        <asp:TextBox Text="" ID="inpCep" runat="server" required="" TextMode="Number" AutoPostBack="true" OnTextChanged="inpCep_TextChanged"></asp:TextBox>
                     </div>
+
                     <div class="grid2">
                         <div class="itemForm">
                             <label for="inpEstado">UF</label>
@@ -87,12 +91,11 @@
                     <div class="flexColumn alignCenter">
                         <a href="./login.aspx">Já tenho uma conta</a>
                     </div>
-                </section>
-
+                </asp:Panel>
             </section>
         </main>
 
-        <asp:Literal ID="litMsg" runat="server" Text="" ></asp:Literal>
+        <asp:Literal ID="litMsg" runat="server" Text=""></asp:Literal>
 
         <script src="./script/master.js"></script>
         <script src="./script/tabController.js" id="tab-controller"></script>
