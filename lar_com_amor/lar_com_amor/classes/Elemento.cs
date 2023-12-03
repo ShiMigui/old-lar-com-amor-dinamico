@@ -56,6 +56,7 @@ namespace lar_com_amor.classes
         {
             string link = $"./img/usuario/{cd}.jpg";
             if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
+            else if (Arquivo.Exists("."+link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
             else if (letterIfNotExists) return $"<div class='organizacaoPhoto font-3em'>{Usuario.GetInitials(nm)}</div>";
             else return "";
         }
@@ -78,7 +79,7 @@ namespace lar_com_amor.classes
         {
             string grid = sigla == "e" ? "4" : "6";
             if (anuncios.Count == 0) return $"<p class='textCenter'>{message}</p>";
-            string retorno = $"<section class='grid{grid}' sg='{sigla}'>{string.Join("", anuncios)}</section>";
+            string retorno = $"<section class='grid{grid} anunciosGrid' sg='{sigla}'>{string.Join("", anuncios)}</section>";
             if (anuncios.Count % int.Parse(grid)  == 0 && Button) retorno += "<section class='buttons'><button class='btnMaisAnuncios'>Carregar mais</button></section>";
             return retorno;
         }

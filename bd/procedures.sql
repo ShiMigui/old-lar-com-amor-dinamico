@@ -60,7 +60,7 @@ BEGIN
 END;
 $
 
-DROP PROCEDURE IF EXISTS NovoUsuario $ 
+/*DROP PROCEDURE IF EXISTS NovoUsuario $ 
 CREATE PROCEDURE NovoUsuario(pnm_usuario VARCHAR(255), pnm_email VARCHAR(255), pnm_telefone VARCHAR(11), pcd_cep VARCHAR(8), pcd_cnpj VARCHAR(14), pnm_senha VARCHAR(32), psg_tipo VARCHAR(1), pds_usuario TEXT )
 BEGIN 
     DECLARE pcd_usuario INT;
@@ -71,7 +71,7 @@ BEGIN
 
     CALL AtualizarPerfilUsuario(pcd_usuario, pnm_usuario, pnm_email, pnm_telefone, pds_usuario, pcd_cep);
 END;
-$
+$*/
 
 DROP PROCEDURE IF EXISTS NovoEvento $
 CREATE PROCEDURE NovoEvento(pnm_evento VARCHAR(255), pds_evento TEXT, pdt_inicio DATETIME, pdt_final DATETIME, pcd_organizacao INT, pcd_tipo INT)
@@ -199,7 +199,7 @@ $
 DROP PROCEDURE IF EXISTS Login$
 CREATE PROCEDURE Login(pnm_login text, pnm_senha text)
 BEGIN
-	SELECT cd_usuario, nm_usuario, sg_tipo FROM usuario WHERE (cd_cnpj = pnm_login OR nm_email = pnm_login OR nm_usuario = pnm_login) AND nm_senha = MD5(pnm_senha);
+	SELECT cd_usuario, nm_usuario, sg_tipo FROM usuario WHERE (cd_cnpj = pnm_login OR nm_email = pnm_login) AND nm_senha = MD5(pnm_senha) AND ic_ativo = 1;
 END;
 $
 
@@ -335,4 +335,3 @@ BEGIN
         WHERE cd_animal = pcd_animal AND cd_adotante = pcd_adotante AND dt_pedido = pdt_pedido;
 END$
 DELIMITER ;
-

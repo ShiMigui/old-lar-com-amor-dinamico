@@ -23,7 +23,7 @@ namespace lar_com_amor.classes
                 Animal animal = new Animal();
                 bool ic = animal.ByCode(cd);
 
-                if (!ic) Response.Redirect("index.aspx"); // TODO avisar o usuário que ele será redirecionado
+                if (!ic) Response.Redirect("index.aspx");
 
                 if (usuario.Logado && animal.Organizacao.Cd == usuario.Cd) CarregarAnimalOrganizacao(animal);
                 else CarregarAnimalUsuario(animal);

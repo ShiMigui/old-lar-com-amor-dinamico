@@ -20,11 +20,11 @@ namespace lar_com_amor
 
                 Anuncios anuncios = new Anuncios();
                 litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetAnimais(), message: "Animais não encontrados");
-                litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(), "e",  "Eventos não encontrados");
-                litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(), message: "Organizações não encontradas");
+                litEventos.Text = Elemento.GerarAnuncios(anuncios.GetEventos(), "e", "Eventos não encontrados");
+                litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(), "o", "Organizações não encontradas");
             }
-            
-            
+
+
         }
     }
 }

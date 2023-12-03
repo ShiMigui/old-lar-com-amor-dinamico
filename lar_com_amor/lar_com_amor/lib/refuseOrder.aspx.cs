@@ -12,7 +12,7 @@ namespace lar_com_amor.lib
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.ContentType = "application/json";
+            
 
             #region Parâmetros
             string u = Request["u"].ToString();
@@ -42,6 +42,7 @@ namespace lar_com_amor.lib
 
         protected void Retorno(bool ok = false, string msg = "Ocorreu um erro")
         {
+            Response.ContentType = "application/json";
             string message = ok ? Elemento.Success(msg) : Elemento.Error(msg);
             string retorno = "{\"ok\": " + ok.ToString().ToLower() + ", \"msg\":\"" + message + "\"}";
             Response.Write(retorno);

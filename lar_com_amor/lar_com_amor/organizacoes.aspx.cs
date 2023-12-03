@@ -12,7 +12,7 @@ namespace lar_com_amor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             Parametro Pegar = new Parametro();
             List<Parametro> lista = new List<Parametro>();
             lista = Pegar.PegarEstado();

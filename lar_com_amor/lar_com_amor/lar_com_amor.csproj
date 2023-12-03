@@ -180,6 +180,7 @@
     <Content Include="build\login.html" />
     <Content Include="build\organizacao.html" />
     <Content Include="build\organizacoes.html" />
+    <Content Include="cadastro.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="eventos.aspx" />
     <Content Include="forms.aspx" />
@@ -259,11 +260,12 @@
     <Content Include="img\usuario\7.jpg" />
     <Content Include="img\usuario\8.jpg" />
     <Content Include="img\usuario\9.jpg" />
+    <Content Include="lib\maisAnuncios.aspx" />
     <Content Include="lib\refuseOrder.aspx" />
     <Content Include="lib\acceptOrder.aspx" />
     <Content Include="lib\responderFormulario.aspx" />
+    <Content Include="script\carregar-mais.js" />
     <Content Include="script\forms-user.js" />
-    <Content Include="v1_forms.aspx" />
     <Content Include="img\icons\account.png" />
     <Content Include="img\icons\add.png" />
     <Content Include="img\icons\arrow-down.png" />
@@ -309,6 +311,13 @@
     <Compile Include="animal.aspx.designer.cs">
       <DependentUpon>animal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="cadastro.aspx.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cadastro.aspx.designer.cs">
+      <DependentUpon>cadastro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="classes\Animal.cs" />
     <Compile Include="classes\Anuncios.cs" />
     <Compile Include="classes\Arquivo.cs" />
@@ -341,6 +350,13 @@
     <Compile Include="forms.aspx.designer.cs">
       <DependentUpon>forms.aspx</DependentUpon>
     </Compile>
+    <Compile Include="lib\maisAnuncios.aspx.cs">
+      <DependentUpon>maisAnuncios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\maisAnuncios.aspx.designer.cs">
+      <DependentUpon>maisAnuncios.aspx</DependentUpon>
+    </Compile>
     <Compile Include="lib\refuseOrder.aspx.cs">
       <DependentUpon>refuseOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -361,13 +377,6 @@
     </Compile>
     <Compile Include="lib\responderFormulario.aspx.designer.cs">
       <DependentUpon>responderFormulario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="v1_forms.aspx.cs">
-      <DependentUpon>v1_forms.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="v1_forms.aspx.designer.cs">
-      <DependentUpon>v1_forms.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>

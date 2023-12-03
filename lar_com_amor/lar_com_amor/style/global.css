@@ -4,12 +4,13 @@
     margin-inline: auto;
 }
 
-input[type=image], input[type=text], input[type=date], input[type=time], input[type=password], textarea, select, .input {
+input[type=image], input[type=tel], input[type=email], input[type=number], input[type=text], input[type=date], input[type=time], input[type=password], textarea, select, .input {
     background-color: #fff;
     border-radius: 10px;
     overflow-y: hidden;
     transition: .3s;
     padding: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
     border: none
 }
 
@@ -82,7 +83,7 @@ label, .lbl {
     gap: 20px;
     display: flex;
     flex-direction: column;
-    padding: 50px;
+    padding: 20px;
     background-color: #f3f3f3
 }
 
@@ -426,7 +427,6 @@ main .textEnd {
 
     .anuncio .images, .eventoAnuncio .images, .organizacaoAnuncio .images, .animalAnuncio .images {
         transition: .5s;
-        height: 100%
     }
 
     .anuncio .texts *:not(.link), .eventoAnuncio .texts *:not(.link), .organizacaoAnuncio .texts *:not(.link), .animalAnuncio .texts *:not(.link) {

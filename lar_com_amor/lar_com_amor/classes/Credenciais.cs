@@ -66,6 +66,55 @@ namespace lar_com_amor.classes
         public static JObject GetCep(string cep)
         {
             cep = OnlyNumber(cep);
+            if (cep.Length != 8)
+                return JObject.Parse("{ok: false, \"msg\": \"CEP deve conter 8 caracteres\"}");
+
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    #region Requisição
+                    HttpResponseMessage response = client.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string jsonResponse = response.Content.ReadAsStringAsync().Result;
+                        JObject json = JObject.Parse(jsonResponse);
+                        json.Add("ok", true);
+                        json["cep"] = cep;
+                        #region Json retorno
+                        /*
+                         {
+                          "cep": "01001-000",
+                          "logradouro": "Praça da Sé",
+                          "complemento": "lado ímpar",
+                          "bairro": "Sé",
+                          "localidade": "São Paulo",
+                          "uf": "SP",
+                          "ibge": "3550308",
+                          "gia": "1004",
+                          "ddd": "11",
+                          "siafi": "7107"
+                        }
+                         */
+                        #endregion
+                        return json;
+                    }
+                    else
+                    {
+                        return JObject.Parse("{ok: false, \"msg\": \"Cep não foi encontrado\"}");
+                    }
+                    #endregion
+                }
+                catch
+                {
+                    return JObject.Parse("{ok: false, \"msg\": \"Erro ao tentar fazer requisição\"}");
+                }
+            }
+        }
+
+        /*public static JObject GetCep(string cep)
+        {
+            cep = OnlyNumber(cep);
             using (HttpClient client = new HttpClient())
             {
                 try
@@ -133,7 +182,7 @@ namespace lar_com_amor.classes
             {
                 return false;
             }
-        }
+        }*/
 
         public static string CalcularIdadeTexto(string dataNascimento)
         {

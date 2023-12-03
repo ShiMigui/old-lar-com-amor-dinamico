@@ -72,7 +72,15 @@
         </section>
     </footer>
 
+    <%--<article class="hidden" id="obj-carregar-mais">
+        <asp:TextBox runat="server" ID="info"></asp:TextBox>
+    </article>--%>
+
     <script src="./script/master.js"></script>
     <script src="./script/header.js"></script>
+    <script src="./script/carregar-mais.js"></script>
+    <script>
+        document.querySelectorAll(".btnMaisAnuncios").forEach(el => el.addEventListener("click", carregarMais))
+    </script>
 </body>
 </html>

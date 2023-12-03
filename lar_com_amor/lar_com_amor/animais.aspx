@@ -23,7 +23,7 @@
 
                 <section id="campo-navegacao" class="flex justEnd alignCenter">
                     <nav ativo="false">
-                        <a href="./animais.aspx" id="animais" ativo="true">Animais</a>
+                        <a href="./animais.aspx" ativo="true">Animais</a>
                         <a href="./eventos.aspx">Eventos</a>
                         <a href="./organizacoes.aspx">Organizações</a>
                     </nav>

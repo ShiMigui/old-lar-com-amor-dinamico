@@ -54,9 +54,8 @@ namespace lar_com_amor.lib
                 }
                 Retorno(true, "Pedido realizado");
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new Exception(ex.Message);
                 Retorno(false, "Ocorreu um erro, tente mais tarde");
             }
         }

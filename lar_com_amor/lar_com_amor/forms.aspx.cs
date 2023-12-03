@@ -26,7 +26,7 @@ namespace lar_com_amor
             }
 
             string a = "";
-            if (String.IsNullOrEmpty(Request["a"])) Response.Redirect("forms.aspx?a=1"); //Response.Redirect("index.aspx");
+            if (String.IsNullOrEmpty(Request["a"])) Response.Redirect("index.aspx");
             else a = Request["a"].ToString();
 
             Animal animal = new Animal();

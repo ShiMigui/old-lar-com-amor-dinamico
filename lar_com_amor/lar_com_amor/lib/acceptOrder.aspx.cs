@@ -20,6 +20,12 @@ namespace lar_com_amor.lib
             string dt = Request["dt"].ToString();
             #endregion
 
+            // TODO: Verificar se usuário fez pedido
+            // TODO: Trocar todos pedidos do animal para ic_finalizado = false
+            // TODO: Mandar email notifcando usuarios
+            // TODO: Mandar email notifcando adotante
+
+
             Banco banco = new Banco();
             List<Parametro> parametros = new List<Parametro>
             {

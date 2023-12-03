@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="maisAnuncios.aspx.cs" Inherits="lar_com_amor.lib.maisAnuncios" %>
