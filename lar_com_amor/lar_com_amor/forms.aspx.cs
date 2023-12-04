@@ -33,13 +33,13 @@ namespace lar_com_amor
             bool ic = animal.ByCode(a);
             if (!ic) Response.Redirect("index.aspx");
 
-            Banco banco = new Banco();  
+            Banco banco = new Banco();
 
             if (usuario.IsOrg && usuario.Cd == animal.Organizacao.Cd)
             {
                 string u = "", dt = "";
 
-                if (String.IsNullOrEmpty(Request["u"])  || String.IsNullOrEmpty(Request["dt"])) Response.Redirect("index.aspx");
+                if (String.IsNullOrEmpty(Request["u"]) || String.IsNullOrEmpty(Request["dt"])) Response.Redirect("index.aspx");
 
                 u = Request["u"].ToString();
                 dt = Request["dt"].ToString();
@@ -47,13 +47,13 @@ namespace lar_com_amor
             }
             else
             {
-                List<Parametro> parametros  = new List<Parametro>
-                { 
+                List<Parametro> parametros = new List<Parametro>
+                {
                     new Parametro("pcd_animal", a),
                     new Parametro("pcd_adotante", usuario.Cd)
                 };
 
-                using(MySqlDataReader Data = banco.Consultar($@"VerificarRespostasUsuario", parametros))
+                using (MySqlDataReader Data = banco.Consultar($@"VerificarRespostasUsuario", parametros))
                 {
                     if (Data.HasRows)
                     {
@@ -70,12 +70,12 @@ namespace lar_com_amor
             pnlOrgControll.Visible = true;
             Banco banco = new Banco();
             List<Parametro> parametros = new List<Parametro>
-            { 
+            {
                 new Parametro("pcd_animal", a),
                 new Parametro("pcd_adotante", u),
                 new Parametro("pdt_pedido", Credenciais.DateToInput(dt)),
             };
-            using(MySqlDataReader Data = banco.Consultar("PegarRespostasUsuario", parametros))
+            using (MySqlDataReader Data = banco.Consultar("PegarRespostasUsuario", parametros))
             {
                 while (Data.Read())
                 {
@@ -96,15 +96,15 @@ namespace lar_com_amor
             { new Parametro("pcd_animal", a), new Parametro("pcd_adotante", u) };
             using (MySqlDataReader Data = banco.Consultar($"SELECT dt_pedido FROM pedido WHERE cd_adotante = {u} AND cd_animal = {a} AND ic_permitido IS NULL AND ic_finalizado IS NULL"))
             {
-                if(Data.Read())
+                if (Data.Read())
                 {
                     dt = Data["dt_pedido"].ToString().Split(' ')[0];
                 }
                 else
                 {
-                    using(MySqlDataReader Data2 = banco.Consultar("novopedido", parametros))
+                    using (MySqlDataReader Data2 = banco.Consultar("novopedido", parametros))
                     {
-                        if(Data2.Read()) dt = Data2[0].ToString().Split(' ')[0];
+                        if (Data2.Read()) dt = Data2[0].ToString().Split(' ')[0];
                         else
                         {
                             litMsg.Text = Elemento.Error("Ocorreu um erro ao tentar fazer requisição!");
@@ -136,7 +136,7 @@ namespace lar_com_amor
 
         protected void btnAceitar_Click(object sender, EventArgs e)
         {
-            string u = "", dt = "", a="";
+            string u = "", dt = "", a = "";
 
             if (String.IsNullOrEmpty(Request["u"]) || String.IsNullOrEmpty(Request["dt"]) || String.IsNullOrEmpty(Request["a"])) Response.Redirect("index.aspx");
 
@@ -144,22 +144,33 @@ namespace lar_com_amor
             a = Request["a"].ToString();
             dt = Request["dt"].ToString();
 
+            Banco banco = new Banco();
+            #region Verfificando se animal foi adotado
+            using (MySqlDataReader data = banco.Consultar($@"select a.nm_animal from animal a JOIN pedido p ON p.cd_animal = a.cd_animal WHERE a.cd_animal = {a} AND p.ic_finalizado IS NOT TRUE;"))
+            {
+                if (data.Read())
+                {
+                    litMsg.Text = Elemento.Error("Animal já foi adotado!");
+                    return;
+                }
+            }
+            #endregion
+
             #region Permitindo pedido
             List<Parametro> parametros = new List<Parametro>
             {
                 new Parametro("pcd_animal", a),
-                new Parametro("pcd_adotante", u),
-                new Parametro("pdt_pedido", Credenciais.DateToInput(dt)),
-                new Parametro("pic_permitido", "1"),
-                new Parametro("pic_finalizado", null),
             };
-            Banco banco = new Banco();
+
+            banco.Executar("FinalizarPedidos", parametros);
+
+            parametros.Add(new Parametro("pcd_adotante", u));
+            parametros.Add(new Parametro("pdt_pedido", Credenciais.DateToInput(dt)));
+            parametros.Add(new Parametro("pic_permitido", "1"));
+            parametros.Add(new Parametro("pic_finalizado", null));
+
             banco.Executar("AtualizarPedido", parametros);
             #endregion
-
-            parametros = new List<Parametro>
-            {new Parametro("pcd_animal", a)};
-            banco.Executar("FinalizarPedidos", parametros);
 
             Response.Redirect("index.aspx");
         }
