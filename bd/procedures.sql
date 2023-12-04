@@ -214,10 +214,6 @@ BEGIN
 END;
 $
 
-DELIMITER ;
-CALL PegarEventoCodigo(1);
-DELIMITER $
-
 DROP PROCEDURE IF EXISTS PegarUsuarioCodigo$
 CREATE PROCEDURE PegarUsuarioCodigo(pcd_usuario int)
 BEGIN 
@@ -383,3 +379,5 @@ BEGIN
 END$
 
 DELIMITER ;
+
+
