@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+using System.Web.UI.WebControls;
+
 namespace lar_com_amor.classes
 {
     public class Banco
@@ -22,7 +24,7 @@ namespace lar_com_amor.classes
             if (conexao != null) if (conexao.State == System.Data.ConnectionState.Open) conexao.Close();
         }
 
-        public void Executar(string comando)
+        public void Executar(string comando, List<ListItem> meusparametros)
         {
             try
             {

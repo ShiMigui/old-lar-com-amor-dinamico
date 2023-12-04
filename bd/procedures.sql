@@ -207,9 +207,16 @@ $
 DROP PROCEDURE IF EXISTS PegarEventoCodigo$
 CREATE PROCEDURE PegarEventoCodigo(pcd_evento int)
 BEGIN 
-    SELECT * FROM evento WHERE cd_evento = pcd_evento;
+    SELECT e.nm_evento, e.ds_evento, e.dt_inicio, e.dt_final, e.cd_tipo, te.nm_tipo 
+    FROM evento e
+    JOIN tipo_evento te ON e.cd_tipo = te.cd_tipo
+    WHERE cd_evento = pcd_evento;
 END;
 $
+
+DELIMITER ;
+CALL PegarEventoCodigo(1);
+DELIMITER $
 
 DROP PROCEDURE IF EXISTS PegarUsuarioCodigo$
 CREATE PROCEDURE PegarUsuarioCodigo(pcd_usuario int)

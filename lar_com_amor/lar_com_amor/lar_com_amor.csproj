@@ -182,6 +182,7 @@
     <Content Include="build\organizacoes.html" />
     <Content Include="cadastro.aspx" />
     <Content Include="dashboard.aspx" />
+    <Content Include="evento.aspx" />
     <Content Include="eventos.aspx" />
     <Content Include="forms.aspx" />
     <Content Include="img\animal\1.jpg" />
@@ -325,6 +326,8 @@
     <Compile Include="classes\Credenciais.cs" />
     <Compile Include="classes\Elemento.cs" />
     <Compile Include="classes\Email.cs" />
+    <Compile Include="classes\Entidade.cs" />
+    <Compile Include="classes\Event.cs" />
     <Compile Include="classes\Parametro.cs" />
     <Compile Include="classes\Pedido.cs" />
     <Compile Include="classes\Pergunta.cs" />
@@ -335,6 +338,13 @@
     </Compile>
     <Compile Include="dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="evento.aspx.cs">
+      <DependentUpon>evento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="evento.aspx.designer.cs">
+      <DependentUpon>evento.aspx</DependentUpon>
     </Compile>
     <Compile Include="eventos.aspx.cs">
       <DependentUpon>eventos.aspx</DependentUpon>
