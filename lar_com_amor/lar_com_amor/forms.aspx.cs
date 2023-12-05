@@ -141,11 +141,12 @@ namespace lar_com_amor
 
             if (String.IsNullOrEmpty(Request["u"]) || String.IsNullOrEmpty(Request["dt"]) || String.IsNullOrEmpty(Request["a"])) Response.Redirect("index.aspx");
 
-            u = Request["u"].ToString();
+            u = Request["u"].ToString(); // cd_adotante
             a = Request["a"].ToString();
             dt = Request["dt"].ToString();
 
             Banco banco = new Banco();
+
             #region Verfificando se animal foi adotado
             using (MySqlDataReader data = banco.Consultar($@"select a.nm_animal from animal a JOIN pedido p ON p.cd_animal = a.cd_animal WHERE a.cd_animal = {a} AND p.ic_finalizado IS TRUE;"))
             {
@@ -157,15 +158,48 @@ namespace lar_com_amor
             }
             #endregion
 
-            #region Permitindo pedido
             List<Parametro> parametros = new List<Parametro>
             {
                 new Parametro("pcd_animal", a),
             };
 
+            #region Finalizando pedidos deste animal
             banco.Executar("FinalizarPedidos", parametros);
+            #endregion
 
             parametros.Add(new Parametro("pcd_adotante", u));
+
+            /*#region Mandando e-mail para adotante
+            try
+            {
+                using (MySqlDataReader data = banco.Consultar("InfosPedidoAceito", parametros))
+                {
+                    if (data.Read())
+                    {
+                        Email email = new Email();
+                        string u_mail = data["mail_user"].ToString();
+                        string o_mail = data["mail_org"].ToString();
+                        string o_tel = data["tel_org"].ToString();
+                        string nm_animal = data["nm_animal"].ToString();
+                        string nm_user = data["nm_user"].ToString();
+                        string nm_org = data["nm_org"].ToString();
+
+                        string content = $@"<h1>Parabéns {nm_user}!</h1>
+                    <p><b>{nm_org}</b> aceitou seu pedido por {nm_animal}</p>
+                    <h2>Formas de contato:</h2>
+                    <p>Email -> {o_mail}</p>
+                    <p>Telefone -> {o_tel}</p>";
+                        email.SendMail(content, "Parabéns 🐶", u_mail);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            #endregion*/
+
+            #region Permitindo pedido
             parametros.Add(new Parametro("pdt_pedido", Credenciais.DateToInput(dt)));
             parametros.Add(new Parametro("pic_permitido", "1"));
             parametros.Add(new Parametro("pic_finalizado", null));

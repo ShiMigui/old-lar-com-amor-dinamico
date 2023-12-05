@@ -384,4 +384,15 @@ BEGIN
     WHERE cd_organizacao = pcd_organizacao AND cd_pergunta = pcd_pergunta;
 END$
 
+DROP PROCEDURE IF EXISTS InfosPedidoAceito$
+CREATE PROCEDURE InfosPedidoAceito(pcd_adotante INT, pcd_animal INT)
+BEGIN
+	SELECT u.nm_email as mail_user, u.nm_usuario as nm_user, org.nm_email as mail_org, org.nm_usuario as nm_org, org.nm_telefone as tel_org, nm_animal FROM pedido p 
+	JOIN usuario u ON u.cd_usuario = p.cd_adotante 
+	JOIN animal a ON a.cd_animal = p.cd_animal
+    JOIN usuario org ON org.cd_usuario = a.cd_organizacao
+	WHERE p.cd_animal = pcd_animal AND p.cd_adotante = pcd_adotante;
+END$
+
 DELIMITER ;
+call InfosPedidoAceito(13, 1);
