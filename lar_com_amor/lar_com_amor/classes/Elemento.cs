@@ -41,10 +41,10 @@ namespace lar_com_amor.classes
         {
             return $"<img class='eventoPhoto' src='./img/evento/{cd}.jpg' alt='imagem do evento {nm}'>";
         }
-        static public string AnuncioOrganizacao(string cd, string nm, string localizacao)
+        static public string AnuncioOrganizacao(string cd, string nm, string localizacao, string plus = "")
         {
             return $@"<a href='./organizacao.aspx?cd={cd}' cd='{cd}' sg='o' class='organizacaoAnuncio'>
-                    <div class='images'>{FotoAnuncioOrganizacao(cd, nm)}</div>
+                    <div class='images'>{FotoAnuncioOrganizacao(cd, nm, plus: plus)}</div>
                         <div class='texts'>
                             <h4>{nm}</h4>
                             <p>{localizacao}</p>
@@ -52,11 +52,10 @@ namespace lar_com_amor.classes
                         </div>
                     </a>";
         }
-        static public string FotoAnuncioOrganizacao(string cd, string nm, bool letterIfNotExists = true)
+        static public string FotoAnuncioOrganizacao(string cd, string nm, bool letterIfNotExists = true, string plus = "")
         {
             string link = $"./img/usuario/{cd}.jpg";
-            if (Arquivo.Exists(link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
-            else if (Arquivo.Exists("."+link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
+            if (Arquivo.Exists(plus + link)) return $"<img class='organizacaoPhoto' src='./img/usuario/{cd}.jpg' alt='imagem de {nm}'>";
             else if (letterIfNotExists) return $"<div class='organizacaoPhoto font-3em'>{Usuario.GetInitials(nm)}</div>";
             else return "";
         }
@@ -121,12 +120,9 @@ namespace lar_com_amor.classes
         public static string PerguntaFormularioOrg(string cd, string nm)
         {
             return $@"
-                <div class='flex justBetween position-relative'>
+                <div class='flex justBetween alignCenter inputsOrg' cd={cd}>
                     <input type='text' value='{nm}' cd='{cd}' class='full-width'>
-                    <img src='./img/icons/more.png' class='icon-30 pointer icon-about' alt='icone de mais informações'>
-                    <div class='box-acts hidden'>
-                        <p class='pointer opt' act='delete'>Remover</p>
-                    </div>
+                    <p class='pointer opt' act='delete'>Remover</p>
                 </div>
             ";
         }

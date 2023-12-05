@@ -33,7 +33,7 @@ namespace lar_com_amor.lib
             }
             else if (sg == "o")
             {
-                list = anuncios.GetOrganizacoes(offset: offset);
+                list = anuncios.GetOrganizacoes(offset: offset, plus: ".");
                 response.Add("more", (list.Count == 6).ToString().ToLower());
             }
             else if (sg == "e")

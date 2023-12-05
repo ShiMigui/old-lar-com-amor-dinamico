@@ -23,6 +23,7 @@ namespace lar_com_amor
                     Session["last_page"] = Request.Url.AbsoluteUri;
                     Response.Redirect("login.aspx");
                 }
+                Session["last_page"] = null;
             }
 
             string a = "";
@@ -146,7 +147,7 @@ namespace lar_com_amor
 
             Banco banco = new Banco();
             #region Verfificando se animal foi adotado
-            using (MySqlDataReader data = banco.Consultar($@"select a.nm_animal from animal a JOIN pedido p ON p.cd_animal = a.cd_animal WHERE a.cd_animal = {a} AND p.ic_finalizado IS NOT TRUE;"))
+            using (MySqlDataReader data = banco.Consultar($@"select a.nm_animal from animal a JOIN pedido p ON p.cd_animal = a.cd_animal WHERE a.cd_animal = {a} AND p.ic_finalizado IS TRUE;"))
             {
                 if (data.Read())
                 {

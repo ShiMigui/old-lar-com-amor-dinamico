@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="deletarPergunta.aspx.cs" Inherits="lar_com_amor.lib.deletarPergunta" %>

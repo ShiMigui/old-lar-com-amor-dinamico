@@ -11,7 +11,7 @@ namespace lar_com_amor.lib
 {
 
 
-    public partial class refuseOrder1
+    public partial class salvarForms
     {
     }
 }

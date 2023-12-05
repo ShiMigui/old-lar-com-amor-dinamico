@@ -43,9 +43,7 @@
         </header>
 
         <main class="limiter-90pc">
-
-
-            <tab-list class="tab-list-processed">
+            <tab-list>
                 <asp:Literal Text="" runat="server" ID="litTabs" /></tab-list>
 
             <asp:Panel Visible="false" runat="server" ID="pnlInfos">
@@ -106,11 +104,28 @@
                 </article>
             </asp:Panel>
 
-            <asp:Panel ID="pnlHistory" runat="server">
+            <asp:Panel ID="pnlHistory" runat="server" Visible="false">
                 <article>
                     <section>
                         <div class="box">
                             <asp:Literal ID="litTblHistory" runat="server" Text=""></asp:Literal>
+                        </div>
+                    </section>
+                </article>
+            </asp:Panel>
+
+            <asp:Panel ID="pnlForms" runat="server" Visible="false">
+                <article>
+                    <section>
+                        <div class="box">
+                            <div class="flexColumn gap-50" id="perguntas">
+                                <asp:Literal ID="litPerguntas" runat="server" Text=""></asp:Literal>
+                            </div>
+                            <div class="space-div"></div>
+                            <div class="flex justCenter">
+                                <button id="btnSalvarForms">Salvar</button>
+                            </div>
+                            <script src="./script/salvar-forms.js"></script>
                         </div>
                     </section>
                 </article>

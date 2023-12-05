@@ -4,6 +4,10 @@
     margin-inline: auto;
 }
 
+.gap-50{
+    gap: 30px !important;
+}
+
 input[type=image], input[type=tel], input[type=email], input[type=number], input[type=text], input[type=date], input[type=time], input[type=password], textarea, select, .input {
     background-color: #fff;
     border-radius: 10px;

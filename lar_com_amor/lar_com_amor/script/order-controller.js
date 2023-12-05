@@ -1,7 +1,4 @@
 function addEventsToIcons() {
-    document.querySelectorAll(".icon-accept-order").forEach(el => el.removeEventListener("click", AceitarPedido))
-    document.querySelectorAll(".icon-refuse-order").forEach(el => el.removeEventListener("click", RecusarPedido))
-
     document.querySelectorAll(".icon-accept-order").forEach(el => el.addEventListener("click", AceitarPedido))
     document.querySelectorAll(".icon-refuse-order").forEach(el => el.addEventListener("click", RecusarPedido))
 }
@@ -11,7 +8,7 @@ function AceitarPedido() {
     const ic = confirm("Você deseja confirmar este pedido?");
     if (!ic) 
     {
-        console.error("Pedido não confirmado");
+        console.log("Pedido não confirmado");
         return;
     }
 
@@ -20,9 +17,8 @@ function AceitarPedido() {
     const dt = this.getAttribute("dt");
 
     console.log("> Permitido");
-    const link = `./lib/acceptOrder.aspx?u=${u}&&a=${a}&&dt=${dt}`;
 
-    fetch(link).then(resp=>resp.json()).then(resp=>{
+    fetch(`./lib/acceptOrder.aspx?u=${u}&&a=${a}&&dt=${dt}`).then(resp=>resp.json()).then(resp=>{
         if(resp.ok) window.location.reload();
     })
 }
@@ -32,7 +28,7 @@ function RecusarPedido() {
     const ic = confirm("Você deseja cancelar este pedido?");
     if (!ic) 
     {
-        console.error("Pedido não cancelado");
+        console.log("Pedido não cancelado");
         return;
     }
 
@@ -41,9 +37,9 @@ function RecusarPedido() {
     const dt = this.getAttribute("dt");
 
     console.log("> Cancelado");
-    const link = `./lib/refuseOrder.aspx?u=${u}&&a=${a}&&dt=${dt}`;
 
-    fetch(link).then(resp=>resp.json()).then(resp=>{
+    fetch(`./lib/refuseOrder.aspx?u=${u}&&a=${a}&&dt=${dt}`).then(resp => resp.json()).then(resp => {
+        console.log(resp)
         if(resp.ok) window.location.reload();
     })
 }

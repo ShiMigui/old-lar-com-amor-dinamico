@@ -74,7 +74,7 @@ namespace lar_com_amor.classes
             return anuncios;
         }
 
-        internal List<string> GetOrganizacoes(string txt = "", string offset = "0", string limit = "6", string sg_estado = "", string cd_cidade = "")
+        internal List<string> GetOrganizacoes(string txt = "", string offset = "0", string limit = "6", string sg_estado = "", string cd_cidade = "", string plus = "")
         {
             List<string> anuncios = new List<string>();
             string command = $@"SELECT u.cd_usuario, u.nm_usuario, c.nm_cidade, e.sg_estado 
@@ -94,7 +94,7 @@ namespace lar_com_amor.classes
 
                 while (Data.Read())
                 {
-                    anuncios.Add(Elemento.AnuncioOrganizacao(Data[0].ToString(), Data[1].ToString(), $"{Data[2]}, {Data[3]}"));
+                    anuncios.Add(Elemento.AnuncioOrganizacao(Data[0].ToString(), Data[1].ToString(), $"{Data[2]}, {Data[3]}", plus));
                 }
             }
             return anuncios;

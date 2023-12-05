@@ -8,12 +8,10 @@ using System.Web.UI.WebControls;
 
 namespace lar_com_amor.lib
 {
-    public partial class refuseOrder : System.Web.UI.Page
+    public partial class refuseOrder1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-
             #region Parâmetros
             string u = Request["u"].ToString();
             string a = Request["a"].ToString();
@@ -34,17 +32,15 @@ namespace lar_com_amor.lib
                 banco.Executar("AtualizarPedido", parametros);
                 Retorno(true, "Pedido recusado!");
             }
-            catch
+            catch (Exception ex) 
             {
-                Retorno(false, "Ocorreu um erro ao tentar contactar o servidor");
+                Retorno(false, ex.Message);
             }
         }
-
         protected void Retorno(bool ok = false, string msg = "Ocorreu um erro")
         {
             Response.ContentType = "application/json";
-            string message = ok ? Elemento.Success(msg) : Elemento.Error(msg);
-            string retorno = "{\"ok\": " + ok.ToString().ToLower() + ", \"msg\":\"" + message + "\"}";
+            string retorno = "{\"ok\": " + ok.ToString().ToLower() + ", \"msg\":\"" + msg + "\"}";
             Response.Write(retorno);
         }
     }

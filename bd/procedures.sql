@@ -240,11 +240,9 @@ $
 DROP PROCEDURE IF EXISTS PegarPerguntasOrg$
 CREATE PROCEDURE PegarPerguntasOrg(pcd_organizacao INT)
 BEGIN
-	SELECT cd_pergunta, nm_pergunta FROM pergunta where cd_organizacao = pcd_organizacao;
+	SELECT cd_pergunta, nm_pergunta FROM pergunta where cd_organizacao = pcd_organizacao ORDER BY cd_pergunta;
 END;
 $
-
-
 
 DROP PROCEDURE IF EXISTS PegarRespostasUsuario$
 CREATE PROCEDURE PegarRespostasUsuario(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE)
@@ -378,6 +376,12 @@ BEGIN
     WHERE cd_animal = pcd_animal AND ic_permitido IS NOT TRUE;
 END$
 
+DROP PROCEDURE IF EXISTS AtualizarPergunta$
+CREATE PROCEDURE AtualizarPergunta(pcd_organizacao INT, pcd_pergunta INT, pnm_pergunta TEXT)
+BEGIN 
+    UPDATE pergunta
+    SET nm_pergunta = pnm_pergunta
+    WHERE cd_organizacao = pcd_organizacao AND cd_pergunta = pcd_pergunta;
+END$
+
 DELIMITER ;
-
-

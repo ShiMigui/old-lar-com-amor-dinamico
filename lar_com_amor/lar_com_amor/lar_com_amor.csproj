@@ -261,10 +261,12 @@
     <Content Include="img\usuario\7.jpg" />
     <Content Include="img\usuario\8.jpg" />
     <Content Include="img\usuario\9.jpg" />
+    <Content Include="lib\deletarPergunta.aspx" />
     <Content Include="lib\maisAnuncios.aspx" />
     <Content Include="lib\refuseOrder.aspx" />
     <Content Include="lib\acceptOrder.aspx" />
     <Content Include="lib\responderFormulario.aspx" />
+    <Content Include="lib\salvarForms.aspx" />
     <Content Include="script\carregar-mais.js" />
     <Content Include="script\forms-user.js" />
     <Content Include="img\icons\account.png" />
@@ -291,6 +293,7 @@
     <Content Include="script\master.js" />
     <Content Include="script\message.js" />
     <Content Include="script\order-controller.js" />
+    <Content Include="script\salvar-forms.js" />
     <Content Include="script\tabController.js" />
     <Content Include="script\table.js" />
     <Content Include="style\dashboard.css" />
@@ -360,6 +363,13 @@
     <Compile Include="forms.aspx.designer.cs">
       <DependentUpon>forms.aspx</DependentUpon>
     </Compile>
+    <Compile Include="lib\deletarPergunta.aspx.cs">
+      <DependentUpon>deletarPergunta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\deletarPergunta.aspx.designer.cs">
+      <DependentUpon>deletarPergunta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="lib\maisAnuncios.aspx.cs">
       <DependentUpon>maisAnuncios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -401,6 +411,13 @@
     </Compile>
     <Compile Include="lib\sair.aspx.designer.cs">
       <DependentUpon>sair.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="lib\salvarForms.aspx.cs">
+      <DependentUpon>salvarForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="lib\salvarForms.aspx.designer.cs">
+      <DependentUpon>salvarForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -62,6 +62,25 @@ namespace lar_com_amor.classes
             }
         }
 
+        public void Executar(string comando)
+        {
+            try
+            {
+                using (MySqlConnection conexao = new MySqlConnection(linhaConexao))
+                {
+                    conexao.Open();
+                    using (MySqlCommand comandoSql = new MySqlCommand(comando, conexao))
+                    {
+                        comandoSql.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public MySqlDataReader Consultar(string comando)
         {
             try

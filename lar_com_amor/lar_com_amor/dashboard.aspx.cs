@@ -14,7 +14,6 @@ namespace lar_com_amor.build
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuario usuario = new Usuario();
-            Usuario.Login("1", "Ng Cahorros", "O");
 
             usuario.VerificarLogin();
             if (!usuario.Logado || !usuario.IsOrg) Response.Redirect("index.aspx");
@@ -162,6 +161,24 @@ namespace lar_com_amor.build
                             litTblHistory.Text = Elemento.GenerateTable(header, content, "Não há pedidos finalizados");
                         }
                         else litTblHistory.Text = "<p class='textCenter'>Não há pedidos finalizados</p>";
+                    }
+                    #endregion
+                }
+                else if (tab == "forms")
+                {
+                    pnlForms.Visible = true;
+
+                    #region Gerando perguntas
+                    Banco banco = new Banco();
+                    List<Parametro> parametros = new List<Parametro>
+                    {
+                        new Parametro("pcd_organizacao", usuario.Cd)
+                    };
+
+                    using(MySqlDataReader data = banco.Consultar("PegarPerguntasOrg", parametros))
+                    {
+                        litPerguntas.Text = $"<script>const cd_organizacao = {usuario.Cd};</script>";
+                        while (data.Read()) litPerguntas.Text += Elemento.PerguntaFormularioOrg(data[0].ToString(), data[1].ToString());
                     }
                     #endregion
                 }
