@@ -95,6 +95,12 @@ namespace lar_com_amor
                 litMsg.Text = Elemento.Error(dateJson["msg"].ToString());
                 return;
             }
+            if(inpCNPJ.Text.Length != 14)
+            {
+                litMsg.Text = Elemento.Error("CNPJ inválido");
+                inpCNPJ.Focus();
+                return;
+            }
 
             // TODO: Verificar se usuário com mesmo email ou CNPJ existem
 

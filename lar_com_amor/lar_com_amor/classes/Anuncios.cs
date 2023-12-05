@@ -27,7 +27,7 @@ namespace lar_com_amor.classes
                 WHERE (a.nm_animal LIKE '%{txt}%' OR e.nm_especie LIKE '%{txt}%' OR r.nm_raca LIKE '%{txt}%' OR po.nm_porte LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%')";
 
             List<string> condicoes = new List<string>();
-            if (naoAdotado) condicoes.Add("(p.ic_permitido IS NULL OR p.ic_permitido = false)");
+            if (naoAdotado) condicoes.Add(@"NOT EXISTS (SELECT 1 FROM pedido p WHERE p.cd_animal = a.cd_animal AND (p.ic_permitido = TRUE))");
             if (!String.IsNullOrEmpty(org)) condicoes.Add($"(a.cd_organizacao = {org})");
             if (!String.IsNullOrEmpty(especie)) condicoes.Add($"(e.cd_especie = {especie})");
             if (!String.IsNullOrEmpty(raca)) condicoes.Add($"(r.cd_raca = {raca})");
