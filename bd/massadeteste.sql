@@ -350,40 +350,17 @@ Luka é mais do que apenas um coelho bonito; ele é um companheiro amigável e c
 CALL NovoAnimal('Bebel', 'Conheça Bebel, uma coelha Fuzzy Lop que é pura fofura em quatro patas. Com sua pelagem incrivelmente macia e suas orelhinhas caídas, Bebel é uma verdadeira princesa peluda. Seu pelo denso e aveludado é uma tentação irresistível para quem busca um coelho repleto de charme e carinho.
 Bebel não é apenas um rostinho bonito; ela é uma coelha encantadora, pronta para preencher seu lar com amor e momentos de ternura. Sua natureza brincalhona e curiosa a torna uma companhia divertida, perfeita para famílias que procuram um pet animado. Bebel está ansiosa para encontrar um lar amoroso, onde possa expressar todo o carinho e doçura que carrega consigo. Se você está pronto para adotar uma coelha Fuzzy Lop cheia de personalidade e suavidade, Bebel está aguardando ansiosamente por uma família para chamar de sua. Não perca a chance de dar a Bebel um lar acolhedor e repleto de carinho.', '2020-06-26', true, 12, 'F', 4);
 
-
-
 INSERT INTO pergunta (cd_pergunta, nm_pergunta, cd_organizacao) VALUES
-(1, 'Qual é seu nome completo?', 1),
-(2, 'Qual seu email?', 1),
-(3, 'Qual seu telefone para contato?', 1),
-(4, 'Qual seu endereço completo? (nome da rua, número e cidade)', 1),
-(5, 'Você mora em casa ou apartamento?', 1),
-(6, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 1),
-(7, 'Você tem outros animais? Quais? São vacinados e castrados?', 1),
-(8, 'Já teve outros animais? O que aconteceu com eles?', 1),
-(9, 'Você é responsável na sua residência?', 1),
-(10, 'Quem será o responsável pelo animal?', 1),
-(11, 'Todos da casa estão cientes e concordam com a adoção?', 1),
-(12, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 1),
-(13, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 1),
-(14, 'Onde o animal dormiria, exatamente?', 1),
-(15, 'Qual seria a sua postura se seu animal subisse no seu sofá ou cama?' , 1),
-(16, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 1),
-(17, 'Já devolveu algum animal adotado?', 1),
-(18, 'Já teve que doar algum animal seu? Se sim, qual foi o motivo', 1),
-(19, 'Caso o animal seja um cachorro e cresça mais que o esperado, o que você faria?', 1),
-(20, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 1),
-(21, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 1),
-(22, 'Quantas horas por dia o animal passará sozinho?', 1),
-(23, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 1),
-(24, 'Você possui imóvel próprio ou mora de aluguel? Pretende se mudar?', 1),
-(25, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
-
-INSERT INTO pedido (dt_pedido, ic_permitido, ic_finalizado, cd_animal, cd_adotante) VALUES
-('2023-02-12', true, null, 1,  13),
-('2022-02-12', true, null, 1,  13),
-('2023-03-21', true, true, 19, 14),
-('2023-05-29', true, null, 16, 15),
-('2023-07-30', true, null, 11, 16),
-('2023-06-02', false, false, 6, 17),
-('2023-09-08', null, null, 20, 18);
+(1, 'Você mora em casa ou apartamento?', 1),
+(2, 'Sua casa é totalmente telada, incluindo janelas, cômodos e sacadas?', 1),
+(3, 'Você tem outros animais? Quais? São vacinados e castrados?', 1),
+(4, 'Quem será o responsável pelo animal?', 1),
+(5, 'Todos da casa estão cientes e concordam com a adoção?', 1),
+(6, 'Você sabe dos cuidados necessários, como as vacinas anuais e vermífugos semestrais? São obrigatórios, você se compromete com tudo?', 1),
+(7, 'O animal teria acesso total à casa ou ficaria no quintal? Você é a favor do uso de correntes se o animal precisar?', 1),
+(8, 'Caso tenha que se mudar para um lugar menor ou que não aceite animais, o que faria com ele?', 1),
+(9, 'Já devolveu algum animal adotado?', 1),
+(10, 'Caso o animal fique doente e você não tenha condições de levar no veterinário, o que faria?', 1),
+(11, 'Quantas pessoas moram com você? Se tiver crianças, qual a idade delas? Como eles reagem com os animais?', 1),
+(12, 'Se o animal for cão, quantas vezes por dia você passeará com ele?', 1),
+(13, 'Atualmente você está trabalhando? Qual sua profissão?', 1);
