@@ -1,4 +1,5 @@
 ﻿using lar_com_amor.classes;
+using MySql.Data.MySqlClient;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace lar_com_amor
             if (!IsPostBack)
             {
                 List<Parametro> tabs = new List<Parametro>
-                { 
+                {
                     new Parametro("Adotante", "A"),
                     new Parametro("Organizacao", "O"),
                 };
@@ -38,16 +39,17 @@ namespace lar_com_amor
         protected void btnCadastro_Click(object sender, EventArgs e)
         {
             string sg = "A";
-            if(!String.IsNullOrEmpty(Request["tab"])) sg= Request["tab"].ToString();
-            string DATE = null, CNPJ = null, phone=null;
+            if (!String.IsNullOrEmpty(Request["tab"]))
+            {
+                if (Request["tab"].ToString() == "O") sg = "O";
+            }
+
+
+            string DATE = null, CNPJ = null, phone = null;
+            DATE = inpDate.Text;
+            phone = Credenciais.ValidatePhone(inpTelefone.Text);
 
             #region Verificações
-            if (inpNome.Text.Length < 8)
-            {
-                inpNome.Focus();
-                litMsg.Text = Elemento.Error("Nome muito curto");
-                return;
-            }
             if (inpNome.Text.Length > 200)
             {
                 inpNome.Focus();
@@ -64,10 +66,8 @@ namespace lar_com_amor
             {
                 litMsg.Text = Elemento.Error("Você deve ter 18 anos para criar uma conta");
                 inpDate.Focus();
-                DATE = inpDate.Text;
                 return;
             }
-            phone = Credenciais.ValidatePhone(inpTelefone.Text);
             if (phone == null)
             {
                 litMsg.Text = Elemento.Error("Telefone inválido");
@@ -95,19 +95,34 @@ namespace lar_com_amor
                 litMsg.Text = Elemento.Error(dateJson["msg"].ToString());
                 return;
             }
-            if(inpCNPJ.Text.Length != 14)
+            if (inpCNPJ.Text.Length != 14)
             {
                 litMsg.Text = Elemento.Error("CNPJ inválido");
                 inpCNPJ.Focus();
                 return;
             }
 
-            // TODO: Verificar se usuário com mesmo email ou CNPJ existem
+            #region Verificação email
+            Banco banco = new Banco();
+            List<Parametro> parametros = new List<Parametro> 
+            { 
+                new Parametro("pnm_email", inpEmail.Text), 
+                new Parametro("pnm_cnpj", inpCNPJ.Text) 
+            };
+
+            using (MySqlDataReader data = banco.Consultar("UsuarioExiste", parametros))
+            {
+                if (data.Read())
+                {
+                    litMsg.Text = Elemento.Error("Já existe usuário com este email ou CNPJ");
+                }
+            }
+            #endregion
 
             #endregion
-            
+
             //string codigo = Credenciais.GerarCodigo();
-            List<Parametro> parametros = new List<Parametro>
+            parametros = new List<Parametro>
             {
                 new Parametro("pnm_usuario", inpNome.Text),
                 new Parametro("pnm_email", inpEmail.Text),
@@ -122,8 +137,8 @@ namespace lar_com_amor
 
             try
             {
-                Banco banco = new Banco();
                 banco.Executar("NovoUsuario", parametros);
+                Response.Redirect("login.aspx");
             }
             catch
             {

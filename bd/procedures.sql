@@ -368,8 +368,8 @@ BEGIN
     WHERE cd_animal = pcd_animal AND cd_adotante != pcd_adotante;
     
     UPDATE pedido
-    SET ic_finalizado = TRUE
-    WHERE cd_animal = pcd_animal AND cd_adotante = pcd_adotante AND ic_finalizado IS NULL;
+    SET ic_permitido = TRUE
+    WHERE cd_animal = pcd_animal AND cd_adotante = pcd_adotante AND ic_permitido IS NULL;
 END$
 
 DROP PROCEDURE IF EXISTS AtualizarPergunta$
@@ -412,5 +412,9 @@ BEGIN
     ORDER BY dt_pedido DESC;
 END$
 
+DROP PROCEDURE IF EXISTS UsuarioExiste$
+CREATE PROCEDURE UsuarioExiste(pnm_email TEXT, pnm_cnpj TEXT)
+BEGIN
+	Select nm_usuario from usuario where nm_email = pnm_email OR cd_cnpj = pnm_cnpj;
+END$
 DELIMITER ;
-call SituacaoPedido(14, 27);

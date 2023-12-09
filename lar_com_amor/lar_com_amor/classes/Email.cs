@@ -9,14 +9,25 @@ namespace lar_com_amor.classes
 {
     public class Email
     {
-        private string Mail = "larcomamoroficial@outlook.com";
-        private string Password = "OsIncriveis";
 
-        public bool SendMail(string content = "",string Subject = "", string To = "")
+        public static bool EnviarEmail(string emailDestinatario, string corpo, string assunto)
         {
+            #region Declaração de Variáveis
+            string remetente = "";
+            string senha = "";
+            string destinatario = "";
+            #endregion
+
+            #region Atribuição dos Valores
+            remetente = "larcomamoroficial@outlook.com";
+            senha = "OsIncriveis";
+            destinatario = emailDestinatario;
+            assunto = "Assunto do Email";
+            #endregion
+
             #region Configurações do Remetente
             SmtpClient client = new SmtpClient();
-            client.Credentials = new NetworkCredential(Mail, Password);
+            client.Credentials = new NetworkCredential(remetente, senha);
             client.Host = "smtp.office365.com";
             client.Port = 587;
             client.EnableSsl = true;
@@ -24,13 +35,13 @@ namespace lar_com_amor.classes
 
             #region Configuração do Email
             MailMessage mail = new MailMessage();
-            mail.To.Add(To);
+            mail.To.Add(destinatario);
             //mail.CC.Add(destinatario);
             //mail.Bcc.Add(destinatario);
-            mail.From = new MailAddress(Mail, "Lar com Amor | Oficial", System.Text.Encoding.UTF8);
-            mail.Subject = Subject;
+            mail.From = new MailAddress(remetente, "Nome do Remetente", System.Text.Encoding.UTF8);
+            mail.Subject = assunto;
             mail.SubjectEncoding = System.Text.Encoding.UTF8;
-            mail.Body = $"<html><body>{content}</body></html>";
+            mail.Body = $"<html><body>{corpo}</body></html>";
             mail.BodyEncoding = System.Text.Encoding.UTF8;
             mail.IsBodyHtml = true;
             mail.Priority = MailPriority.High;

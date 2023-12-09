@@ -13,7 +13,6 @@ namespace lar_com_amor
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Usuario.Login("14", "Miguel", "A");
             Usuario usuario = new Usuario();
             usuario.VerificarLogin();
             if (!IsPostBack)
@@ -87,14 +86,12 @@ namespace lar_com_amor
                 }
                 else
                 {
-                    Response.Redirect("forms.aspx?q=view&&a=27&&u=14&&dt=05/12/2023");
-
                     using (MySqlDataReader Data = banco.Consultar("VerificarRespostasUsuario", parametros))
                     {
                         if (Data.HasRows)
                         {
                             litPerguntas.Text = "<p class='textCenter'>Requisição enviada</p>";
-                            litMsg.Text = Elemento.Success("Requisição enviada já enviada");
+                            litMsg.Text = Elemento.Success("Requisição enviada");
                         }
                         else CarregarForms(a, usuario.Cd);
                     }
@@ -208,10 +205,6 @@ namespace lar_com_amor
                 new Parametro("pcd_adotante", u)
             };
 
-            #region Finalizando pedidos deste animal
-            banco.Executar("FinalizarPedidos", parametros);
-            #endregion
-
             #region Mandando e-mail para adotante
             try
             {
@@ -219,7 +212,6 @@ namespace lar_com_amor
                 {
                     if (data.Read())
                     {
-                        Email email = new Email();
                         string u_mail = data["mail_user"].ToString();
                         string o_mail = data["mail_org"].ToString();
                         string o_tel = data["tel_org"].ToString();
@@ -232,17 +224,21 @@ namespace lar_com_amor
                     <h2>Formas de contato:</h2>
                     <p>Email -> {o_mail}</p>
                     <p>Telefone -> {o_tel}</p>";
-                        email.SendMail(content, "Parabéns 🐶", u_mail);
+                        Email.EnviarEmail(u_mail, content, "Parabéns pelo novo bichinho!");
                     }
                 }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                litMsg.Text = Elemento.Error(ex.Message);
+                return;
             }
             #endregion
 
-            Response.Redirect($"forms.aspx?q=view?dt={dt}&&a={a}&&u={u}");
+            #region Finalizando pedidos deste animal
+            banco.Executar("FinalizarPedidos", parametros);
+            #endregion
+            Response.Redirect("dashboard.aspx");
         }
 
         protected void btnRecusar_Click(object sender, EventArgs e)
