@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="organizacao.aspx.cs" Inherits="lar_com_amor.organizacao" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="perfil.aspx.cs" Inherits="lar_com_amor.perfil" %>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -42,60 +42,71 @@
         </header>
 
         <main class="limiter">
-
-
             <article class="content-box flex" id="anuncio-panel">
                 <section id="left-panel">
                     <asp:Literal runat="server" ID="litFoto"></asp:Literal>
+                    <asp:FileUpload runat="server" ID="filFoto" />
                 </section>
                 <section id="right-panel" class="form full-width">
                     <tab-list class="tab-list-processed">
-                        <asp:Literal runat="server" ID="litTabs" Text=""></asp:Literal></tab-list>
+                        <asp:Literal runat="server" ID="litTabs" Text="">
+                        </asp:Literal></tab-list>
                     <asp:Panel runat="server" Visible="false" ID="pnlPerfil">
                         <div class="grid2">
                             <div class="itemForm">
                                 <label for="inpNome">Nome</label>
-                                <p><asp:Literal runat="server" ID="litNome" Text=""></asp:Literal></p>
+                                <asp:TextBox runat="server" ID="inpNome" required=""></asp:TextBox>
                             </div>
+                            <asp:Panel runat="server" ID="pnlCNPJ" Visible="false" CssClass="itemForm">
+                                <label for="litCNPJ">CNPJ</label>
+                                <p>
+                                    <asp:Literal runat="server" ID="litCNPJ"></asp:Literal></p>
+                            </asp:Panel>
                             <div class="itemForm">
                                 <label for="inpTelefone">Telefone</label>
-                                <p><asp:Literal runat="server" ID="litTelefone" Text=""></asp:Literal></p>
+                                <asp:TextBox runat="server" ID="inpTelefone" TextMode="Number" required=""></asp:TextBox>
                             </div>
                             <div class="itemForm">
                                 <label for="inpEmail">Email</label>
-                                <p><asp:Literal runat="server" ID="litEmail" Text=""></asp:Literal></p>
+                                <asp:TextBox runat="server" ID="inpEmail" TextMode="Email" required=""></asp:TextBox>
                             </div>
                         </div>
-                        <div class="itemForm">
+                        <asp:Panel runat="server" ID="pnlDescricao" Visible="false" CssClass="itemForm">
                             <label for="inpDescricao">Descrição</label>
-                            <p><asp:Literal runat="server" ID="litDescricao" Text=""></asp:Literal></p>
-                        </div>
+                            <asp:TextBox runat="server" ID="inpDescricao" TextMode="MultiLine"></asp:TextBox>
+                        </asp:Panel>
                         <div class="space-div"></div>
                         <div class="flexColumn alignStart">
-                            <div class="full-width">
+                            <div class="itemForm">
                                 <label for="inpCep" class="input-line-25">CEP</label>
-                                <p><asp:Literal runat="server" ID="litCep" Text=""></asp:Literal></p>
+                                <asp:TextBox runat="server" ID="inpCep" TextMode="Number" required="" OnTextChanged="inpCep_TextChanged" AutoPostBack="true"></asp:TextBox>
                             </div>
-                            <div class="full-width">
+                            <div>
                                 <span class="input-line-25 lbl">Rua</span>
-                                <p><asp:Literal runat="server" ID="litRua"></asp:Literal></p>
+                                <p>
+                                    <asp:Literal runat="server" ID="litRua"></asp:Literal>
+                                </p>
                             </div>
-                            <div class="full-width">
+                            <div>
                                 <span class="input-line-25 lbl">Cidade</span>
-                                <p><asp:Literal runat="server" ID="litCidade"></asp:Literal></p>
+                                <p>
+                                    <asp:Literal runat="server" ID="litCidade"></asp:Literal>
+                                </p>
                             </div>
-                            <div class="full-width">
+                            <div>
                                 <span class="input-line-25 lbl">Estado</span>
-                                <p><asp:Literal runat="server" ID="litUf"></asp:Literal></p>
+                                <p>
+                                    <asp:Literal runat="server" ID="litUf"></asp:Literal>
+                                </p>
                             </div>
                         </div>
-                    </asp:Panel>
-                    <asp:Panel runat="server" ID="pnlAnimais" Visible="false">
-                        <asp:Literal runat="server" ID="litAnimais" Text=""></asp:Literal>
 
+                        <div class="buttons">
+                            <asp:Button runat="server" ID="btnSalvar" Text="Salvar" OnClick="btnSalvar_Click" />
+                        </div>
                     </asp:Panel>
-                    <asp:Panel runat="server" ID="pnlEventos" Visible="false">
-                        <asp:Literal runat="server" ID="litEventos" Text=""></asp:Literal>
+                    <asp:Panel runat="server" ID="pnlPedidos" Visible="false">
+                        <asp:Literal runat="server" ID="litPedidos" Text=""></asp:Literal>
 
                     </asp:Panel>
                 </section>
@@ -109,10 +120,13 @@
             </section>
         </footer>
 
+        <asp:Literal runat="server" ID="litMsg"></asp:Literal>
+
         <script src="./script/master.js"></script>
         <script src="./script/table.js"></script>
         <script src="./script/tabController.js"></script>
         <script src="./script/header.js"></script>
+        <script src="./script/message.js"></script>
     </form>
 </body>
 </html>

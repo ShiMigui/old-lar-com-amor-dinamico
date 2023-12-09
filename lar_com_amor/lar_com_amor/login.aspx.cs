@@ -44,7 +44,6 @@ namespace lar_com_amor
                 if (Data.Read())
                 {
                     Usuario.Login(Data[0].ToString(), Data[1].ToString(), Data[2].ToString());
-                    litMsg.Text = Elemento.Success("Logado com sucesso");
 
                     string page = "index.aspx";
                     if (Session["last_page"] != null) page = Session["last_page"].ToString();

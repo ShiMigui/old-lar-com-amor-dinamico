@@ -159,27 +159,6 @@
   <ItemGroup>
     <Content Include="animais.aspx" />
     <Content Include="animal.aspx" />
-    <Content Include="build\animais.html" />
-    <Content Include="build\animal.html" />
-    <Content Include="build\cadastro.html" />
-    <Content Include="build\dashboard.html" />
-    <Content Include="build\evento.html" />
-    <Content Include="build\eventos.html" />
-    <Content Include="build\img\icons\account.png" />
-    <Content Include="build\img\icons\add.png" />
-    <Content Include="build\img\icons\arrow-down.png" />
-    <Content Include="build\img\icons\close.png" />
-    <Content Include="build\img\icons\garota_e_cachorro.png" />
-    <Content Include="build\img\icons\index1.png" />
-    <Content Include="build\img\icons\index2.png" />
-    <Content Include="build\img\icons\index3.png" />
-    <Content Include="build\img\icons\index4.png" />
-    <Content Include="build\img\icons\logo.png" />
-    <Content Include="build\img\icons\search.png" />
-    <Content Include="build\index.html" />
-    <Content Include="build\login.html" />
-    <Content Include="build\organizacao.html" />
-    <Content Include="build\organizacoes.html" />
     <Content Include="cadastro.aspx" />
     <Content Include="dashboard.aspx" />
     <Content Include="evento.aspx" />
@@ -267,6 +246,7 @@
     <Content Include="lib\acceptOrder.aspx" />
     <Content Include="lib\responderFormulario.aspx" />
     <Content Include="lib\salvarForms.aspx" />
+    <Content Include="perfil.aspx" />
     <Content Include="script\carregar-mais.js" />
     <Content Include="script\forms-user.js" />
     <Content Include="img\icons\account.png" />
@@ -332,8 +312,6 @@
     <Compile Include="classes\Entidade.cs" />
     <Compile Include="classes\Event.cs" />
     <Compile Include="classes\Parametro.cs" />
-    <Compile Include="classes\Pedido.cs" />
-    <Compile Include="classes\Pergunta.cs" />
     <Compile Include="classes\Usuario.cs" />
     <Compile Include="dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -439,6 +417,13 @@
     </Compile>
     <Compile Include="organizacoes.aspx.designer.cs">
       <DependentUpon>organizacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="perfil.aspx.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="perfil.aspx.designer.cs">
+      <DependentUpon>perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

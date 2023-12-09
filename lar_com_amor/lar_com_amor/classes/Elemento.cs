@@ -139,7 +139,7 @@ namespace lar_com_amor.classes
         public static string GenerateRowTable(List<string> conteudo, string tag = "td")
         {
             string row = "<tr>";
-            foreach (string c in conteudo) row += $"<{tag}>{c}</{tag}>";
+            foreach (string c in conteudo) row += $"<{tag} class='textCenter'>{c}</{tag}>";
             return row + "</tr>";
         }
 

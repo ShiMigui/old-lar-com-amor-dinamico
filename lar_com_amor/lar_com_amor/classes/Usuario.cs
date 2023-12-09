@@ -14,6 +14,7 @@ namespace lar_com_amor.classes
         public string Cd = null;
         public string Nm = null;
         public string Mail = null;
+        public string CNPJ = null;
         public string Ds = null;
         public string Telefone = null;
         public string Cep = null;
@@ -95,11 +96,11 @@ namespace lar_com_amor.classes
                 lit.Text = "<a href='./login.aspx' id='account' class='flex alignCenter'>Entrar<img src='./img/icons/account.png' alt='ícone de login'></a>";
                 return;
             }
-            string initials = GetInitials(Nm);
+            //string initials = GetInitials(Nm.ToUpper());
             string options = "";
             if (IsOrg) options = $"<a href='organizacao.aspx'>Perfil público</a>";
 
-            lit.Text = $"<a href='./perfil.aspx' id='account' class='flex alignCenter'>{initials}{Elemento.FotoAnuncioOrganizacao(Cd, Nm, false)}</a>";
+            lit.Text = $"<a href='./perfil.aspx' id='account' class='flex alignCenter'>{Nm.Split(' ')[0]}{Elemento.FotoAnuncioOrganizacao(Cd, Nm, false)}</a>";
             lit.Text += $@"<img id='arrow-down' src='./img/icons/arrow-down.png' alt='ícone de seta para baixo'>
             <div id='opts-header' class='flexColumn hidden'>
                 <a href='perfil.aspx'>Perfil</a>
@@ -115,7 +116,7 @@ namespace lar_com_amor.classes
             if (string.IsNullOrWhiteSpace(fullName)) return string.Empty;
 
             string[] parts = fullName.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            string initials = string.Join("", parts.Select(p => p[0]));
+            string initials = string.Join("", parts.Select(p => p[0])).Substring(0, Math.Min(5, fullName.Length));
 
             return initials;
         }
@@ -141,6 +142,7 @@ namespace lar_com_amor.classes
                         Cidade = Data["nm_cidade"].ToString();
                         Rua = Data["nm_rua"].ToString();
                         Cep = Data["cd_cep"].ToString();
+                        CNPJ = Data["cd_cnpj"].ToString();
                         Mail = Data["nm_email"].ToString();
                         return true;
                     }

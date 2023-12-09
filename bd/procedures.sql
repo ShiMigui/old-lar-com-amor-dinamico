@@ -214,13 +214,6 @@ BEGIN
 END;
 $
 
-DROP PROCEDURE IF EXISTS PegarUsuarioCodigo$
-CREATE PROCEDURE PegarUsuarioCodigo(pcd_usuario int)
-BEGIN 
-    SELECT * FROM usuario WHERE cd_usuario = pcd_usuario;
-END;
-$
-
 DROP PROCEDURE if EXISTS PegarCep$
 CREATE PROCEDURE PegarCep(pcd_cep VARCHAR(8))
 BEGIN
@@ -332,7 +325,7 @@ END$
 DROP PROCEDURE IF EXISTS PegarUsuario$
 CREATE PROCEDURE PegarUsuario(pcd_usuario INT, psg_tipo VARCHAR(1))
 BEGIN
-	SELECT u.nm_usuario, u.nm_email, u.nm_telefone, u.ds_usuario, c.nm_rua, ci.nm_cidade, ci.sg_estado, u.cd_cep
+	SELECT u.nm_usuario, u.nm_email, u.nm_telefone, u.ds_usuario, c.nm_rua, ci.nm_cidade, ci.sg_estado, u.cd_cep, u.cd_cnpj
 	FROM usuario u 
 	JOIN cep c ON (c.cd_cep = u.cd_cep)
 	JOIN cidade ci ON (ci.cd_cidade = c.cd_cidade)
@@ -368,12 +361,15 @@ BEGIN
 END$
 
 DROP PROCEDURE IF EXISTS FinalizarPedidos$
-CREATE PROCEDURE FinalizarPedidos(pcd_animal INT)
+CREATE PROCEDURE FinalizarPedidos(pcd_animal INT, pcd_adotante INT)
 BEGIN 
     UPDATE pedido
-    SET ic_finalizado = FALSE,
-    ic_permitido = FALSE
-    WHERE cd_animal = pcd_animal AND ic_permitido IS NOT TRUE;
+    SET ic_finalizado = FALSE
+    WHERE cd_animal = pcd_animal AND cd_adotante != pcd_adotante;
+    
+    UPDATE pedido
+    SET ic_finalizado = TRUE
+    WHERE cd_animal = pcd_animal AND cd_adotante = pcd_adotante AND ic_finalizado IS NULL;
 END$
 
 DROP PROCEDURE IF EXISTS AtualizarPergunta$
@@ -394,5 +390,27 @@ BEGIN
 	WHERE p.cd_animal = pcd_animal AND p.cd_adotante = pcd_adotante;
 END$
 
+DROP PROCEDURE IF EXISTS PedidosUsuario$
+CREATE PROCEDURE PedidosUsuario(pcd_usuario INT)
+BEGIN
+	select p.dt_pedido, p.ic_permitido, p.ic_finalizado, a.cd_animal, a.nm_animal
+    FROM usuario u
+    JOIN pedido p ON p.cd_adotante = u.cd_usuario
+    JOIN animal a ON a.cd_animal = p.cd_animal
+    WHERE cd_usuario = pcd_usuario
+    ORDER BY dt_pedido;
+END$
+
+DROP PROCEDURE IF EXISTS SituacaoPedido$
+CREATE PROCEDURE SituacaoPedido(pcd_adotante INT, pcd_animal INT)
+BEGIN
+	SELECT u.nm_usuario, a.nm_animal, p.ic_permitido, p.ic_finalizado
+    FROM pedido p 
+    JOIN usuario u ON u.cd_usuario = p.cd_adotante
+    JOIN animal a ON a.cd_animal = p.cd_animal
+    AND p.cd_adotante = pcd_adotante AND p.cd_animal = pcd_animal
+    ORDER BY dt_pedido DESC;
+END$
+
 DELIMITER ;
-call InfosPedidoAceito(13, 1);
+call SituacaoPedido(14, 27);
