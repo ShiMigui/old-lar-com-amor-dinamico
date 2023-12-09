@@ -241,10 +241,11 @@ DROP PROCEDURE IF EXISTS PegarRespostasUsuario$
 CREATE PROCEDURE PegarRespostasUsuario(pcd_animal INT, pcd_adotante INT, pdt_pedido DATE)
 BEGIN
 	SELECT p.cd_pergunta, p.nm_pergunta, r.nm_resposta, pe.ic_permitido
-    FROM pergunta p 
-	JOIN resposta r ON r.cd_pergunta = p.cd_pergunta
-    JOIN pedido pe ON pe.dt_pedido = r.dt_pedido AND pe.cd_animal = r.cd_animal AND pe.cd_adotante = r.cd_adotante
-	WHERE r.cd_adotante = pcd_adotante AND r.cd_animal = pcd_animal AND r.dt_pedido = pdt_pedido;
+    FROM pedido pe
+	JOIN resposta r ON r.cd_adotante = pe.cd_adotante AND r.cd_animal = pe.cd_animal AND r.dt_pedido = pe.dt_pedido
+	JOIN pergunta p ON p.cd_pergunta = r.cd_pergunta
+	WHERE pe.cd_adotante = pcd_adotante AND pe.cd_animal = pcd_animal AND pe.dt_pedido = pdt_pedido
+	GROUP BY p.cd_pergunta;
 END;
 $
 

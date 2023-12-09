@@ -90,8 +90,7 @@ namespace lar_com_amor
                     {
                         if (Data.HasRows)
                         {
-                            litPerguntas.Text = "<p class='textCenter'>Requisição enviada</p>";
-                            litMsg.Text = Elemento.Success("Requisição enviada");
+                            Response.Redirect("perfil.aspx?tab=pedidos");
                         }
                         else CarregarForms(a, usuario.Cd);
                     }
