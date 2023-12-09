@@ -102,7 +102,7 @@ namespace lar_com_amor
 
         private void CarregarRespostas(string a, string u, string dt)
         {
-            pnlOrgControll.Visible = true;
+            
             Banco banco = new Banco();
             List<Parametro> parametros = new List<Parametro>
             {
@@ -117,6 +117,7 @@ namespace lar_com_amor
                     string cd_pergunta = Data["cd_pergunta"].ToString();
                     string nm_pergunta = Data["nm_pergunta"].ToString();
                     string nm_resposta = Data["nm_resposta"].ToString();
+                    if (Data["ic_permitido"].ToString() == "") pnlOrgControll.Visible = true;
                     litPerguntas.Text += Elemento.PerguntaFormularioUser(cd_pergunta, nm_pergunta, nm_resposta, true);
                 }
             }

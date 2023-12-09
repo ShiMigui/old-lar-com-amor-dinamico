@@ -22,7 +22,6 @@ namespace lar_com_amor.classes
             remetente = "larcomamoroficial@outlook.com";
             senha = "OsIncriveis";
             destinatario = emailDestinatario;
-            assunto = "Assunto do Email";
             #endregion
 
             #region Configurações do Remetente
@@ -38,7 +37,7 @@ namespace lar_com_amor.classes
             mail.To.Add(destinatario);
             //mail.CC.Add(destinatario);
             //mail.Bcc.Add(destinatario);
-            mail.From = new MailAddress(remetente, "Nome do Remetente", System.Text.Encoding.UTF8);
+            mail.From = new MailAddress(remetente, "lar com amor", System.Text.Encoding.UTF8);
             mail.Subject = assunto;
             mail.SubjectEncoding = System.Text.Encoding.UTF8;
             mail.Body = $"<html><body>{corpo}</body></html>";
