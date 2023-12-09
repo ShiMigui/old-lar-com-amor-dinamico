@@ -27,7 +27,8 @@ namespace lar_com_amor.classes
             #region Configurações do Remetente
             SmtpClient client = new SmtpClient();
             client.Credentials = new NetworkCredential(remetente, senha);
-            client.Host = "smtp.office365.com";
+            client.Host = "smtp-mail.outlook.com";
+            //client.Host = "smtp.office365.com";
             client.Port = 587;
             client.EnableSsl = true;
             #endregion

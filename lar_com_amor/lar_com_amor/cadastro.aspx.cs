@@ -95,7 +95,7 @@ namespace lar_com_amor
                 litMsg.Text = Elemento.Error(dateJson["msg"].ToString());
                 return;
             }
-            if (inpCNPJ.Text.Length != 14)
+            if (inpCNPJ.Text.Length != 14 && sg == "O")
             {
                 litMsg.Text = Elemento.Error("CNPJ inválido");
                 inpCNPJ.Focus();
