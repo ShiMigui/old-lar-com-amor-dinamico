@@ -53,7 +53,7 @@ namespace lar_com_amor.classes
             JOIN tipo_evento te ON (te.cd_tipo = e.cd_tipo)
             JOIN cep ON (cep.cd_cep = u.cd_cep) JOIN cidade c ON (c.cd_cidade = cep.cd_cidade) 
             JOIN estado et ON (et.sg_estado = c.sg_estado) WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
-            AND (e.nm_evento LIKE '%{txt}%' OR e.ds_evento LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%' OR u.cd_usuario = '%{txt}%')";
+            AND (e.nm_evento LIKE '%{txt}%' OR u.nm_usuario LIKE '%{txt}%' OR u.cd_usuario = '%{txt}%')";
 
             List<string> condicoes = new List<string>();
             if (naoFinalizado) condicoes.Add("e.dt_final > NOW()");
@@ -83,7 +83,7 @@ namespace lar_com_amor.classes
                 JOIN cidade c ON (c.cd_cidade = cep.cd_cidade)
                 JOIN estado e ON (e.sg_estado = c.sg_estado)
                 WHERE u.sg_tipo = 'O' AND u.ic_ativo = 1 
-                AND (u.nm_usuario LIKE '%{txt}%' OR u.ds_usuario LIKE '%{txt}%' OR c.nm_cidade LIKE '%{txt}%' OR e.nm_estado LIKE '%{txt}%')";
+                AND (u.nm_usuario LIKE '%{txt}%' OR c.nm_cidade LIKE '%{txt}%' OR e.nm_estado LIKE '%{txt}%')";
 
             List<string> condicoes = new List<string>();
             if (!String.IsNullOrEmpty(sg_estado)) condicoes.Add($"(e.sg_estado = '{sg_estado}')");

@@ -38,7 +38,7 @@ namespace lar_com_amor
 
 
             Anuncios anuncios = new Anuncios();
-            litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetAnimais(txt, "", especie, raca, genero, porte, "0", "18"), "a", "Animais não encontrados");
+            litAnimais.Text = Elemento.GerarAnuncios(anuncios.GetAnimais(txt, "", especie, raca, genero, porte, "0", "48"), "a", "Animais não encontrados", false);
 
 
         }

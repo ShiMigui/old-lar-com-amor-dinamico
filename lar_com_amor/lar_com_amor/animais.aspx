@@ -88,6 +88,10 @@
 
         <script src="./script/master.js"></script>
         <script src="./script/header.js"></script>
+        <script src="./script/carregar-mais.js"></script>
+        <script>
+            document.querySelectorAll(".btnMaisAnuncios").forEach(el => el.addEventListener("click", carregarMais))
+        </script>
     </form>
 </body>
 </html>

@@ -64,17 +64,17 @@ namespace lar_com_amor
             { 
                 if(ddlEstado.SelectedValue == "0")
                 {
-                    litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(), message: "Organizações não encontradas");
+                    litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(), "o", message: "Organizações não encontradas");
                 }
                 else
                 {
                     if(ddlCidade.SelectedValue == "0")
                     {
-                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes("", "0", "6", ddlEstado.SelectedValue.ToString(), ""), message: "Organizações não encontradas");
+                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes("", "0", "6", ddlEstado.SelectedValue.ToString(), ""), "o", message: "Organizações não encontradas");
                     }
                     else
                     {
-                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes("", "0", "6", ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), message: "Organizações não encontradas");
+                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes("", "0", "6", ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), "o", message: "Organizações não encontradas");
                     }                    
                 }
 
@@ -83,17 +83,17 @@ namespace lar_com_amor
             {
                 if (ddlEstado.SelectedValue == "0")
                 {
-                    litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(txtPesquisa.Text.ToString()), message: "Organizações não encontradas");
+                    litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(txtPesquisa.Text.ToString()), "o", message: "Organizações não encontradas");
                 }
                 else
                 {
                     if (ddlCidade.SelectedValue == "0")
                     {
-                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(txtPesquisa.Text.ToString(), "0", "6", ddlEstado.SelectedValue.ToString(), ""), message: "Organizações não encontradas");
+                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(txtPesquisa.Text.ToString(), "0", "6", ddlEstado.SelectedValue.ToString(), ""), "o", message: "Organizações não encontradas");
                     }
                     else
                     {
-                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(txtPesquisa.Text.ToString(), "0", "6", ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), message: "Organizações não encontradas");
+                        litOrganizacoes.Text = Elemento.GerarAnuncios(anuncios.GetOrganizacoes(txtPesquisa.Text.ToString(), "0", "6", ddlEstado.SelectedValue.ToString(), ddlCidade.SelectedValue.ToString()), "o", message: "Organizações não encontradas");
                     }
                 }
             }
